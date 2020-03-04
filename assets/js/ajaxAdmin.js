@@ -463,6 +463,7 @@ $(window).bind("load", function() {
 
   //BOUTONS EFFACER BILLET
   $(".deleteBilBtn").on("click", function() {
+   // modalDeleteBillet;
     idBilletToDelete = $(this).attr("value");
     $(".deleteBillet-confirmBtn").attr("value", idBilletToDelete);
   });
@@ -474,6 +475,7 @@ $(window).bind("load", function() {
 
   //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {
+    //modalUnsignalCom;
     idComToUnsignal = $(this).attr("value");
     $(".unsignalComModal-confirmBtn").attr("value", idComToUnsignal);
   });
@@ -484,6 +486,7 @@ $(window).bind("load", function() {
   });
 
   $(".modereComBtn").on("click", function() {
+    //modalModereCom;
     idComToModere = $(this).attr("value");
     $(".modereComModal-confirmBtn").attr("value", idComToModere);
   });
@@ -493,7 +496,9 @@ $(window).bind("load", function() {
       moderedCommentTable();
     });
   });
+
   $(".deleteComBtn").on("click", function() {
+    //modalDeleteCom;
     idComToDelete = $(this).attr("value");
     $(".deleteComModal-confirmBtn").attr("value", idComToDelete);
   });
@@ -502,9 +507,9 @@ $(window).bind("load", function() {
       deleteComBtn(idComToDelete);
     });
   });
-
   //BOUTONS COMMENTAIRES MODÉRÉ
   $(".unmodereComBtn").on("click", function() {
+    //modalUnmodereCom;
     idModComToUnmodere = $(this).attr("value");
     $(".unmodereComModal-confirmBtn").attr("value", idModComToUnmodere);
   });
@@ -515,6 +520,7 @@ $(window).bind("load", function() {
   });
 
   $(".deleteModComBtn").on("click", function() {
+    //modalDeleteModCom;
     idModComToDelete = $(this).attr("value");
     $(".deleteModComModal-confirmBtn").attr("value", idModComToDelete);
   });
@@ -534,7 +540,12 @@ $(".addBillet").on("click", function(){
   return validateAdd();
 })
 
+// fonction de verification d'update billet
+
+
 isLoggedin();
+
+//paginationCommentSign();
 
 $("#signalCom-wrapper").hide();
 $("#modCom-wrapper").hide();

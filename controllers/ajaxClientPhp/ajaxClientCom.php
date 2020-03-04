@@ -53,7 +53,6 @@ if(isset($_POST['action'])&& $_POST['action']=='showComment'){
 
 
 if(isset($_POST['action']) && $_POST['action']=='insertCom'){
-    if(!empty($_POST['auteur']) && !empty($_POST['contenu'])){
     $data = array(
         'billetId' =>  $_POST['billetId'],
         'auteur' => htmlspecialchars($_POST['auteur']),
@@ -61,9 +60,6 @@ if(isset($_POST['action']) && $_POST['action']=='insertCom'){
     );           
     $createCommentaires = $_commentManager->createComment($data, $_POST['billetId']);
     exit;
-    } else {
-        return false;
-    }
 }
 
 if(isset($_POST['action']) && $_POST['action']=='signalCom'){

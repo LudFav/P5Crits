@@ -131,14 +131,10 @@ function errorMessageLogin(){
     }, 2000);
 }
 
-function validateCommentForm(){
-    
-        console.log(!$("#auteur").val());
-        console.log(!$("#contenu").val())
-    if((!$("#auteur").val()==true) && (!$("#contenu").val() == true)){  
-      $('#alertComModal').modal('show');
-      return false 
-    } else {
+//FORMULAIRE D'ENVOI DE COMMENTAIRE
+$('.submit-btn').on('click', function (e) {
+    e.preventDefault();
+    if ($('#formCommentaire')[0].checkValidity()) {
         var idBillet = $('.post-info').attr('data-trf');
         var auteur = $('#auteur').val();
         var contenu = $('#contenu').val();
@@ -156,9 +152,7 @@ function validateCommentForm(){
             }
         })
     }
-    
-}
-
+})
 
 function signalement(id) {
     $.post({
@@ -258,24 +252,11 @@ function FrontPagination(element, paginationId, pagesMax, pageName) {
         $(paginationNext).show();
     }
 }
-//MODAL ALERT
-let modalAlertUpdate =  new Modal(document.querySelector("body"), {
-    id: "alertComModal",
-    titre: "Probleme",
-    type: "alert",
-    message: "Vous n'avez pas remplie tout les champs"
-  });
+
 //BOUTON SIGNALER
 $(window).bind('load', function () {
 
-    //$('#formCommentaire').attr('action', ''); 
-
-    //FORMULAIRE D'ENVOI DE COMMENTAIRE
-    $('#form-submit').on('click', function () {
-        console.log('test');
-    return validateCommentForm()
-    })   
-
+    $('#formCommentaire').attr('action', '');    
     $('.signalbtn').on('click', function () {
         signalement($(this).attr('value'));
     });

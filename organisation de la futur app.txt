@@ -16,13 +16,14 @@ nous allons ainsi aussi utiliser composer et son autoload.
 Nous avons deja un compte SuperAdministrateur disponible, il nous faut coder un module de création de compte avec possibilité de changer de mot de passe :
 Dorénavant lors du login nous demanderons l'adresse mail, ainsi si on oublie son mdp nous allons envoyé par mail à cette adresse un lien à une page de reset de mdp.
 (possibilité de créé une question posée avant l'envoie du mdp)> si j'ai le temps  
-l'utilisateur devra rentrer certaines information ( à minima :username, password, email), il aura accés a une case a cocher 'inscription à la newsletter'
-Si possible j'aimerai mettre en place un captcha pour eviter le spammapage de creation de compte comme j'ai deja pu voir sur wordpress ou prestashop.
+l'utilisateur devra rentrer certaines information ( à minima :username, password, email, (il aura la possibilité d'ecrire un petit texte de presentation de maniere facultative) peut-etre pas a ce stade mais une fois inscrit dans son profil),
+il aura accés a une case a cocher 'inscription à la newsletter' qui enverra l'adresse mail remplie dans la table des addresses mail inscrites à la newsletter
+Si possible j'aimerais mettre en place un captcha pour eviter le spammapage de creation de compte comme j'ai deja pu voir sur des sites wordpress ou prestashop.
 
 Le SuperAdministrateur aura la possibilité de donner un role a un utilisateur.
 Les differents roles : 
-- SuperAdministrateur ( droits : edition d'article, moderation, creation de role, suppression de compte)
-- Administrateur ( droits : edition d'article, moderation, creation de role, suppression de compte d'editeur ou de moderateur)
+- SuperAdministrateur ( droits : edition d'article, moderation, creation de role(admin,edit ou moderateur), suppression de compte)
+- Administrateur ( droits : edition d'article, moderation, creation de role(edit ou moderateur), suppression de compte(edit ou moderateur))
 - Editeur ( droit : edition d'articles)
 - Moderateur ( droit : moderation, suppression de compte utilisateur)
 - Utilisateur ( droit : supprimer son profil ( si j'arrive a mettre cecis en place de facon securisée, sinon il devra passer par un mail de contact demandant la supression de son compte)

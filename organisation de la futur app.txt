@@ -1,0 +1,5 @@
+Le site va s'organiser en 2 partie : 
+- le portail qui va regrouper les news concernant l'application, la creation de compte ou l'inscription a la newsletter, peut etre un forum ou plutot une chatroom <( si j'ai le temps)
+l'accés à l'espace utilisateur: ses personnages, campagnes en cours, maps.  
+- la futur application en elle meme regroupant un editeur de map, de personnage et de token, un organisateur de campagne ( avec invitation de joueur), et une partie jeu
+implémentant les differentes entités créées et une chatroom avec macro, lancé de dès etc... 

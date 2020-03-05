@@ -32,6 +32,7 @@ Tout utilisateurs aura accés à son profil, qu'il pourra mettre a jour ou supprim
 La suppresion du compte utilisateur devra donc supprimer tout le contenu stocké dans son espace.
 L'userManager va nous permettre de stocker, mettre a jour ou supprimer le profil
 Le libraryManager va nous permettre de stocker ou supprimer des images, il faudra se documenter a propos de l'insertion d'image avec le plugin d'edition de texte utilisé par defaut : tinyMCE
+ou en utiliser un meilleur.
 
 le module Newsletter nous permettra d'envoyer une vague de mail aux utilisateurs et personnes inscrits en ayant fait la demande, à chaques nouvels articles. Le mail sera composé d'un message générique 
 avec liens vers l'article,

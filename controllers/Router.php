@@ -1,4 +1,5 @@
 <?php
+namespace Crits;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
 require_once 'views/View.php';
 

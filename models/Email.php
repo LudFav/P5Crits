@@ -36,3 +36,4 @@ class Billet {
         $this->_email= $email;
     }
   }
+}

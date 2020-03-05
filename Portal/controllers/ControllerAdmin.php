@@ -1,8 +1,5 @@
 <?php
-require_once 'controllers/ajaxAdminPhp/ajaxAdminBillet.php';
-require_once 'controllers/ajaxAdminPhp/ajaxAdminComSign.php';
-require_once 'controllers/ajaxAdminPhp/ajaxAdminComMod.php';
-
+use Crits\ajaxAdminPhp;
 use Crits\views\View;
 
 class ControllerAdmin{

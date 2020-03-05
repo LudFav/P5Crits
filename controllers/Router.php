@@ -1,5 +1,5 @@
 <?php
-namespace Crits;
+namespace Crits\controllers;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
 require_once 'views/View.php';
 
@@ -48,12 +48,12 @@ class Router {
        // si le routeur ne reconnait pas le parametre de la variable $url, il redirigera la page vers la page d'accueil
       else {
         require_once('controllers/ControllerAccueil.php');
-        $this->ctrl = new ControllerAccueil($url);
+        $this->ctrl = new \ControllerAccueil($url);
       }
 
     } catch (\Exception $e) {
       $errorMsg = $e->getMessage();
-      $this->_view = new View('Error');
+      $this->_view = new \View('Error');
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     }
   }

@@ -1,7 +1,7 @@
 <?php
-namespace Crits\controllers;
+namespace Crits\controllers\Router;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
-require_once 'views/View.php';
+use Crits\views\View;
 
 class Router {
   private $ctrl;
@@ -53,7 +53,7 @@ class Router {
 
     } catch (\Exception $e) {
       $errorMsg = $e->getMessage();
-      $this->_view = new \View('Error');
+      $this->_view = new View('Error');
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     }
   }

@@ -1,6 +1,5 @@
 <?php
-
-require_once 'views/View.php';
+use Crits\views\View;
 
 class ControllerAddbillet
 {

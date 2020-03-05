@@ -1,5 +1,7 @@
 <?php
-require_once $_SERVER["DOCUMENT_ROOT"]. '/P4Blog/views/View.php';
+namespace Crits\controllers;
+use Crits\views\View;
+
 require_once $_SERVER["DOCUMENT_ROOT"]. '/P4Blog/controllers/ajaxClientPhp/ajaxClientBillet.php';
 require_once $_SERVER["DOCUMENT_ROOT"]. '/P4Blog/controllers/ajaxClientPhp/ajaxClientCom.php';
 

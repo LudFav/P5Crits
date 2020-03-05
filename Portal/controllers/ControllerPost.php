@@ -1,5 +1,5 @@
 <?php
-require_once 'views/View.php';
+use Crits\views\View;
 require_once 'controllers/ajaxClientPhp/ajaxClientCom.php';
 
 class ControllerPost {

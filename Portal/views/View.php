@@ -1,4 +1,5 @@
 <?php
+namespace Crits\views;
 session_start();
 class View
 {

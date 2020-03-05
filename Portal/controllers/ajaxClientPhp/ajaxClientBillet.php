@@ -1,11 +1,13 @@
 <?php
+namespace Crits\controllers\ajaxClientPhp;
+
 spl_autoload_register(function($class){
   require_once($_SERVER["DOCUMENT_ROOT"]. '/P4Blog/models/'.$class.'.php');
 }); 
 
 
 $_billetManager;
-$_billetManager = new BilletManager();
+$_billetManager = new \BilletManager();
 
 $page = isset($_POST['page']) && is_numeric($_POST['page'])? $_POST['page'] : 1;
 $entiteParPage = 9; 

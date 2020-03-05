@@ -16,7 +16,7 @@ class ComposerStaticInit52bc197f796fbb5e5cae1190b93609d4
     public static $prefixDirsPsr4 = array (
         'Crits\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/Portal',
         ),
     );
 
@@ -31,6 +31,7 @@ class ComposerStaticInit52bc197f796fbb5e5cae1190b93609d4
     );
 
     public static $classMap = array (
+        'Crits\\controllers\\Router' => __DIR__ . '/../..' . '/Portal/controllers/Router.php',
         'Monolog\\Formatter\\FormatterInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/FormatterInterface.php',
         'Monolog\\Formatter\\JsonFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php',
         'Monolog\\Formatter\\LineFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/LineFormatter.php',

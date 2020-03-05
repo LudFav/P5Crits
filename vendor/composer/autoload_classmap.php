@@ -6,7 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Crits\\controllers\\Router' => $baseDir . '/Portal/controllers/Router.php',
+    'Crits\\controllers\\ControllerAccueil' => $baseDir . '/Portal/controllers/ControllerAccueil.php',
+    'Crits\\controllers\\Router\\Router' => $baseDir . '/Portal/controllers/Router.php',
+    'Crits\\views\\View' => $baseDir . '/Portal/views/View.php',
     'Monolog\\Formatter\\FormatterInterface' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/FormatterInterface.php',
     'Monolog\\Formatter\\JsonFormatter' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php',
     'Monolog\\Formatter\\LineFormatter' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/LineFormatter.php',

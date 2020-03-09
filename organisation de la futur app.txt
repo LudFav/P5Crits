@@ -10,7 +10,7 @@ LE PORTAIL
 
 On part d'un projet au stade de blog nous permettant d'editer des articles, des commentaires et avec un espace administrateur,
 les langages utilisés sont le PHP, JS, HTML5 et CSS
-On utilise deja le design pattern MVC et la P.O.O., nous devons mettre en place des namespaces afin d'organiser encore un peu mieux notre code,
+On utilise deja le design pattern MVC et la P.O.O. et de l'ajax on a deja a disposition une pagination, nous devons mettre en place des namespaces afin d'organiser encore un peu mieux notre code,
 nous allons ainsi aussi utiliser composer et son autoload.
 
 Nous avons deja un compte SuperAdministrateur disponible, il nous faut coder un module de création de compte avec possibilité de changer de mot de passe :

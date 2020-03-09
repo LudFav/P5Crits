@@ -1,5 +1,6 @@
 <?php
-namespace Crits\views;
+namespace Crits\views\View;
+
 session_start();
 class View
 {
@@ -41,7 +42,6 @@ class View
     }
     else {
       throw new \Exception("Fichier ".$file." introuvable", 1);
-
     }
   }
 

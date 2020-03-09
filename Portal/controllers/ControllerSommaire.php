@@ -1,7 +1,8 @@
 <?php
 namespace CritsPortal\controllers;
-use CritsPortal\controllers\ajaxClientPhp;
+use CritsPortal\controllers\ajaxClientPhp\ajaxClientBillet;
 use CritsPortal\views\View;
+
 
 class ControllerSommaire{
   private $_view;

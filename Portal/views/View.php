@@ -1,5 +1,5 @@
 <?php
-namespace Crits\views\View;
+namespace Crits\portal\views;
 
 session_start();
 class View
@@ -11,7 +11,7 @@ class View
   private $title;
 
   function __construct($action){
-    $this->_file = 'views/view'.$action.'.php';
+    $this->_file = 'portal/views/view'.$action.'.php';
   }
 
   //crée une fonction qui va générer et afficher la vue selon si une session est ouverte ou pas 
@@ -19,9 +19,9 @@ class View
     //définir le contenu à envoyer
     $content = $this->generateFile($this->_file, $data);
     if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-      $template = 'views/templateAdmin.php';
+      $template = 'portal/views/templateAdmin.php';
     } else {
-      $template = 'views/template.php';
+      $template = 'portal/views/template.php';
     }
     $view = $this->generateFile($template, array('title'=>$title, 'content' => $content));
     echo $view;

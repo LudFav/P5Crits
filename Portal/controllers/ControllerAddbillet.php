@@ -1,5 +1,6 @@
 <?php
-use Crits\views\View;
+use CritsPortal\views\View;
+use CritsPortal\models\BilletManager;
 
 class ControllerAddbillet
 {

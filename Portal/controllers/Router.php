@@ -1,7 +1,7 @@
 <?php
-namespace Crits\controllers;
+namespace CritsPortal\controllers;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
-use Crits\views\View;
+use CritsPortal\views\View;
 
 require 'vendor/autoload.php';
 

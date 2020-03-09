@@ -1,12 +1,9 @@
 <?php
-namespace Crits\controllers\ajaxAdminPhp;
-
-spl_autoload_register(function($class){
-    require_once($_SERVER["DOCUMENT_ROOT"]. '/P4Blog/models/'.$class.'.php');
-});
+namespace CritsPortal\controllers\ajaxAdminPhp;
+use CritsPortal\models\CommentManager;
 
 $_commentManager;
-$_commentManager = new \CommentManager;
+$_commentManager = new CommentManager;
 
 $entiteParPage= 5;
 $pageComMod= isset($_POST['pageComMod'])? $_POST['pageComMod'] : 1; 

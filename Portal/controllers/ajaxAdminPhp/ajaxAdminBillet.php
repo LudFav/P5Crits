@@ -1,12 +1,9 @@
 <?php
-namespace Crits\controllers\ajaxAdminPhp;
-
-spl_autoload_register(function($class){
-    require_once($_SERVER["DOCUMENT_ROOT"].'/P4Blog/models/'.$class.'.php');
-});
+namespace CritsPortal\controllers\ajaxAdminPhp;
+use CritsPortal\models\BilletManager;
 
 $_billetManager;
-$_billetManager = new \BilletManager; 
+$_billetManager = new BilletManager; 
 
 $entiteParPage = 4;
 $nbreEntitesParPage = $entiteParPage;

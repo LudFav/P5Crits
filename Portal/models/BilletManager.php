@@ -1,5 +1,5 @@
 <?php
-namespace Crits\models;
+namespace CritsPortal\models;
 
 class BilletManager extends Model implements crud{
 

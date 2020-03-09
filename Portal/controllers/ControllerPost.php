@@ -1,6 +1,6 @@
 <?php
-use Crits\views\View;
-use Crits\models\BilletManager;
+use CritsPortal\views\View;
+use CritsPortal\models\BilletManager;
 require 'vendor/autoload.php';
 
 class ControllerPost {

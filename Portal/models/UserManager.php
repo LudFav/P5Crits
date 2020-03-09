@@ -1,5 +1,5 @@
 <?php
-namespace Crits\models;
+namespace CritsPortal\models;
 // contient les methodes d'operation de nos billets
 
 class UserManager extends Model implements crud

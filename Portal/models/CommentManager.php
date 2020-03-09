@@ -1,5 +1,5 @@
 <?php 
-namespace Crits\models;
+namespace CritsPortal\models;
 
 
 class CommentManager extends Model implements crud {

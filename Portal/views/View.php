@@ -1,5 +1,5 @@
 <?php
-namespace Crits\views;
+namespace CritsPortal\views;
 
 session_start();
 class View

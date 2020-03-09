@@ -1,6 +1,6 @@
 <?php
-use Crits\ajaxAdminPhp;
-use Crits\views\View;
+use CritsPortal\controllers\ajaxAdminPhp;
+use CritsPortal\views\View;
 
 class ControllerAdmin{
     private $_billetManager;

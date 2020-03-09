@@ -1,12 +1,15 @@
 <?php
-use Crits\views\View;
-require_once 'controllers/ajaxClientPhp/ajaxClientCom.php';
+use Crits\portal\views\View;
+use Crits\portal\models\BilletManager;
+require 'vendor/autoload.php';
 
 class ControllerPost {
   private $_billetManager;
   private $_view;
 
   public function __construct(){
+    require_once('portal/controllers/Router.php');
+
     if (isset($url) && count($url) < 1) {
       throw new \Exception("Page Introuvable");
     } else {

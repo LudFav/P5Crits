@@ -2,7 +2,7 @@
 namespace CritsPortal\controllers\ajaxClientPhp;
 
 $_billetManager;
-$_billetManager = new \CritsPortal\models\BilletManager();
+$_billetManager = new \CritsPortal\models\BilletManager;
 
 $page = isset($_POST['page']) && is_numeric($_POST['page'])? $_POST['page'] : 1;
 $entiteParPage = 9; 

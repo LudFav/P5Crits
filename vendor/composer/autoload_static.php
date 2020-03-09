@@ -16,7 +16,7 @@ class ComposerStaticInit52bc197f796fbb5e5cae1190b93609d4
     public static $prefixDirsPsr4 = array (
         'CritsPortal\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/P5Crits/portal',
+            0 => __DIR__ . '/../..' . '/portal',
         ),
     );
 
@@ -31,6 +31,15 @@ class ComposerStaticInit52bc197f796fbb5e5cae1190b93609d4
     );
 
     public static $classMap = array (
+        'CritsPortal\\controllers\\ControllerAccueil' => __DIR__ . '/../..' . '/portal/controllers/ControllerAccueil.php',
+        'CritsPortal\\controllers\\ControllerSommaire' => __DIR__ . '/../..' . '/portal/controllers/ControllerSommaire.php',
+        'CritsPortal\\controllers\\Router' => __DIR__ . '/../..' . '/portal/controllers/Router.php',
+        'CritsPortal\\models\\BilletManager' => __DIR__ . '/../..' . '/portal/models/BilletManager.php',
+        'CritsPortal\\models\\CommentManager' => __DIR__ . '/../..' . '/portal/models/CommentManager.php',
+        'CritsPortal\\models\\Model' => __DIR__ . '/../..' . '/portal/models/Model.php',
+        'CritsPortal\\models\\UserManager' => __DIR__ . '/../..' . '/portal/models/UserManager.php',
+        'CritsPortal\\models\\crud' => __DIR__ . '/../..' . '/portal/models/crud.php',
+        'CritsPortal\\views\\View' => __DIR__ . '/../..' . '/portal/views/View.php',
         'Monolog\\Formatter\\FormatterInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/FormatterInterface.php',
         'Monolog\\Formatter\\JsonFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php',
         'Monolog\\Formatter\\LineFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/LineFormatter.php',

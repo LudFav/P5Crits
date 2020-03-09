@@ -1,9 +1,8 @@
 <?php
 namespace CritsPortal\controllers\ajaxAdminPhp;
-use CritsPortal\models\CommentManager;
 
 $_commentManager;
-$_commentManager = new CommentManager;
+$_commentManager = new \CritsPortal\models\CommentManager;
 
 $entiteParPage = 4;
 $nbreEntitesParPage=$entiteParPage;

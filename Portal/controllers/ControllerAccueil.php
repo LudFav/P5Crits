@@ -1,11 +1,12 @@
 <?php
-namespace Crits\controllers;
-use Crits\views\View;
-use Crits\controllers\ajaxClientPhp;
+namespace Crits\portal\controllers;
+use Crits\portal\views\View;
 
 class ControllerAccueil{
   private $_view;
   public function __construct(){
+    require_once('portal/controllers/Router.php');
+    
     if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
     } else {

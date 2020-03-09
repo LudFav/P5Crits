@@ -1,6 +1,6 @@
 <?php
-namespace Crits\portal\controllers;
-use Crits\portal\views\View;
+namespace Crits\controllers;
+use Crits\views\View;
 
 class ControllerSommaire{
   private $_view;

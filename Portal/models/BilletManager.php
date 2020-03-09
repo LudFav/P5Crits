@@ -35,7 +35,7 @@ class BilletManager extends Model implements crud{
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { 
-      $var[] = new $obj($data);
+      $var[] = new \CritsPortal\models\Billet($data);
     }
     return $var;
     $req->closeCursor();
@@ -49,7 +49,7 @@ class BilletManager extends Model implements crud{
     $req->execute(array($id));
     if($req->rowCount()>0){
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $var[] = new $obj($data);
+        $var[] = new \CritsPortal\models\Billet($data);
         return $var;
       }
     } else {

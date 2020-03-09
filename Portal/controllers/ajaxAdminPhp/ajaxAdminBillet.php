@@ -1,9 +1,8 @@
 <?php
 namespace CritsPortal\controllers\ajaxAdminPhp;
-use CritsPortal\models\BilletManager;
 
 $_billetManager;
-$_billetManager = new BilletManager; 
+$_billetManager = new \CritsPortal\models\BilletManager; 
 
 $entiteParPage = 4;
 $nbreEntitesParPage = $entiteParPage;

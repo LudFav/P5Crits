@@ -1,7 +1,7 @@
 {
     "autoload": {
         "psr-4": {
-            "Crits\\": "P5Crits"
+            "CritsPortal\\": "portal"
         }
     }
 }

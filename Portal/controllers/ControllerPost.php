@@ -2,6 +2,7 @@
 namespace CritsPortal\controllers;
 use CritsPortal\models\BilletManager;
 use CritsPortal\views\View;
+use CritsPortal\controllers\ajaxClientPhp\ajaxClientCom;
 require 'vendor/autoload.php';
 
 class ControllerPost {
@@ -41,7 +42,6 @@ class ControllerPost {
       $this->_view = new View('SinglePost');
       $this->_view->generate('Billet', array('billet' => $billet));
     }
-    
   
     }
   }

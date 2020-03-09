@@ -1,5 +1,6 @@
 <?php
 namespace CritsPortal\models;
+use CritsPortal\models\User;
 
 class UserManager extends Model implements crud
 {
@@ -26,7 +27,7 @@ class UserManager extends Model implements crud
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { 
-      $var[] = new $obj($data);
+      $var[] = new User($data);
     }
     return $var;
     $req->closeCursor();
@@ -39,7 +40,7 @@ class UserManager extends Model implements crud
     $req = self::$_bdd->prepare("SELECT id, username, password, role FROM $table WHERE id = ?");
     $req->execute(array($id));
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-      $var[] = new $obj($data);
+      $var[] = new User($data);
     }
     return $var;
     $req->closeCursor();
@@ -52,7 +53,7 @@ class UserManager extends Model implements crud
     $req = self::$_bdd->prepare("SELECT username, password FROM $table WHERE id = 1");
     $req->execute(array());
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-      $var[] = new $obj($data);
+      $var[] = new User($data);
     }
     return $var;
     $req->closeCursor();

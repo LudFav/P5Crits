@@ -1,4 +1,5 @@
 <?php
+namespace CritsPortal\controllers;
 
 use CritsPortal\views\View;
 use CritsPortal\models\BilletManager;

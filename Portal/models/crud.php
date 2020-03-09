@@ -1,4 +1,5 @@
 <?php
+namespace Crits\portal\models;
 
 interface crud {
 

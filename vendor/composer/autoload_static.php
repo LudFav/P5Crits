@@ -16,7 +16,7 @@ class ComposerStaticInit52bc197f796fbb5e5cae1190b93609d4
     public static $prefixDirsPsr4 = array (
         'Crits\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Portal',
+            0 => __DIR__ . '/../..' . '/portal',
         ),
     );
 
@@ -31,9 +31,9 @@ class ComposerStaticInit52bc197f796fbb5e5cae1190b93609d4
     );
 
     public static $classMap = array (
-        'Crits\\controllers\\ControllerAccueil' => __DIR__ . '/../..' . '/Portal/controllers/ControllerAccueil.php',
-        'Crits\\controllers\\Router\\Router' => __DIR__ . '/../..' . '/Portal/controllers/Router.php',
-        'Crits\\views\\View' => __DIR__ . '/../..' . '/Portal/views/View.php',
+        'Crits\\controllers\\ControllerAccueil' => __DIR__ . '/../..' . '/portal/controllers/ControllerAccueil.php',
+        'Crits\\controllers\\Router' => __DIR__ . '/../..' . '/portal/controllers/Router.php',
+        'Crits\\views\\View' => __DIR__ . '/../..' . '/portal/views/View.php',
         'Monolog\\Formatter\\FormatterInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/FormatterInterface.php',
         'Monolog\\Formatter\\JsonFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php',
         'Monolog\\Formatter\\LineFormatter' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Formatter/LineFormatter.php',

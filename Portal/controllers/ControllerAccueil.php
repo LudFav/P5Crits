@@ -1,6 +1,5 @@
 <?php
 namespace CritsPortal\controllers;
-use CritsPortal\views\View;
 
 class ControllerAccueil{
   private $_view;
@@ -10,7 +9,7 @@ class ControllerAccueil{
     if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
     } else {
-      $this->_view = new View('Accueil');
+      $this->_view = new \CritsPortal\views\View('Accueil');
       if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
       $this->_view->generate("Billet simple pour l'Alaska", array());
       } else {

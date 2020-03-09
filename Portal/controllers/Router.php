@@ -2,7 +2,7 @@
 namespace CritsPortal\controllers;
 
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
-use CritsPortal\views\View;
+
 
 class Router {
   private $ctrl;
@@ -30,14 +30,14 @@ class Router {
 
         //on retrouve le chemin du controleur voulu
         $controllerFile = "portal/controllers/" .$controllerClass. ".php"; // controllerFile = "portal/controllers/ControllerAccueil.php"
-        echo 'url : '.$url[0]. '<br> path : ' .$controllerFile. '<br> class : ' .$controllerClass;
-      
+
+        
         //on verifit si le fichier du controleur existe
         if (file_exists($controllerFile)) {
           //on lance la classe en question avec tous les parametres url
           require_once($controllerFile);
-          //require "vendor/autoload.php"; 
-          $this->ctrl = new ControllerAccueil($url);//new $controllerClass($url);
+          $newClass = __NAMESPACE__ . '\\'. $controllerClass; 
+          $this->ctrl = new $newClass($url);
         }
         else {
           throw new \Exception("Page introuvable", 1);
@@ -51,7 +51,7 @@ class Router {
 
     } catch (\Exception $e) {
       $errorMsg = $e->getMessage();
-      $this->_view = new View('Error');
+      $this->_view = new \CritsPortal\views\View('Error');
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     }
   }

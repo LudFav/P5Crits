@@ -1,9 +1,8 @@
 <?php
 namespace CritsPortal\controllers\ajaxClientPhp;
-use CritsPortal\models\CommentManager;
 
 $_commentManager;
-$_commentManager = new CommentManager;
+$_commentManager = new \CritsPortal\models\CommentManager;
 
 $entiteParPage = 3;
 $pageComAccueil = isset($_POST['pageCom']) && is_numeric($_POST['pageCom'])?$_POST['pageCom'] : 1;

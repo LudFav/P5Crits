@@ -1,9 +1,7 @@
 <?php
 namespace Crits;
-use Crits\controllers\Router;
 require 'vendor/autoload.php';
-
+use Crits\portal\controllers\Router;
 $router = new Router();
-echo " test ";
 $router->routeReq();
 ?>

@@ -1,8 +1,10 @@
 <?php
-namespace Crits\controllers;
+namespace Crits\portal\controllers;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
-use Crits\views\View;
-use Crits\models;
+use Crits\portal\views\View;
+
+require 'vendor/autoload.php';
+
 class Router {
   private $ctrl;
   private $view;
@@ -10,13 +12,7 @@ class Router {
   public function routeReq(){
 
     try {
-
-      //chargement automatique des classes du dossier models
-      /*spl_autoload_register(function($class){
-        require_once('P5_Crits_DevBlog-master/portal/models/'.$class.'.php');
-      });*/
-      require 'vendor/autoload.php';
-
+      
       //on crée une variable $url contenant une chaine de caractere vide
       $url = '';
 
@@ -34,8 +30,9 @@ class Router {
         $controllerClass = "Controller".$controller; // ControllerClass = ControllerAccueil
 
         //on retrouve le chemin du controleur voulu
-        $controllerFile = "controllers/".$controllerClass.".php"; // controllerFile = "controllers/ControllerAccueil.php"
-
+        $controllerFile = "portal/controllers/".$controllerClass.".php"; // controllerFile = "portal/controllers/ControllerAccueil.php"
+        echo 'url : '.$url[0]. '<br> path : ' .$controllerFile. '<br> class : ' .$controllerClass;
+      
         //on verifit si le fichier du controleur existe
         if (file_exists($controllerFile)) {
           //on lance la classe en question avec tous les parametres url

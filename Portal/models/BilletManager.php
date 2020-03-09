@@ -1,4 +1,5 @@
 <?php
+namespace Crits\portal\models;
 
 class BilletManager extends Model implements crud{
 
@@ -33,7 +34,7 @@ class BilletManager extends Model implements crud{
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) { 
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { 
       $var[] = new $obj($data);
     }
     return $var;
@@ -47,7 +48,7 @@ class BilletManager extends Model implements crud{
 
     $req->execute(array($id));
     if($req->rowCount()>0){
-      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
         $var[] = new $obj($data);
         return $var;
       }

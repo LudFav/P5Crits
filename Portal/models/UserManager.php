@@ -82,9 +82,9 @@ class UserManager extends Model implements crud
     $req->closeCursor();
   }
   
-  public function getUsers(){
+  /*public function getUsers(){
     return $this->readAll('users', 'User', $page, $entiteParPage);
-  }
+  }*/
 
   public function getUser(){
     return $this->readAdmin('users', 'User');

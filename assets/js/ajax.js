@@ -5,7 +5,7 @@ showComment();
 //  AJAX FRONT
 function billetAccueil() {
     $.post({
-        url: 'sommaire',
+        url: 'portal/controllers/ControllerSommaire.php',
         data: { 'action': 'showAccueilBillet', 'page': page },
         success: function (data) {
             responseBilletAccueil = JSON.parse(data);
@@ -51,7 +51,7 @@ function billetAccueilButtonPagination(accueilMaxPages) {
 function showComment() {
     idBillet = $('.post-info').attr('data-trf');
     $.post({
-        url: 'post',
+        url: 'portal/controllers/ControllerPost.php',
         data: { 'action': 'showComment', 'pageCom' : pageCom, 'billetId': idBillet},
         success: function (data) {
             responseFrontCom = JSON.parse(data);
@@ -139,7 +139,7 @@ $('.submit-btn').on('click', function (e) {
         var auteur = $('#auteur').val();
         var contenu = $('#contenu').val();
         $.post({
-            url: 'post',
+            url: 'portal/controllers/ControllerPost.php',
             data: {
                 'action': 'insertCom',
                 'auteur': auteur,
@@ -156,7 +156,7 @@ $('.submit-btn').on('click', function (e) {
 
 function signalement(id) {
     $.post({
-        url: 'post',
+        url: 'portal/controllers/ControllerPost.php',
         data: { 'action': 'signalCom', 'idSignal': id },
         success: function (data) {
             showComment();
@@ -278,7 +278,7 @@ $(window).bind('load', function () {
         var username = $('#username').val();
         var password = $('#password').val();
             $.post({
-                url: 'login',
+                url: 'portal/controllers/ControllerLogin.php',
                 data: { 'action': 'login', 'username': username, 'password': password },
                 success: function (data) {
                         if(data == 'inputVide'){

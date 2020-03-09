@@ -6,6 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CritsPortal\\controllers\\ControllerAccueil' => $baseDir . '/portal/controllers/ControllerAccueil.php',
+    'CritsPortal\\controllers\\ControllerSommaire' => $baseDir . '/portal/controllers/ControllerSommaire.php',
+    'CritsPortal\\controllers\\Router' => $baseDir . '/portal/controllers/Router.php',
+    'CritsPortal\\models\\BilletManager' => $baseDir . '/portal/models/BilletManager.php',
+    'CritsPortal\\models\\CommentManager' => $baseDir . '/portal/models/CommentManager.php',
+    'CritsPortal\\models\\Model' => $baseDir . '/portal/models/Model.php',
+    'CritsPortal\\models\\UserManager' => $baseDir . '/portal/models/UserManager.php',
+    'CritsPortal\\models\\crud' => $baseDir . '/portal/models/crud.php',
+    'CritsPortal\\views\\View' => $baseDir . '/portal/views/View.php',
     'Monolog\\Formatter\\FormatterInterface' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/FormatterInterface.php',
     'Monolog\\Formatter\\JsonFormatter' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/JsonFormatter.php',
     'Monolog\\Formatter\\LineFormatter' => $vendorDir . '/monolog/monolog/src/Monolog/Formatter/LineFormatter.php',

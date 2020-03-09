@@ -1,6 +1,6 @@
 <?php
-use CritsPortal\views\View;
-use CritsPortal\models\BilletManager;
+namespace CritsPortal\controllers;
+
 require 'vendor/autoload.php';
 
 class ControllerPost {
@@ -24,7 +24,7 @@ class ControllerPost {
       /**
      * Billets a montrer
      */
-      $this->_billetManager = new BilletManager;
+      $this->_billetManager = new \CritsPortal\models\BilletManager;
       $billet = $this->_billetManager->getBillet($_GET['id']);
     
     //VUE
@@ -34,10 +34,10 @@ class ControllerPost {
    
     if($billet == false){
       $errorMsg = 'Billet introuvable';
-      $this->_view = new View('Error');
+      $this->_view = new \CritsPortal\views\View('Error');
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     } else{
-      $this->_view = new View('SinglePost');
+      $this->_view = new \CritsPortal\views\View('SinglePost');
       $this->_view->generate('Billet', array('billet' => $billet));
     }
     

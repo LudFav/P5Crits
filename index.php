@@ -1,7 +1,6 @@
 <?php
-namespace Crits;
-
-use Crits\controllers\Router;
+namespace CritsPortal;
+use CritsPortal\controllers\Router;
 $router = new Router();
 $router->routeReq();
 ?>

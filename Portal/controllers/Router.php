@@ -1,8 +1,8 @@
 <?php
-namespace Crits\controllers\Router;
+namespace Crits\controllers;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
 use Crits\views\View;
-
+use Crits\models;
 class Router {
   private $ctrl;
   private $view;
@@ -12,9 +12,10 @@ class Router {
     try {
 
       //chargement automatique des classes du dossier models
-      spl_autoload_register(function($class){
-        require_once('../P4Blog/models/'.$class.'.php');
-      });
+      /*spl_autoload_register(function($class){
+        require_once('P5_Crits_DevBlog-master/portal/models/'.$class.'.php');
+      });*/
+      require 'vendor/autoload.php';
 
       //on crée une variable $url contenant une chaine de caractere vide
       $url = '';
@@ -47,8 +48,8 @@ class Router {
       }
        // si le routeur ne reconnait pas le parametre de la variable $url, il redirigera la page vers la page d'accueil
       else {
-        require_once('controllers/ControllerAccueil.php');
-        $this->ctrl = new \ControllerAccueil($url);
+        require_once('portal/controllers/ControllerAccueil.php');
+        $this->ctrl = new ControllerAccueil($url);
       }
 
     } catch (\Exception $e) {

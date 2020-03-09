@@ -1,12 +1,12 @@
 <?php
-
+namespace CritsPortal\controllers;
 
 class ControllerLogin {
     private $_userManager;
     private $_view;
   
   public function __construct(){
-    $this->_userManager = new UserManager; 
+    $this->_userManager = new \CritsPortal\models\UserManager; 
     $this->login();
     $this->isLoggedIn();
     $this->logout();

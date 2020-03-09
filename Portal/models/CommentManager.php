@@ -27,7 +27,7 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE billetId=? ORDER BY id DESC LIMIT $limit");
       $req->execute(array($billetId));
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = new \Comment($data);
+        $commentaire = new \CritsPortal\models\Comment($data);
         $commentaires[] = $commentaire;
       }
       $req->closeCursor();
@@ -50,7 +50,7 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT id, auteur, titre, contenu, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM $table WHERE id = ?");
       $req->execute(array($id));
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire[] = new \Comment($data);
+        $commentaire[] = new \CritsPortal\models\Comment($data);
       }
     
       return $commentaire;
@@ -64,7 +64,7 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE signale = 1 ORDER BY id DESC LIMIT $limit");
       $req->execute(array());
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = new \Comment($data);
+        $commentaire = new \CritsPortal\models\Comment($data);
         $commentairesignal[] = $commentaire;
       }
       $req->closeCursor();
@@ -88,7 +88,7 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE modere = 1 ORDER BY id DESC LIMIT $limit");
       $req->execute(array());  
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = new \Comment($data);
+        $commentaire = new \CritsPortal\models\Comment($data);
         $commentairemodere[] = $commentaire;
       }
       $req->closeCursor();

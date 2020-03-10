@@ -1,17 +1,12 @@
 <?php
-namespace CritsPortal\controllers;
-
-use CritsPortal\models\BilletManager;
-use CritsPortal\views\View;
-
+require_once 'views/View.php';
+require_once 'controllers/ajaxClientPhp/ajaxClientCom.php';
 
 class ControllerPost {
   private $_billetManager;
   private $_view;
 
   public function __construct(){
-    require_once('portal/controllers/Router.php');
-
     if (isset($url) && count($url) < 1) {
       throw new \Exception("Page Introuvable");
     } else {
@@ -42,6 +37,7 @@ class ControllerPost {
       $this->_view = new View('SinglePost');
       $this->_view->generate('Billet', array('billet' => $billet));
     }
+    
   
     }
   }

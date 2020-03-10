@@ -281,6 +281,7 @@ $(window).bind('load', function () {
                 url: 'login',
                 data: { 'action': 'login', 'username': username, 'password': password },
                 success: function (data) {
+               
                         if(data == 'inputVide'){
                             errorMessageEmpty();
                         } else if (data == 'wrong login'){

@@ -1,13 +1,12 @@
 <?php
-namespace CritsPortal\controllers;
-use CritsPortal\models\UserManager;
+
 
 class ControllerLogin {
     private $_userManager;
+    private $_view;
   
   public function __construct(){
-    $this->_userManager = new UserManager;
-  
+    $this->_userManager = new UserManager; 
     $this->login();
     $this->isLoggedIn();
     $this->logout();
@@ -15,7 +14,6 @@ class ControllerLogin {
 
   public function login(){
       if(isset($_POST['action']) && $_POST['action'] == 'login'){  
-        echo'test login';
         $userInfo = $this->_userManager->getUser();
         $username = htmlspecialchars($_POST['username']);
         $passwordSubmitted = htmlspecialchars($_POST['password']);

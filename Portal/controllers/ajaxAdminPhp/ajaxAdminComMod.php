@@ -1,8 +1,12 @@
 <?php
-namespace CritsPortal\controllers\ajaxAdminPhp;
+spl_autoload_register(function($class){
+    require_once($_SERVER["DOCUMENT_ROOT"]. '/P4Blog/models/'.$class.'.php');
+});
 
 $_commentManager;
-$_commentManager = new \CritsPortal\models\CommentManager;
+$_billetManager;
+$_commentManager = new CommentManager;
+$_billetManager = new BilletManager;
 
 $entiteParPage= 5;
 $pageComMod= isset($_POST['pageComMod'])? $_POST['pageComMod'] : 1; 
@@ -14,10 +18,17 @@ if(isset($_POST['action']) && $_POST['action']=='showCommentModered'){
     
    
     foreach ($commentaireModeres as $commentaireModere){
+        $contenuComplet = $commentaireModere->contenu();
+        $contenuExtrais = substr($contenuComplet, 0,50)."&hellip;";
+        $id = $commentaireModere->billetId();
+        $billets = $_billetManager->getBillet($id);
         $moderedCommentOutput.='<tr class="moderedCommentRow' .$commentaireModere->id(). '">';
         $moderedCommentOutput.='<td>' .$commentaireModere->id(). '</td>';
+        foreach($billets as $billet){
+        $moderedCommentOutput.='<td><a href=post&id=' .$billet->id(). '>' .$billet->titre(). '<a></td>';
+        }
         $moderedCommentOutput.='<td>' .$commentaireModere->auteur(). '</td>';
-        $moderedCommentOutput.='<td>' .$commentaireModere->contenu(). '</td>';
+        $moderedCommentOutput.='<td>' .$contenuExtrais. '</td>';
         $moderedCommentOutput.='<td>' .$commentaireModere->date(). '</td>';
         $moderedCommentOutput.='<td class="commentActionTd">';       
         $moderedCommentOutput.='<button class="unmodereComBtn" value="' .$commentaireModere->id(). '" data-toggle="modal" data-target ="#unmodereComModal" ><i class="fa fa-commenting unmod" aria-hidden="true"></i></button>';

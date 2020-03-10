@@ -1,6 +1,6 @@
 <?php
-
-require_once 'views/View.php';
+namespace CritsPortal\controllers;
+require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
 
 class ControllerAddbillet
 {
@@ -21,7 +21,7 @@ class ControllerAddbillet
         'titre' => htmlspecialchars($_POST['titre']),
         'contenu' =>  $_POST['contenu']
         );
-        $this->_billetManager = new BilletManager();
+        $this->_billetManager = new \CritsPortal\models\BilletManager();
         $billets = $this->_billetManager->createBillet($data);
         header('Location:admin');
       } else {
@@ -30,7 +30,7 @@ class ControllerAddbillet
     } 
 
     if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-      $this->_view = new View('Addbillet');
+      $this->_view = new \CritsPortal\views\View('Addbillet');
       $this->_view->generate('Écriture',array());
     }else {
       header('Location:accueil');

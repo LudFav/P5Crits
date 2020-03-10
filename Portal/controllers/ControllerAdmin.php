@@ -1,19 +1,22 @@
 <?php
-require_once 'controllers/ajaxAdminPhp/ajaxAdminBillet.php';
-require_once 'controllers/ajaxAdminPhp/ajaxAdminComSign.php';
-require_once 'controllers/ajaxAdminPhp/ajaxAdminComMod.php';
+namespace CritsPortal\controllers;
+use CritsPortal\views\View;
 
-require_once 'views/View.php';
+require_once('portal/controllers/ajaxAdminPhp/ajaxAdminBillet.php');
+require_once('portal/controllers/ajaxAdminPhp/ajaxAdminComSign.php');
+require_once('portal/controllers/ajaxAdminPhp/ajaxAdminComMod.php');
+require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
 
 class ControllerAdmin{
-    private $_billetManager;
     private $_view;
     public function __construct(){
       if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
+        echo 'Ca marche';
         $this->_view = new View('Admin'); 
-        $this->_view->generate('Administration', array());  
+        $this->_view->generate('Administration', array()); 
     } else {
-      header('Location:accueil');
+       echo 'Ca ne marche pas encore';
+      //header('Location:accueil');
     }
   }
 }

@@ -1,25 +1,24 @@
 <?php
+namespace CritsPortal\views;
+
 session_start();
 class View
 {
   //fichier a envoyer a la vue
   private $_file;
 
-  //titre de la page
-  private $title;
-
   function __construct($action){
-    $this->_file = 'views/view'.$action.'.php';
+    $this->_file = 'portal/views/view'.$action.'.php';
   }
 
-  //crée une fonction qui va générer et afficher la vue selon si une session est ouverte ou pas 
+  //fonction qui va générer et afficher la vue selon si une session est ouverte ou pas
   public function generate($title, $data){
     //définir le contenu à envoyer
     $content = $this->generateFile($this->_file, $data);
     if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-      $template = 'views/templateAdmin.php';
+      $template = 'portal/views/templateAdmin.php';
     } else {
-      $template = 'views/template.php';
+      $template = 'portal/views/template.php';
     }
     $view = $this->generateFile($template, array('title'=>$title, 'content' => $content));
     echo $view;
@@ -40,29 +39,7 @@ class View
     }
     else {
       throw new \Exception("Fichier ".$file." introuvable", 1);
-
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
  ?>

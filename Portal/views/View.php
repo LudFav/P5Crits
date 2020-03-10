@@ -1,14 +1,13 @@
 <?php
 namespace CritsPortal\views;
 
-session_start();
 class View
 {
   //fichier a envoyer a la vue
   private $_file;
 
   function __construct($action){
-    $this->_file = 'portal/views/view'.$action.'.php';
+    $this->_file = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal//views/view'.$action.'.php';
   }
 
   //fonction qui va générer et afficher la vue selon si une session est ouverte ou pas
@@ -16,9 +15,9 @@ class View
     //définir le contenu à envoyer
     $content = $this->generateFile($this->_file, $data);
     if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-      $template = 'portal/views/templateAdmin.php';
+      $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/views/templateAdmin.php';
     } else {
-      $template = 'portal/views/template.php';
+      $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/views/template.php';
     }
     $view = $this->generateFile($template, array('title'=>$title, 'content' => $content));
     echo $view;

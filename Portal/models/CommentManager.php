@@ -1,6 +1,6 @@
 <?php 
 namespace CritsPortal\models;
-use CritsPortal\models\Comment;
+
 
 class CommentManager extends Model implements crud {
 
@@ -27,8 +27,8 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE billetId=? ORDER BY id DESC LIMIT $limit");
       $req->execute(array($billetId));
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = new Comment($data);
-        $commentaires[] = $commentaire;
+        $commentaire = __NAMESPACE__ . '\\' . $obj;
+        $commentaires[] = new $commentaire($data);
       }
       $req->closeCursor();
       return $commentaires;
@@ -50,7 +50,8 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT id, auteur, titre, contenu, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM $table WHERE id = ?");
       $req->execute(array($id));
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire[] = new Comment($data);
+        $commentaire = __NAMESPACE__ . '\\' . $obj;
+        $commentaires[] = new $commentaire($data);
       }
     
       return $commentaire;
@@ -64,8 +65,8 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE signale = 1 ORDER BY id DESC LIMIT $limit");
       $req->execute(array());
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = new Comment($data);
-        $commentairesignal[] = $commentaire;
+        $commentaire = __NAMESPACE__ . '\\' . $obj;
+        $commentaires[] = new $commentaire($data);
       }
       $req->closeCursor();
       return $commentairesignal;
@@ -88,8 +89,8 @@ class CommentManager extends Model implements crud {
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE modere = 1 ORDER BY id DESC LIMIT $limit");
       $req->execute(array());  
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = new Comment($data);
-        $commentairemodere[] = $commentaire;
+        $commentaire = __NAMESPACE__ . '\\' . $obj;
+        $commentaires[] = new $commentaire($data);
       }
       $req->closeCursor();
       return $commentairemodere;

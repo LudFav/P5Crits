@@ -3,7 +3,7 @@
 /**
  *
  */
-class Billet {
+class Email {
 
   private $_id;
   private $_email;

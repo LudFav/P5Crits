@@ -1,9 +1,9 @@
 <?php
 namespace CritsPortal\controllers;
+
 use CritsPortal\models\BilletManager;
 use CritsPortal\views\View;
-use CritsPortal\controllers\ajaxClientPhp\ajaxClientCom;
-require 'vendor/autoload.php';
+
 
 class ControllerPost {
   private $_billetManager;

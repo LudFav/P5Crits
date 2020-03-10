@@ -1,6 +1,6 @@
 <?php
 namespace CritsPortal\controllers\ajaxClientPhp;
-
+require_once('portal/controllers/ControllerSommaire.php');
 $_billetManager;
 $_billetManager = new \CritsPortal\models\BilletManager;
 
@@ -9,8 +9,8 @@ $entiteParPage = 9;
 $billets = $_billetManager->getBillets($page, $entiteParPage);
 $pages = $_billetManager->getPageMax($entiteParPage);
 if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
-  
-  $billetsAccueilOutput = '';
+echo 'test Ajax';  
+/*  $billetsAccueilOutput = '';
   foreach ($billets as $billet){ 
        $billetsAccueilOutput.= '<div class="col-lg-4 col-md-6">';
        $billetsAccueilOutput.= '<div class="card h-100">';
@@ -26,5 +26,7 @@ if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
   $data['page'] = $page;
   $data['maxPages'] = $pages;
   $response = json_encode($data);
+ 
   exit($response);
+*/
 }  

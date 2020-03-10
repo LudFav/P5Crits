@@ -9,7 +9,7 @@ $entiteParPage = 9;
 $billets = $_billetManager->getBillets($page, $entiteParPage);
 $pages = $_billetManager->getPageMax($entiteParPage);
 if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
-echo 'test Ajax';  
+echo 'test Ajax de';  
 /*  $billetsAccueilOutput = '';
   foreach ($billets as $billet){ 
        $billetsAccueilOutput.= '<div class="col-lg-4 col-md-6">';

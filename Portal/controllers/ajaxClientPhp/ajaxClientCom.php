@@ -1,7 +1,8 @@
 <?php
-spl_autoload_register(function($class){
-    require_once($_SERVER["DOCUMENT_ROOT"]. '/P4Blog/models/'.$class.'.php');
-});
+use CritsPortal\models\CommentManager;
+
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/CommentManager.php');
+
 
 $_commentManager;
 $_commentManager = new CommentManager;

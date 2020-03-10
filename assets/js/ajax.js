@@ -8,7 +8,8 @@ function billetAccueil() {
         url: 'portal/controllers/ControllerSommaire.php',
         data: { 'action': 'showAccueilBillet', 'page': page },
         success: function (data) {
-            responseBilletAccueil = JSON.parse(data);
+            console.log(data);
+            /*responseBilletAccueil = JSON.parse(data);
             billetAccueilTable = responseBilletAccueil.billetsAccueilOutput;
             accueilMaxPages = responseBilletAccueil.maxPages;
             billetAccueilPagination = new FrontPagination(
@@ -22,7 +23,7 @@ function billetAccueil() {
             }
             $('#billetAccueil').html(billetAccueilTable);
             billetAccueilPagination;
-            billetAccueilButtonPagination(accueilMaxPages)
+            billetAccueilButtonPagination(accueilMaxPages)*/
         }
     })
 }

@@ -1,6 +1,7 @@
 <?php
+namespace CritsPortal\controllers;
+use CritsPortal\views;
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
-require_once 'views/View.php';
 
 class Router {
   private $ctrl;
@@ -9,11 +10,6 @@ class Router {
   public function routeReq(){
 
     try {
-
-      //chargement automatique des classes du dossier models
-      spl_autoload_register(function($class){
-        require_once('../P4Blog/models/'.$class.'.php');
-      });
 
       //on crée une variable $url contenant une chaine de caractere vide
       $url = '';
@@ -38,7 +34,8 @@ class Router {
         if (file_exists($controllerFile)) {
           //on lance la classe en question avec tous les parametres url
           require_once($controllerFile);
-          $this->ctrl = new $controllerClass($url);
+          $newController = __NAMESPACE__. '\\' .$controllerClass;
+          $this->ctrl = new $newController($url);
         }
         else {
           throw new \Exception("Page introuvable", 1);
@@ -51,7 +48,7 @@ class Router {
       // si le routeur ne reconnait pas le parametre de la variable $url, il redirigera la page vers la page d'accueil
     } catch (\Exception $e) {
       $errorMsg = $e->getMessage();
-      $this->_view = new View('Error');
+      $this->_view = new \View('Error');
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     }
   }

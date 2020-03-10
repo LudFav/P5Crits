@@ -1,10 +1,9 @@
 
     <div class="post-area container">
       <article>
-        <h2><?=$billet[0]->titre()?></h2>
-			  <div class="row">
+			  <div class="row justify-content-center">
           <div class="col-lg-8 col-md-12 no-right-padding">
-
+          <h2><?=$billet[0]->titre()?></h2>
             <div class="main-post">
 
               <div class="blog-post-inner">
@@ -30,10 +29,11 @@
 
 <section class="comment-section">
   <div class="container">
-    <h4><b>Commentaires</b></h4>
-    <div class="row">
-
+    
+    <div class="row justify-content-center">
+    
       <div class="col-lg-8 col-md-12">
+      <h4><b>Commentaires</b></h4>
         <div class="comment-form">
           <form action="#" method="post" id="formCommentaire">
             <div class="row">

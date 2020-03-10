@@ -1,6 +1,4 @@
 <?php
-namespace CritsPortal\models;
-
 
 class BilletManager extends Model implements crud{
 
@@ -35,9 +33,8 @@ class BilletManager extends Model implements crud{
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-      $newObj = __NAMESPACE__ . '\\' . $obj; 
-      $var[] = new $newObj($data);
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) { 
+      $var[] = new $obj($data);
     }
     return $var;
     $req->closeCursor();
@@ -46,13 +43,12 @@ class BilletManager extends Model implements crud{
   public function readOne($table, $obj, $id){
     $this->getBdd();
     $var = [];
-    $req = self::$_bdd->prepare("SELECT id, auteur, titre, contenu, date FROM $table WHERE id = ?");
+    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE id = ?");
 
     $req->execute(array($id));
     if($req->rowCount()>0){
-      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $newObj = __NAMESPACE__ . '\\' . $obj; 
-        $var[] = new $newObj($data);
+      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $var[] = new $obj($data);
         return $var;
       }
     } else {

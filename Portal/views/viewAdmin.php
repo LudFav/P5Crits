@@ -43,7 +43,7 @@
                 <table class="table table-striped table-hover" id='tableBillet'>
                     <thead>
                         <tr>
-                            <th class="tdId">#</th>
+                            <th class="tdId">ID</th>
                             <th class="tdAuteur">Auteur</th>
 			    			<th class="tdTitre">Titre</th>
                             <th class="tdDate">Date</th>
@@ -71,7 +71,8 @@
                 <table class="table table-striped table-hover" id='tableComments'>
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID</th>
+                            <th>Titre du Billet Commenté</th>
                             <th>Auteur</th>
 			    			<th>Contenu</th>
                             <th>Date</th>
@@ -98,7 +99,8 @@
                 <table class="table table-striped table-hover" id='moderedCommentsTable'>
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th>ID</th>
+                            <th>Titre du Billet Commenté</th>
                             <th>Auteur</th>
 			    			<th>Contenu</th>
                             <th>Date</th>

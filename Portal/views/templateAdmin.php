@@ -43,6 +43,7 @@
 	  selector: '#textareaB, #textareaC, #textareaEditC',  // change this value according to your HTML
 	  plugin: 'a_tinymce_plugin',
 	  a_plugin_option: true,
+	  content_style: 'body{font-family:book antiqua;}',
 	  a_configuration_option: 400,
 	  setup: function (editor) {
     	editor.on('change', function (e) {

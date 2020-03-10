@@ -1,6 +1,4 @@
 <?php 
-namespace CritsPortal\models;
-
 
 class CommentManager extends Model implements crud {
 
@@ -26,9 +24,9 @@ class CommentManager extends Model implements crud {
       $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE billetId=? ORDER BY id DESC LIMIT $limit");
       $req->execute(array($billetId));
-      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = __NAMESPACE__ . '\\' . $obj;
-        $commentaires[] = new $commentaire($data);
+      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $commentaire = new Comment($data);
+        $commentaires[] = $commentaire;
       }
       $req->closeCursor();
       return $commentaires;
@@ -49,9 +47,8 @@ class CommentManager extends Model implements crud {
       $commentaire = [];
       $req = self::$_bdd->prepare("SELECT id, auteur, titre, contenu, DATE_FORMAT(date, '%d/%m/%Y à %Hh%i') AS date FROM $table WHERE id = ?");
       $req->execute(array($id));
-      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = __NAMESPACE__ . '\\' . $obj;
-        $commentaires[] = new $commentaire($data);
+      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $commentaire[] = new Comment($data);
       }
     
       return $commentaire;
@@ -64,9 +61,9 @@ class CommentManager extends Model implements crud {
       $limit = (htmlspecialchars($pageComSign) - 1) * $signComParPage. ', ' .$signComParPage;
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE signale = 1 ORDER BY id DESC LIMIT $limit");
       $req->execute(array());
-      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = __NAMESPACE__ . '\\' . $obj;
-        $commentaires[] = new $commentaire($data);
+      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $commentaire = new Comment($data);
+        $commentairesignal[] = $commentaire;
       }
       $req->closeCursor();
       return $commentairesignal;
@@ -88,9 +85,9 @@ class CommentManager extends Model implements crud {
       $limit = (htmlspecialchars($pageComMod) - 1) * $modComParPage. ', ' .$modComParPage;
       $req = self::$_bdd->prepare("SELECT * FROM $table WHERE modere = 1 ORDER BY id DESC LIMIT $limit");
       $req->execute(array());  
-      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $commentaire = __NAMESPACE__ . '\\' . $obj;
-        $commentaires[] = new $commentaire($data);
+      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+        $commentaire = new Comment($data);
+        $commentairemodere[] = $commentaire;
       }
       $req->closeCursor();
       return $commentairemodere;

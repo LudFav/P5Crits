@@ -1,6 +1,5 @@
 <?php
-namespace CritsPortal\models;
-use CritsPortal\models\User;
+// contient les methodes d'operation de nos billets
 
 class UserManager extends Model implements crud
 {
@@ -26,8 +25,8 @@ class UserManager extends Model implements crud
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { 
-      $var[] = new User($data);
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) { 
+      $var[] = new $obj($data);
     }
     return $var;
     $req->closeCursor();
@@ -39,8 +38,8 @@ class UserManager extends Model implements crud
     $var = [];
     $req = self::$_bdd->prepare("SELECT id, username, password, role FROM $table WHERE id = ?");
     $req->execute(array($id));
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-      $var[] = new User($data);
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      $var[] = new $obj($data);
     }
     return $var;
     $req->closeCursor();
@@ -52,8 +51,8 @@ class UserManager extends Model implements crud
     $var = [];
     $req = self::$_bdd->prepare("SELECT username, password FROM $table WHERE id = 1");
     $req->execute(array());
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-      $var[] = new User($data);
+    while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
+      $var[] = new $obj($data);
     }
     return $var;
     $req->closeCursor();
@@ -83,9 +82,9 @@ class UserManager extends Model implements crud
     $req->closeCursor();
   }
   
-  /*public function getUsers(){
+  public function getUsers(){
     return $this->readAll('users', 'User', $page, $entiteParPage);
-  }*/
+  }
 
   public function getUser(){
     return $this->readAdmin('users', 'User');

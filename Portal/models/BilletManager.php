@@ -1,4 +1,7 @@
 <?php
+namespace CritsPortal\models;
+
+require ($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
 
 class BilletManager extends Model implements crud{
 
@@ -8,11 +11,9 @@ class BilletManager extends Model implements crud{
     $keyFields = implode('`, `', array_keys($data));// key1, key2
     $valueFields = ':' . implode(', :', array_keys($data));//  :key1, :key2
     $req = self::$_bdd->prepare("INSERT INTO $table (`$keyFields`) VALUES ($valueFields )"); 
-
     foreach ($data as $key => $value){
       $req->bindValue(":$key", $value);
     }
-
     $req->execute();
     $req->closeCursor();
   }
@@ -33,8 +34,8 @@ class BilletManager extends Model implements crud{
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
-    while ($data = $req->fetch(PDO::FETCH_ASSOC)) { 
-      $var[] = new $obj($data);
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+      $var[] = new Billet($data);
     }
     return $var;
     $req->closeCursor();
@@ -47,8 +48,8 @@ class BilletManager extends Model implements crud{
 
     $req->execute(array($id));
     if($req->rowCount()>0){
-      while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
-        $var[] = new $obj($data);
+      while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+        $var[] = new Billet($data);
         return $var;
       }
     } else {

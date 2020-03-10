@@ -5,11 +5,10 @@ showComment();
 //  AJAX FRONT
 function billetAccueil() {
     $.post({
-        url: 'portal/controllers/ControllerSommaire.php',
+        url: 'sommaire',
         data: { 'action': 'showAccueilBillet', 'page': page },
         success: function (data) {
-            console.log(data);
-            /*responseBilletAccueil = JSON.parse(data);
+            responseBilletAccueil = JSON.parse(data);
             billetAccueilTable = responseBilletAccueil.billetsAccueilOutput;
             accueilMaxPages = responseBilletAccueil.maxPages;
             billetAccueilPagination = new FrontPagination(
@@ -23,7 +22,7 @@ function billetAccueil() {
             }
             $('#billetAccueil').html(billetAccueilTable);
             billetAccueilPagination;
-            billetAccueilButtonPagination(accueilMaxPages)*/
+            billetAccueilButtonPagination(accueilMaxPages)
         }
     })
 }
@@ -52,7 +51,7 @@ function billetAccueilButtonPagination(accueilMaxPages) {
 function showComment() {
     idBillet = $('.post-info').attr('data-trf');
     $.post({
-        url: 'portal/controllers/ControllerPost.php',
+        url: 'post',
         data: { 'action': 'showComment', 'pageCom' : pageCom, 'billetId': idBillet},
         success: function (data) {
             responseFrontCom = JSON.parse(data);
@@ -140,7 +139,7 @@ $('.submit-btn').on('click', function (e) {
         var auteur = $('#auteur').val();
         var contenu = $('#contenu').val();
         $.post({
-            url: 'portal/controllers/ControllerPost.php',
+            url: 'post',
             data: {
                 'action': 'insertCom',
                 'auteur': auteur,
@@ -157,7 +156,7 @@ $('.submit-btn').on('click', function (e) {
 
 function signalement(id) {
     $.post({
-        url: 'portal/controllers/ControllerPost.php',
+        url: 'post',
         data: { 'action': 'signalCom', 'idSignal': id },
         success: function (data) {
             showComment();
@@ -279,7 +278,7 @@ $(window).bind('load', function () {
         var username = $('#username').val();
         var password = $('#password').val();
             $.post({
-                url: 'portal/controllers/ControllerLogin.php',
+                url: 'login',
                 data: { 'action': 'login', 'username': username, 'password': password },
                 success: function (data) {
                         if(data == 'inputVide'){

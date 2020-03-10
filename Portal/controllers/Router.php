@@ -1,8 +1,6 @@
 <?php
-namespace CritsPortal\controllers;
-
 // Notre routeur va gerer les requetes de l'URL, selon l'url il chargera le bon controleur
-
+require_once 'views/View.php';
 
 class Router {
   private $ctrl;
@@ -11,7 +9,12 @@ class Router {
   public function routeReq(){
 
     try {
-      
+
+      //chargement automatique des classes du dossier models
+      spl_autoload_register(function($class){
+        require_once('../P4Blog/models/'.$class.'.php');
+      });
+
       //on crée une variable $url contenant une chaine de caractere vide
       $url = '';
 
@@ -26,32 +29,29 @@ class Router {
         //on recupere le premier parametre de url, on le met tout en minuscule, on met sa premiere lettre en majuscule
         $controller = ucfirst(strtolower($url[0])); // $controller = Accueil
 
-        $controllerClass = "Controller".$controller; // ControllerClass = ControllerAccueil
+        $controllerClass = "Controller".$controller; // $controllerClass = ControllerAccueil
 
         //on retrouve le chemin du controleur voulu
-        $controllerFile = "portal/controllers/" .$controllerClass. ".php"; // controllerFile = "portal/controllers/ControllerAccueil.php"
+        $controllerFile = "controllers/".$controllerClass.".php"; // $controllerFile = "controllers/ControllerAccueil.php"
 
-        
         //on verifit si le fichier du controleur existe
         if (file_exists($controllerFile)) {
           //on lance la classe en question avec tous les parametres url
           require_once($controllerFile);
-          $newClass = __NAMESPACE__ . '\\'. $controllerClass; 
-          $this->ctrl = new $newClass($url);
+          $this->ctrl = new $controllerClass($url);
         }
         else {
           throw new \Exception("Page introuvable", 1);
         }
       }
-       // si le routeur ne reconnait pas le parametre de la variable $url, il redirigera la page vers la page d'accueil
       else {
-        require_once('portal/controllers/ControllerAccueil.php');
+        require_once('controllers/ControllerAccueil.php');
         $this->ctrl = new ControllerAccueil($url);
       }
-
+      // si le routeur ne reconnait pas le parametre de la variable $url, il redirigera la page vers la page d'accueil
     } catch (\Exception $e) {
       $errorMsg = $e->getMessage();
-      $this->_view = new \CritsPortal\views\View('Error');
+      $this->_view = new View('Error');
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     }
   }

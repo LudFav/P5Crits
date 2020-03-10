@@ -1,8 +1,10 @@
 <?php
-namespace CritsPortal\controllers\ajaxClientPhp;
+spl_autoload_register(function($class){
+    require_once($_SERVER["DOCUMENT_ROOT"]. '/P4Blog/models/'.$class.'.php');
+});
 
 $_commentManager;
-$_commentManager = new \CritsPortal\models\CommentManager;
+$_commentManager = new CommentManager;
 
 $entiteParPage = 3;
 $pageComAccueil = isset($_POST['pageCom']) && is_numeric($_POST['pageCom'])?$_POST['pageCom'] : 1;

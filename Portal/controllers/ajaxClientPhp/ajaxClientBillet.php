@@ -1,16 +1,17 @@
 <?php
-namespace CritsPortal\controllers\ajaxClientPhp;
-require_once('portal/controllers/ControllerSommaire.php');
+spl_autoload_register(function($class){
+  require_once($_SERVER["DOCUMENT_ROOT"]. '/P4Blog/models/'.$class.'.php');
+}); 
+
 $_billetManager;
-$_billetManager = new \CritsPortal\models\BilletManager;
+$_billetManager = new BilletManager();
 
 $page = isset($_POST['page']) && is_numeric($_POST['page'])? $_POST['page'] : 1;
 $entiteParPage = 9; 
 $billets = $_billetManager->getBillets($page, $entiteParPage);
 $pages = $_billetManager->getPageMax($entiteParPage);
 if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
-echo 'test Ajax de';  
-/*  $billetsAccueilOutput = '';
+  $billetsAccueilOutput = '';
   foreach ($billets as $billet){ 
        $billetsAccueilOutput.= '<div class="col-lg-4 col-md-6">';
        $billetsAccueilOutput.= '<div class="card h-100">';
@@ -26,7 +27,5 @@ echo 'test Ajax de';
   $data['page'] = $page;
   $data['maxPages'] = $pages;
   $response = json_encode($data);
- 
   exit($response);
-*/
 }  

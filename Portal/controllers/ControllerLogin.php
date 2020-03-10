@@ -1,12 +1,12 @@
 <?php
-
+namespace CritsPortal\controllers;
+require_once $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/controllers/ajaxClientPhp/ajaxClientCom.php';
 
 class ControllerLogin {
     private $_userManager;
-    private $_view;
   
   public function __construct(){
-    $this->_userManager = new UserManager; 
+    $this->_userManager = new \CritsPortal\models\UserManager; 
     $this->login();
     $this->isLoggedIn();
     $this->logout();

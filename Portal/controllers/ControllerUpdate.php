@@ -1,14 +1,12 @@
 <?php
-namespace CritsPortal\controllers;
 
-use CritsPortal\views\View;
-use CritsPortal\models\BilletManager;
+require_once 'views/View.php';
+
 class ControllerUpdate {
   private $_billetManager;
   private $_view;
 
   public function __construct(){
-    require_once('portal/controllers/Router.php');
     if (isset($url) && count($url) < 1) {
         throw new \Exception("Page Introuvable");
     } else {

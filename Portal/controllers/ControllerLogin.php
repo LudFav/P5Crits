@@ -1,6 +1,5 @@
 <?php
 namespace CritsPortal\controllers;
-require_once $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/controllers/ajaxClientPhp/ajaxClientCom.php';
 
 class ControllerLogin {
     private $_userManager;

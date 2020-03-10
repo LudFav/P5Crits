@@ -3,6 +3,7 @@ use CritsPortal\models\CommentManager;
 use CritsPortal\models\BilletManager;
 require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/CommentManager.php');
 require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/BilletManager.php');
+
 $_commentManager;
 $_billetManager;
 $_commentManager = new CommentManager;

@@ -1,6 +1,7 @@
 <?php
 namespace CritsPortal\models;
-use CritsPortal\models\Billet ;
+
+
 class BilletManager extends Model implements crud{
 
   public function create($table, $data){
@@ -34,8 +35,9 @@ class BilletManager extends Model implements crud{
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
     $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) { 
-      $var[] = new Billet($data);
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+      $newObj = __NAMESPACE__ . '\\' . $obj; 
+      $var[] = new $newObj($data);
     }
     return $var;
     $req->closeCursor();
@@ -49,7 +51,8 @@ class BilletManager extends Model implements crud{
     $req->execute(array($id));
     if($req->rowCount()>0){
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-        $var[] = new Billet($data);
+        $newObj = __NAMESPACE__ . '\\' . $obj; 
+        $var[] = new $newObj($data);
         return $var;
       }
     } else {

@@ -1,5 +1,5 @@
 <?php
-
+namespace CritsPortal\models;
 
 class User
 {

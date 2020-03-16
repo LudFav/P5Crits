@@ -75,7 +75,7 @@
 						          <h2>Bibliotheque de documents</h2>
                     </div>
 					          <div class="col-sm-6">
-						          <a href="addDocFile" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Document</strong></span></a>
+						          <button class="btn btn-success" data-target="#docFileModal"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Document</strong></span></button>
 					          </div>
                 </div>
             </div>

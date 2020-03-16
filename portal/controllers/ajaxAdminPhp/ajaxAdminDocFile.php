@@ -9,6 +9,7 @@ $_FileManager = new FileManager;
 $entiteParPage= 5;
 $pageDocFile= isset($_POST['pageDocFile'])? $_POST['pageDocFile'] : 1; 
 $table = 'docFile';
+$userId = $_SESSION['admin']['id'];
 $docFiles = $_FileManager->getFiles($table, $userId, $pageDocFile, $entiteParPage);
 $docFilePages = $_FileManager->getPageMax($table, $entiteParPage, $userId);
 
@@ -21,9 +22,9 @@ if(isset($_POST['action']) && $_POST['action']=='showDocFiles'){
         $docFileOutput.='<td>' .$docFile->name(). '</td>';
         $docFileOutput.='<td>' .$docFile->name(). '</td>';
         $docFileOutput.='<td>' .$docFile->date(). '</td>';
-        $docFileOutput.='<td class="commentActionTd">';       
-        $docFileOutput.='<button class="updateDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#unmodereComModal" ></button>';
-        $docFileOutput.='<button class="deleteDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#deleteModComModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
+        $docFileOutput.='<td class="docFileActionTd">';       
+        $docFileOutput.='<button class="updateDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#updateDocFileModal" ></button>';
+        $docFileOutput.='<button class="deleteDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#deleteDocFileModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $docFileOutput.='</td>';
         $docFileOutput.='</tr>';
     }

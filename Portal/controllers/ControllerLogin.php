@@ -19,9 +19,11 @@ class ControllerLogin {
         //$passToHash = password_hash("mot de passe", PASSWORD_DEFAULT, ['cost' => 12]);
         $passwordHashed = $userInfo[0]->password();
         $goodUsername = $userInfo[0]->username();
+        $userId = $userInfo[0]->id();
         $password= password_verify($passwordSubmitted, $passwordHashed);
         if($_POST['username'] == $userInfo[0]->username() && $password == true){
-        $_SESSION['admin'] = $username;
+        $_SESSION['admin'] = array('id'=>$userId, 'username'=>$goodUsername);
+        //$username;
         $link = "admin";
         echo $link; 
         } else if(empty($_POST['username']) || empty($_POST['password'])){

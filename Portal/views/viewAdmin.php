@@ -11,6 +11,16 @@
               <span class="glyphicon glyphicon-book"></span> Billets 
             </a>
           </li>
+          <li class="nav-item active" id="docLibraryLink">
+            <a class="nav-link" href="#">
+             Bibliothèque de documents
+            </a>
+          </li>
+          <li class="nav-item active" id="imgLibraryLink">
+            <a class="nav-link" href="#">
+             Bibliothèque d'images
+            </a>
+          </li>
           <li class="nav-item" id="signalComLink">
             <a class="nav-link" href="#">
              Commentaires Signalés
@@ -57,7 +67,67 @@
             <div id='paginationAdminBillet'>
             </div>  
         </div>    
-             
+<!--BIBLIOTHEQUE DOC-->      
+        <div class="table-wrapper" id="docLib-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6" id="docLibraryTableTitre">
+						          <h2>Bibliotheque de documents</h2>
+                    </div>
+					          <div class="col-sm-6">
+						          <a href="addDocFile" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Document</strong></span></a>
+					          </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id='tableDocLib'>
+                    <thead>
+                        <tr>
+                            <th class="tdId">ID</th>
+                            <th class="tdName">Nom</th>
+			    			<th class="tdType">type</th>
+                            <th class="tdDate">Date</th>
+                            <th style="text-align:center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyDocLibrary">
+                    </tbody>    
+                </table>
+            </div>
+            <div id='paginationAdminDocLibrary'>
+            </div>  
+        </div> 
+        
+<!--BIBLIOTHEQUE IMG-->      
+        <div class="table-wrapper" id="imgLib-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6" id="imgLibraryTableTitre">
+						          <h2>Bibliotheque d'images</h2>
+                    </div>
+					          <div class="col-sm-6">
+						          <a href="addImgFile" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouvelle image</strong></span></a>
+					          </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover" id='tableImgLib'>
+                    <thead>
+                        <tr>
+                            <th class="tdId">ID</th>
+                            <th class="tdName">Nom</th>
+			    			<th class="tdType">type</th>
+                            <th class="tdDate">Date</th>
+                            <th style="text-align:center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyImgLibrary">
+                    </tbody>    
+                </table>
+            </div>
+            <div id='paginationAdminImgLibrary'>
+            </div>  
+        </div> 
 <!--COMMENTAIRE SIGNALÉ-->
         <div class="table-wrapper" id="signalCom-wrapper">
             <div class="table-title">

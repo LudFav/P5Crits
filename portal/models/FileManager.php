@@ -10,13 +10,10 @@ class FileManager extends Model implements crud {
       ksort($data);
       $keyFields = implode('`, `', array_keys($data));
       $valueFields = ':' . implode(', :', array_keys($data));
-      
-      $req = self::$_bdd->prepare("INSERT INTO $table (`$keyFields`) VALUES ($valueFields)");
-      
+      $req = self::$_bdd->prepare("INSERT INTO $table (`$keyFields`) VALUES ($valueFields)"); 
       foreach ($data as $key => $value){
         $req->bindValue(":$key", $value);
       }
-  
       $req->execute();
       $req->closeCursor();
     }
@@ -82,8 +79,8 @@ class FileManager extends Model implements crud {
       $req->closeCursor();
     }
     
-    public function createFile($data, $UserId){
-      return $this->create('commentaires', array(
+    public function createFile($table, $data, $UserId){
+      return $this->create($table, array(
         'UserId'=> $_POST['UserId'],
         'name' => htmlspecialchars($_POST['name']),
         'file_url'=> htmlspecialchars($_POST['file_url']),    
@@ -91,22 +88,21 @@ class FileManager extends Model implements crud {
       ));
     }
 
-    public function getComments($UserId, $pageComAccueil, $entiteParPage){
-      $page = $pageComAccueil;
-      return $this->readAll('commentaires', 'Comment', $page, $entiteParPage, $UserId);
+    public function getFiles($table, $UserId, $page, $entiteParPage){
+      return $this->readAll($table, 'File', $page, $entiteParPage, $UserId);
     }
     
-    public function getComment($UserId){
-      return $this->readOne('commentaires', 'Comment', $UserId);
+    public function getFile($table, $UserId){
+      return $this->readOne($table, 'File', $UserId);
     }
     
-    public function getPageMax($entiteParPage, $UserId){
+    public function getPageMax($table, $entiteParPage, $UserId){
       $nbreEntitesParPage = $entiteParPage;
-      return $this->pagemax('commentaires', $nbreEntitesParPage, $UserId);
+      return $this->pagemax($table, $nbreEntitesParPage, $UserId);
     }
 
-    public function deleteComment($id){
-      return $this->delete('commentaires', "`id` = '{$_POST['deleteCom']}'");
+    public function deleteFile($table, $id){
+      return $this->delete($table, "`id` = '{$_POST['deleteFile']}'");
     }
 
 }

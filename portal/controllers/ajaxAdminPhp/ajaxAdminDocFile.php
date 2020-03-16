@@ -12,12 +12,13 @@ $table = 'docFile';
 $docFiles = $_FileManager->getFiles($table, $userId, $pageDocFile, $entiteParPage);
 $docFilePages = $_FileManager->getPageMax($table, $entiteParPage, $userId);
 
-if(isset($_POST['action']) && $_POST['action']=='showCommentModered'){
+if(isset($_POST['action']) && $_POST['action']=='showDocFiles'){
     $docFileOutput=''; 
 
     foreach ($docFiles as $docFile){
         $docFileOutput.='<tr class="docFileRow' .$docFile->id(). '">';
         $docFileOutput.='<td>' .$docFile->id(). '</td>';
+        $docFileOutput.='<td>' .$docFile->name(). '</td>';
         $docFileOutput.='<td>' .$docFile->name(). '</td>';
         $docFileOutput.='<td>' .$docFile->date(). '</td>';
         $docFileOutput.='<td class="commentActionTd">';       

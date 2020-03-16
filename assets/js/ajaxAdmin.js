@@ -549,23 +549,45 @@ isLoggedin();
 
 $("#signalCom-wrapper").hide();
 $("#modCom-wrapper").hide();
+$("#docLib-wrapper").hide();
+$("#imgLib-wrapper").hide();
 
 $("#billetLink").on("click", function() {
   $("#signalCom-wrapper").hide();
   $("#modCom-wrapper").hide();
+  $("#docLib-wrapper").hide();
+  $("#imgLib-wrapper").hide();
   $("#billet-wrapper").fadeIn(1000);
 });
+$("#docLibraryLink").on("click", function(){
+  $("#billet-wrapper").hide();
+  $("#modCom-wrapper").hide();
+  $("#signalCom-wrapper").hide();
+  $("#imgLib-wrapper").hide();
+  $("#docLib-wrapper").fadeIn(1000);
+})
+$("#imgLibraryLink").on("click", function(){
+  $("#billet-wrapper").hide();
+  $("#modCom-wrapper").hide();
+  $("#signalCom-wrapper").hide();
+  $("#docLib-wrapper").hide();
+  $("#imgLib-wrapper").fadeIn(1000);
+})
 $("#signalComLink").on("click", function() {
   commentTable();
   comSignPagination;
   $("#billet-wrapper").hide();
   $("#modCom-wrapper").hide();
+  $("#docLib-wrapper").hide();
+  $("#imgLib-wrapper").hide();
   $("#signalCom-wrapper").fadeIn(1000);
 });
 $("#modComLink").on("click", function() {
   moderedCommentTable();
   comModPagination;
   $("#billet-wrapper").hide();
+  $("#docLib-wrapper").hide();
+  $("#imgLib-wrapper").hide();
   $("#signalCom-wrapper").hide();
   $("#modCom-wrapper").fadeIn(1000);
 });

@@ -98,15 +98,12 @@ class Modal {
                 this.closeModal = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo(this.modalHeader);
                 this.modalBody = $('<div class="modal-body"><h4 style="text-align:center; margin-bottom:15px;">'+this.options.message+'</h4></div>').appendTo(this.modalContent);
                 this.modalFormName = $('<div class="md-form mb-5"></div>').appendTo(this.modalBody);
-                        //Fichier
-                        let inputFile = $('<input type="file" name="fichier" id="file" class="form-control">').appendTo(this.modalFormName);
-                        this.options.pseudonyme = inputPseudo;
-
-                        //CREATION DIV et Button de modal, si local et session storage sont supporté on sauvegarde nom et prenom en local
-                        this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
-                        let validBtn = $('<button type="button" value="Envoyer" class="btn btn-primary" id="'+modalId + '-validBtn'+'" >Valider</button>').appendTo($(this.modalFooter));
-                        let annulBtn = $('<button type="button" class="btn btn-secondary" data-dismiss="modal" id="'+modalId+'-cancelBtn">Annuler</button>').appendTo($(this.modalFooter));
-                }
+                //Fichier
+                let inputFile = $('<input type="file" name="fichier" id="file" class="form-control">').appendTo(this.modalFormName);
+                //CREATION DIV et Button de modal, si local et session storage sont supporté on sauvegarde nom et prenom en local
+                this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
+                let validBtn = $('<button type="button" value="Envoyer" class="btn btn-primary" id="'+modalId + '-validBtn'+'" >Valider</button>').appendTo($(this.modalFooter));
+                let annulBtn = $('<button type="button" class="btn btn-secondary" data-dismiss="modal" id="'+modalId+'-cancelBtn">Annuler</button>').appendTo($(this.modalFooter));    
             }
 
         } 

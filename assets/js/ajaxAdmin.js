@@ -450,6 +450,14 @@ modalAlertUpdate =  new Modal(document.querySelector("body"), {
   message: "Vous n'avez pas remplie tout les champs"
 });
 
+//MODAL UPLOAD
+modalDocFile = new Modal(document.querySelector("body"), {
+  id: "docFileModal",
+  titre: "Upload de document",
+  type: "upload",
+  message: "type de doc attendu : pdf ou PDF</br>Taille max : 15mo"
+});
+
 //BOUTONS CONFIRMATION MODAL*************************************************
 $(window).bind("load", function() {
 
@@ -472,8 +480,9 @@ $(window).bind("load", function() {
       deleteBilBtn(idBilletToDelete);
     });
   });
+//BOUTONS NOUVEAU DOC
 
-  //BOUTONS COMMENTAIRES SIGNALÉS
+//BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {
     //modalUnsignalCom;
     idComToUnsignal = $(this).attr("value");

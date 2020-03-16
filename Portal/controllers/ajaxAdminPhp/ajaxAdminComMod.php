@@ -16,8 +16,7 @@ $comModPages = $_commentManager->getComModPagesMax($entiteParPage);
 
 if(isset($_POST['action']) && $_POST['action']=='showCommentModered'){
     $moderedCommentOutput=''; 
-    
-   
+
     foreach ($commentaireModeres as $commentaireModere){
         $contenuComplet = $commentaireModere->contenu();
         $contenuExtrais = substr($contenuComplet, 0,50)."&hellip;";

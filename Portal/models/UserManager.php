@@ -1,7 +1,6 @@
 <?php
 namespace CritsPortal\models;
 require ($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
-// contient les methodes d'operation de nos billets
 
 class UserManager extends Model implements crud
 {

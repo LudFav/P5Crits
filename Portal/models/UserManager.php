@@ -50,7 +50,7 @@ class UserManager extends Model implements crud
   public function readAdmin($table, $obj){
     $this->getBdd();
     $var = [];
-    $req = self::$_bdd->prepare("SELECT username, password FROM $table WHERE id = 1");
+    $req = self::$_bdd->prepare("SELECT * FROM $table");
     $req->execute(array());
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
       $var[] = new User($data);
@@ -81,6 +81,10 @@ class UserManager extends Model implements crud
     $req = self::$_bdd->prepare("DELETE FROM $table WHERE $where");
     $req->execute();
     $req->closeCursor();
+  }
+
+  public function sessionInfo(){
+    $this->getBdd();
   }
   
   /*public function getUsers(){

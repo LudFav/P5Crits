@@ -455,7 +455,14 @@ modalDocFile = new Modal(document.querySelector("body"), {
   id: "docFileModal",
   titre: "Upload de document",
   type: "upload",
-  message: "type de doc attendu : pdf ou PDF</br>Taille max : 15mo"
+  message: "type de doc attendu : pdf ou PDF</br>Taille max : 5mo"
+});
+
+modalimgFile = new Modal(document.querySelector("body"), {
+  id: "imgFileModal",
+  titre: "Upload d'image",
+  type: "upload",
+  message: "type de fichier image attendu : jpg jpeg png gif</br> ou</br> JPG JPEG PNG GIF</br>Taille max : 5mo"
 });
 
 //BOUTONS CONFIRMATION MODAL*************************************************
@@ -481,7 +488,7 @@ $(window).bind("load", function() {
     });
   });
 //BOUTONS NOUVEAU DOC
-
+//$("#newDocFile")
 //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {
     //modalUnsignalCom;

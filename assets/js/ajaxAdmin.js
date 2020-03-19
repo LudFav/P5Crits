@@ -325,6 +325,26 @@ function deleteBilBtn(idBilletToDelete) {
   });
 }
 
+function addDocFile(){
+  $.post({
+    url:"admin",
+    data: { action: "addDoc"},
+    success: function(data) {
+      console.log(data);
+    }
+  })
+}
+
+function addImgFile(){
+  $.post({
+    url:"admin",
+    data: { action: "addImg"},
+    success: function(data) {
+      console.log(data);
+    }
+  })
+}
+
 function unsignalCom(idComToUnsignal) {
   $.post({
     url: "admin",
@@ -488,7 +508,9 @@ $(window).bind("load", function() {
     });
   });
 //BOUTONS NOUVEAU DOC
-//$("#newDocFile")
+$("#docFileModal-validBtn").on("click", function() {
+
+})
 //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {
     //modalUnsignalCom;

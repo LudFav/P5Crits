@@ -75,7 +75,7 @@
 						          <h2>Bibliotheque de documents</h2>
                     </div>
 					          <div class="col-sm-6">
-						          <button class="btn btn-success" data-target="#docFileModal"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Document</strong></span></button>
+						          <button class="btn btn-success" id="addDocFile" data-toggle="modal" data-target="#docFileModal"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Document</strong></span></button>
 					          </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
 						          <h2>Bibliotheque d'images</h2>
                     </div>
 					          <div class="col-sm-6">
-						          <a href="addImgFile" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouvelle image</strong></span></a>
+						          <button id="addImgFile" class="btn btn-success" data-toggle="modal" data-target="#imgFileModal"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouvelle image</strong></span></button>
 					          </div>
                 </div>
             </div>

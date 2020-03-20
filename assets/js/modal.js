@@ -88,7 +88,7 @@ class Modal {
             }
 
             if(this.options.type == 'upload'){
-                this.modal = $('<form method="post" action="admin" enctype="multipart/form-data" class="modal" tabindex="-1" role="dialog" aria-labelledby="'+this.options.titre+'" aria-hidden="true"></form>').appendTo(this.element);
+                this.modal = $('<div class="modal" tabindex="-1" role="dialog" aria-labelledby="'+this.options.titre+'" aria-hidden="true"></div>').appendTo(this.element);
                 let modalId = this.options.id;
                 this.modal.attr('id', modalId);
                 this.modalDial = $('<div class="modal-dialog" role="document"></div>').appendTo(this.modal);
@@ -97,9 +97,10 @@ class Modal {
                 this.modalTitle = $('<h5 class="modal-title" id="'+this.options.titre+'">'+this.options.titre+'</h5>').appendTo(this.modalHeader);
                 this.closeModal = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo(this.modalHeader);
                 this.modalBody = $('<div class="modal-body"><h4 style="text-align:center; margin-bottom:15px;">'+this.options.message+'</h4></div>').appendTo(this.modalContent);
-                this.modalFormName = $('<div class="md-form mb-5"></div>').appendTo(this.modalBody);
+                this.modalFormName = $('<div class="container"></div>').appendTo(this.modalBody);
                 //Fichier
-                let inputFile = $('<input type="file" name="fichier" class="file" class="form-control">').appendTo(this.modalFormName);
+                let inputFile = $(' <div class="file_drag_area">Drop Files Here</div>').appendTo(this.modalFormName);
+                let dropzone =  $('<div class="upload-area"  id="uploadfile"></div>').appendTo(this.modalFormName);
                 //CREATION DIV et Button de modal, si local et session storage sont supporté on sauvegarde nom et prenom en local
                 this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
                 let validBtn = $('<button type="button" value="Envoyer" class="btn btn-primary" id="'+modalId + '-validBtn'+'" >Valider</button>').appendTo($(this.modalFooter));

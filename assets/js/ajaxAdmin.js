@@ -325,15 +325,6 @@ function deleteBilBtn(idBilletToDelete) {
   });
 }
 
-function addDocFile(){
-  $.post({
-    url:"admin",
-    data: { action: "addDoc"},
-    success: function(data) {
-      console.log(data);
-    }
-  })
-}
 
 function addImgFile(){
   $.post({
@@ -488,6 +479,44 @@ modalimgFile = new Modal(document.querySelector("body"), {
 //BOUTONS CONFIRMATION MODAL*************************************************
 $(window).bind("load", function() {
 
+
+  //DEBUT DRAGNDROP
+  $(document).ready(function(){  
+    $('.file_drag_area').on('dragover', function(){  
+         $(this).addClass('file_drag_over');  
+         return false;  
+    });  
+    $('.file_drag_area').on('dragleave', function(){  
+         $(this).removeClass('file_drag_over');  
+         return false;  
+    });  
+    $('.file_drag_area').on('drop', function(e){  
+         e.preventDefault();  
+         $(this).removeClass('file_drag_over');  
+         var formData = new FormData();  
+         var files_list = e.originalEvent.dataTransfer.files;  
+         console.log(files_list);  
+         for(var i=0; i<files_list.length; i++)  
+         {  
+              formData.append('file[]', files_list[i]);  
+         }  
+         console.log(formData);  
+         $.ajax({  
+              url:"files",  
+              method:"POST",  
+              data:{action:'addDoc', formData},  
+              contentType:false,  
+              cache: false,  
+              processData: false,  
+              success:function(data){  
+                   console.log(data);  
+              }  
+         })  
+    });  
+});  
+
+
+  // FIN DRAGNDROP
   $("#signalCom-wrapper").hide();
   $("#modCom-wrapper").hide();
   $("#billet-wrapper").show();
@@ -508,9 +537,7 @@ $(window).bind("load", function() {
     });
   });
 //BOUTONS NOUVEAU DOC
-$("#docFileModal-validBtn").on("click", function() {
 
-})
 //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {
     //modalUnsignalCom;

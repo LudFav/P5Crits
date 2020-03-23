@@ -19,6 +19,8 @@ class ControllerUpload{
   function modalFileShow(){
   $output=''; 
    if(isset($_FILES['file']['name'][0])){
+      $userId = $_SESSION['admin']['id'];
+      $docpath = "documents/".$userId;
       $countfiles = count($_FILES['file']['name']);
       $return_arr = array();
       $date = new \DateTime();
@@ -30,7 +32,6 @@ class ControllerUpload{
         $fileExtension = $array[1];
         $filename = $fileTitle."_".$timeStp.".".$fileExtension;
         $filesize = $_FILES['file']['size'][$i];
-        $docpath = "documents/".$_SESSION['admin']['id'];
         if( is_dir($docpath) === false ){
           mkdir($docpath);
         }
@@ -66,8 +67,17 @@ class ControllerUpload{
               $output.= '</div>';
           }
           if(isset($_POST['action']) && $_POST['action']=='showFiles'){
-            echo 'test';
-            
+            $create = array(
+              'userId'=>$userId,
+              'name'=>$filename,
+              'file_url'=>$filepath
+            );
+            if( $mtype == "application/pdf"){
+            $_fileManager->createFile('docfile', $create, $userId);
+            } else if ($mtype =="image/*"){
+              $_fileManager->createFile('imgfile', $create, $userId);
+            }
+            echo 'test showfile';
          }
       }
       $data['output'] = $output;

@@ -386,11 +386,12 @@ function deleteModComBtn(idModComToDelete) {
   });
 }
 
-function uploadDocFile(){
+function showFile(){
+let type = $(".thumbnail").attr("data");
   $.post({
     url:"upload",
-    data: {action: "uploadDocFiles"},
-    sucess: function(data) {
+    data: {action: "showFiles"},
+    success: function(data) {
       console.log(data)
     }
   })
@@ -474,9 +475,9 @@ modalAlertUpdate =  new Modal(document.querySelector("body"), {
 //MODAL UPLOAD
 modalDocFile = new Modal(document.querySelector("body"), {
   id: "docFileModal",
-  titre: "Upload de document",
+  titre: "Upload de fichier",
   type: "upload",
-  message: "type de doc attendu : pdf ou PDF</br>Taille max : 5mo"
+  message: "Type de fichier attendu :</br> pdf, jpg, jpeg, png, gif, bmp</br>Taille max : 5mo"
 });
 
 modalimgFile = new Modal(document.querySelector("body"), {
@@ -578,8 +579,7 @@ function convertSize(size) {
   });
 //BOUTONS NOUVEAU DOC
 $("#docFileModal-validBtn").on("click", function(){
-  console.log("test");
-  uploadDocFile();
+  showFile()
 })
 //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {

@@ -11,13 +11,13 @@ require_once('portal/controllers/ajaxAdminPhp/ajaxAdminImgFile.php');
 class ControllerUpload{
 
     public function __construct(){
-        $this->docFileShow();
+      $this->_fileManager = new \CritsPortal\models\fileManager; 
+        $this->modalFileShow();
+        $this->fileShow();
   }
 
-  function docFileShow(){
-    $output='';
-    
-    
+  function modalFileShow(){
+  $output=''; 
    if(isset($_FILES['file']['name'][0])){
       $countfiles = count($_FILES['file']['name']);
       $return_arr = array();
@@ -39,42 +39,46 @@ class ControllerUpload{
         $finfo = finfo_open( FILEINFO_MIME_TYPE );
         $tmpname =  $_FILES['file']['tmp_name'][$i];
         $mtype = finfo_file( $finfo, $tmpname );
-	      finfo_close( $finfo );
-        if ( $mtype == "application/pdf") {
-          move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath);
-          $output.= '<div id="thumbnail_'.$filename.'" class="thumbnail">';
-          $output.= '<img src="documents/default.png" width="100%" height="78%">';
-          $output.= '<span class="size">'.$filename.'<span></br>';
-          $output.= '</div>';
-          
-        } else if($mtype == "image/png"  ||
-	           $mtype ==  "image/jpeg"  || 
-	           $mtype == "image/gif" || 
-	           $mtype ==  "image/psd"  || 
-             $mtype == "image/bmp" 
-        ) {
-           move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath);
-           $output.= '<div id="thumbnail_'.$filename.'" class="thumbnail">';
-           $output.= '<img src="'.$filepath.'" width="100%" height="78%">';
-           $output.= '<span class="size">'.$filename.'<span></br>';
-           $output.= '</div>';
-          } else if ( $filesize  > 800000){
-              $output.= '<div id="thumbnail_'.$filename.'" class="thumbnail">';
-              $output.= '<img src="documents/error.png" width="100%" height="78%">';
-              $output.= '<span class="size" style="color:red;">'.$filename.' Depasse la limite de 5Mo<span></br>';
+        finfo_close( $finfo );
+        if($mtype == "application/pdf" || $mtype == "image/png"  || $mtype ==  "image/jpg" || $mtype ==  "image/jpeg" || $mtype == "image/gif" || $mtype == "image/bmp") {
+          if ( $filesize  > 5000000){
+              $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file">';
+              $output.= '<img src="documents/error.png">';
+              $output.= '<p class="size" style="color:red;">'.$filename.' Depasse la limite de 5Mo<p></br>';
               $output.= '</div>';
+              } else if( $mtype == "application/pdf") {
+                move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath);
+                  $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file" data-type="document">';
+                  $output.= '<img src="documents/default.png">';
+                  $output.= '<p class="size">'.$filename.'<p></br>';
+                  $output.= '</div>';
               } else {
-              $output.= '<div id="thumbnail_'.$filename.'" class="thumbnail">';
-              $output.= '<img src="documents/error.png" width="100%" height="78%">';
-              $output.= '<span class="size" style="color:red;">'.$filename.' Mauvais type de fichier<span></br>';
-              $output.= '</div>';
+                  move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath);
+                  $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file" data-type="image">';
+                  $output.= '<img src="'.$filepath.'">';
+                  $output.= '<p class="size">'.$filename.'<p></br>';
+                  $output.= '</div>';
               }
+          } else {
+              $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file">';
+              $output.= '<img src="documents/error.png">';
+              $output.= '<p class="size" style="color:red;">'.$filename.' Mauvais type de fichier<p></br>';
+              $output.= '</div>';
+          }
+          if(isset($_POST['action']) && $_POST['action']=='showFiles'){
+            echo 'test';
+            
+         }
       }
       $data['output'] = $output;
       $data['return_arr'] = $return_arr;
       $responseDocFile = json_encode($data);
       exit($responseDocFile);
     }
+  }
+
+  function fileShow(){
+   
   }
 
 

@@ -13,12 +13,7 @@
           </li>
           <li class="nav-item active" id="docLibraryLink">
             <a class="nav-link" href="#">
-             Bibliothèque de documents
-            </a>
-          </li>
-          <li class="nav-item active" id="imgLibraryLink">
-            <a class="nav-link" href="#">
-             Bibliothèque d'images
+             Mediathèque
             </a>
           </li>
           <li class="nav-item" id="signalComLink">
@@ -72,27 +67,56 @@
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6" id="docLibraryTableTitre">
-						          <h2>Bibliotheque de documents</h2>
+						          <h2>Mediathèque</h2>
                     </div>
 					          <div class="col-sm-6">
-						          <button class="btn btn-success" id="addDocFile" data-toggle="modal" data-target="#docFileModal"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Document</strong></span></button>
+						          <button class="btn btn-success" id="addDocFile" data-toggle="modal" data-target="#docFileModal"><i class="fa fa-plus" aria-hidden="true"></i><span><strong>Nouveau Fichier</strong></span></button>
 					          </div>
                 </div>
             </div>
             <div class="table-responsive">
+
+            <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>Documents PDF</h5>
                 <table class="table table-striped table-hover" id='tableDocLib'>
                     <thead>
                         <tr>
-                            <th class="tdId">ID</th>
                             <th class="tdName">Nom</th>
-			    			<th class="tdType">type</th>
-                            <th class="tdDate">Date</th>
                             <th style="text-align:center;">Actions</th>
                         </tr>
                     </thead>
                     <tbody id="tbodyDocLibrary">
                     </tbody>    
                 </table>
+                </div>
+                <div class="col">
+                    <h5>Images</h5>
+                <table class="table table-striped table-hover" id='tableImgLib'>
+                    <thead>
+                        <tr><th class="tdThmb">Thmbnail</th>
+                            <th class="tdName">Nom</th>
+                            <th style="text-align:center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyImgLibrary">
+                    </tbody>    
+                </table>
+                </div>
+            </div>
+                <!--<table class="table table-striped table-hover" id='tableDocLib'>
+                    <thead>
+                        <tr>
+                            <th class="tdId">ID</th>
+                            <th class="tdName">Nom</th>
+			    			<th class="tdType">type</th>
+                            <th style="text-align:center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyDocLibrary">
+                    </tbody>    
+                </table>-->
             </div>
             <div id='paginationAdminDocLibrary'>
             </div>  

@@ -386,6 +386,16 @@ function deleteModComBtn(idModComToDelete) {
   });
 }
 
+function uploadDocFile(){
+  $.post({
+    url:"upload",
+    data: {action: "uploadDocFiles"},
+    sucess: function(data) {
+      console.log(data)
+    }
+  })
+}
+
 function validateEdit(){
     $("#formEditBillet").on('submit', function(){
     if(!$("#textareaEditC").val() == true){
@@ -504,13 +514,15 @@ $(window).bind("load", function() {
          $.ajax({  
               url:"upload",  
               method:"POST",  
-              data:{action:'addDoc', formData},  
+              data: formData,  
               contentType:false,  
               cache: false,  
               processData: false,  
               success:function(data){  
-                console.log(data)   
-                //addThumbnail(data);  
+               
+                response = JSON.parse(data);
+                responseThumb = response.output;
+                $("#uploadfile").html(responseThumb);  
               }  
          })  
     });  
@@ -565,7 +577,10 @@ function convertSize(size) {
     });
   });
 //BOUTONS NOUVEAU DOC
-
+$("#docFileModal-validBtn").on("click", function(){
+  console.log("test");
+  uploadDocFile();
+})
 //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {
     //modalUnsignalCom;

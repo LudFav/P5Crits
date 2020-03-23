@@ -79,11 +79,11 @@ class FileManager extends Model implements crud {
       $req->closeCursor();
     }
     
-    public function createFile($table, $data, $UserId){
+    public function createFile($table, $data){
       return $this->create($table, array(
-        'UserId'=> $_POST['UserId'],
-        'name' => htmlspecialchars($_POST['name']),
-        'file_url'=> htmlspecialchars($_POST['file_url']),    
+        'userId' => $userId,
+        'name' => $name,
+        'file_url' => $file_url,    
         'date'   => (new \DateTime())->format('Y-m-d H:i:s')
       ));
     }

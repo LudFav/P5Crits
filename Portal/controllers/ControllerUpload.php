@@ -67,7 +67,7 @@ class ControllerUpload{
               $output.= '</div>';
           }
           if(isset($_POST['action']) && $_POST['action']=='showFiles'){
-            $create = array(
+            /*$create = array(
               'userId'=>$userId,
               'name'=>$filename,
               'file_url'=>$filepath
@@ -76,8 +76,9 @@ class ControllerUpload{
             $_fileManager->createFile('docfile', $create, $userId);
             } else if ($mtype =="image/*"){
               $_fileManager->createFile('imgfile', $create, $userId);
-            }
-            echo 'test showfile';
+            }*/
+            $message = 'test showfile';
+            exit($message);
          }
       }
       $data['output'] = $output;

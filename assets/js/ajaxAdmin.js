@@ -387,10 +387,10 @@ function deleteModComBtn(idModComToDelete) {
 }
 
 function showFile(){
-let type = $(".thumbnail").attr("data");
+  console.log('test bouton validation')
   $.post({
     url:"upload",
-    data: {action: "showFiles"},
+    data: {'action':"showFiles"},
     success: function(data) {
       console.log(data)
     }
@@ -580,6 +580,7 @@ function convertSize(size) {
 //BOUTONS NOUVEAU DOC
 $("#docFileModal-validBtn").on("click", function(){
   showFile()
+  console.log('test fonction')
 })
 //BOUTONS COMMENTAIRES SIGNALÉS
   $(".unsignalComBtn").on("click", function() {

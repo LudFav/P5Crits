@@ -390,9 +390,10 @@ function showFile(){
   console.log('test bouton validation')
   $.post({
     url:"upload",
-    data: {'action':"showFiles"},
+    data: {action:"showFiles"},
     success: function(data) {
-      console.log(data)
+      console.log(data);
+      console.log('test ajax')
     }
   })
 }

@@ -80,12 +80,7 @@ class FileManager extends Model implements crud {
     }
     
     public function createFile($table, $data){
-      return $this->create($table, array(
-        'userId' => $userId,
-        'name' => $name,
-        'file_url' => $file_url,    
-        'date'   => (new \DateTime())->format('Y-m-d H:i:s')
-      ));
+      return $this->create($table, $data);
     }
 
     public function getFiles($table, $UserId, $page, $entiteParPage){

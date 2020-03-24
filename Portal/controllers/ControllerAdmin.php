@@ -7,8 +7,8 @@ require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
 require_once('portal/controllers/ajaxAdminPhp/ajaxAdminBillet.php');
 require_once('portal/controllers/ajaxAdminPhp/ajaxAdminComSign.php');
 require_once('portal/controllers/ajaxAdminPhp/ajaxAdminComMod.php');
-require_once('portal/controllers/ajaxAdminPhp/ajaxAdminDocFile.php');
-require_once('portal/controllers/ajaxAdminPhp/ajaxAdminImgFile.php');
+require_once('portal/controllers/ajaxAdminPhp/ajaxAdminMedia.php');
+
 
 
 

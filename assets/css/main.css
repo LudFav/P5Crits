@@ -1030,7 +1030,7 @@ td.actionTd, td.commentActionTd {
     cursor: pointer;
 }
 
-.deleteComBtn, .deleteModComBtn {
+.deleteComBtn, .deleteModComBtn, .deleteDocFile, .deleteImgFile {
     background-color: transparent;
 	border: none;
 	color: #d9534f;

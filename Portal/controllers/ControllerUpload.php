@@ -15,7 +15,7 @@ class ControllerUpload{
 
   public function __construct(){
         $this->modalFileShow();
-        $this->fileShow();
+       
   }
 
   function modalFileShow(){
@@ -23,7 +23,7 @@ class ControllerUpload{
   $this->_fileManager = new \CritsPortal\models\fileManager; 
    if(isset($_FILES['file']['name'][0])){
       $userId = $_SESSION['admin']['id'];
-      $docpath = "documents/".$userId;
+      $tempDocPath = "upload/".$userId;
       $countfiles = count($_FILES['file']['name']);
       $return_arr = array();
       $date = new \DateTime();
@@ -37,10 +37,10 @@ class ControllerUpload{
         $fileExtension = $array[1];
         $filename = $fileTitle."_".$timeStp.".".$fileExtension;
         $filesize = $_FILES['file']['size'][$i];
-        if( is_dir($docpath) === false ){
-          mkdir($docpath);
+        if( is_dir($tempDocPath) === false ){
+          mkdir($tempDocPath);
         }
-        $filepath = $docpath .'/ '. $filename; 
+        $filepath = $tempDocPath .'/ '. $filename; 
         $return_arr[] = array("name" => $filename,"size" => $filesize, "src"=> $filepath);
         $finfo = finfo_open( FILEINFO_MIME_TYPE );
         $tmpname =  $_FILES['file']['tmp_name'][$i];
@@ -88,14 +88,7 @@ class ControllerUpload{
       $data['return_arr'] = $return_arr;
       $responseDocFile=json_encode($data);
       echo $responseDocFile;
-      //exit($responseDocFile);
     }
   }
-
-  function fileShow(){
-    
-
-
-  }  
 }
 

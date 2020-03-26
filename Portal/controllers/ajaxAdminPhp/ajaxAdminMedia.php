@@ -17,8 +17,8 @@ if(isset($_POST['action']) && $_POST['action']=='showDocFile'){
     $docFileOutput = '';
     foreach ($docFiles as $docFile){
         $docFileOutput .= '<tr class="docFileRow' .$docFile->id(). '">';
-        $docFileOutput .= '<a href="'.$docFile->file_url(). '"><td>' .$docFile->id(). '</td></a>';
         $docFileOutput .= '<td>' .$docFile->name(). '</td>';
+        $docFileOutput .= '<td class="docFileAction"> ';
         $docFileOutput .= '<button class="deleteDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#deleteDocFile" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $docFileOutput .= '</td>';
         $docFileOutput .= '</tr>'; 
@@ -47,6 +47,7 @@ if(isset($_POST['action']) && $_POST['action']=='showImgFile'){
         $imgFileOutput .= '<tr class="imgFileRow' .$imgFile->id(). '">';
         $imgFileOutput .= '<td><img src="' .$imgFile->file_url(). '" alt="' .$imgFile->name(). '" class="thumbnail file"></td>';
         $imgFileOutput .= '<td>' .$imgFile->name(). '</td>';
+        $imgFileOutput .= '<td class="deleteImgFile">';
         $imgFileOutput .= '<button class="deleteImgFile" value="' .$imgFile->id(). '" data-toggle="modal" data-target ="#deleteImgFile" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $imgFileOutput .= '</td>';
         $imgFileOutput .= '</tr>'; 

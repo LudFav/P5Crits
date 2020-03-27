@@ -23,7 +23,7 @@ class ControllerUpload{
   $this->_fileManager = new \CritsPortal\models\fileManager; 
    if(isset($_FILES['file']['name'][0])){
       $userId = $_SESSION['admin']['id'];
-      $tempDocPath = "upload/".$userId;
+      $tempDocPath = "uploads/".$userId;
       $countfiles = count($_FILES['file']['name']);
       $return_arr = array();
       $date = new \DateTime();

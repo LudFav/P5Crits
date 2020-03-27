@@ -25,27 +25,6 @@ function isLoggedin() {
 
 //FONCTIONS REQUETES AJAX ACTIONS*****************************************
 
-function addImgFile(){
-  $.post({
-    url:"admin",
-    data: { action: "addImg"},
-    success: function(data) {
-      console.log(data);
-    }
-  })
-}
-
-function showFile(){
-  console.log('test bouton validation')
-  $.post({
-    url:"upload",
-    data: {action:"showFiles"},
-    success: function(data) {
-      console.log(data);
-      console.log('test ajax')
-    }
-  })
-}
 
 function validateEdit(){
     $("#formEditBillet").on('submit', function(){
@@ -93,71 +72,6 @@ modalimgFile = new Modal(document.querySelector("body"), {
 //BOUTONS CONFIRMATION MODAL*************************************************
 $(window).bind("load", function() {
 
-//DEBUT DRAGNDROP
-  $(document).ready(function(){  
-    $('.file_drag_area').on('dragover', function(){  
-         $(this).addClass('file_drag_over');  
-         return false;  
-    });  
-    $('.file_drag_area').on('dragleave', function(){  
-         $(this).removeClass('file_drag_over');  
-         return false;  
-    });  
-    $('.file_drag_area').on('drop', function(e){  
-         e.preventDefault();  
-         $(this).removeClass('file_drag_over');  
-         var formData = new FormData();  
-         var files_list = e.originalEvent.dataTransfer.files;  
-         
-         for(var i=0; i<files_list.length; i++)  
-         {  
-              formData.append('file[]', files_list[i]);  
-         }  
-      
-         $.ajax({  
-              url:"upload",  
-              method:"POST",  
-              data: formData,  
-              contentType:false,  
-              cache: false,  
-              processData: false,  
-              success:function(data){  
-               
-                response = JSON.parse(data);
-                responseThumb = response.output;
-                $("#uploadfile").html(responseThumb);  
-              }  
-         })  
-    });  
-});  
-
-function addThumbnail(data){
-  $("#uploadfile h1").remove(); 
-  var len = $("#uploadfile div.thumbnail").length;
-
-  var num = Number(len);
-  num = num + 1;
-
-  var name = data.name;
-  var size = convertSize(data.size);
-  var src = data.src;
-
-  // Creating an thumbnail
-  $("#uploadfile").append('<div id="thumbnail_'+num+'" class="thumbnail"></div>');
-  $("#thumbnail_"+num).append('<img src="'+src+'" width="100%" height="78%">');
-  $("#thumbnail_"+num).append('<span class="size">'+size+'<span>');
-}
-
-// Bytes conversion
-function convertSize(size) {
-  var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-  if (size == 0) return '0 Byte';
-  var i = parseInt(Math.floor(Math.log(size) / Math.log(1024)));
-  return Math.round(size / Math.pow(1024, i), 2) + ' ' + sizes[i];
-}
-
-// FIN DRAGNDROP
-
 $(".logout").on("click", function() {
   logout();
 });
@@ -180,20 +94,3 @@ isLoggedin();
 
 
 
-$("#docLib-wrapper").hide();
-$("#imgLib-wrapper").hide();
-
-$("#docLibraryLink").on("click", function(){
-  $("#billet-wrapper").hide();
-  $("#modCom-wrapper").hide();
-  $("#signalCom-wrapper").hide();
-  $("#imgLib-wrapper").hide();
-  $("#docLib-wrapper").fadeIn(1000);
-})
-$("#imgLibraryLink").on("click", function(){
-  $("#billet-wrapper").hide();
-  $("#modCom-wrapper").hide();
-  $("#signalCom-wrapper").hide();
-  $("#docLib-wrapper").hide();
-  $("#imgLib-wrapper").fadeIn(1000);
-})

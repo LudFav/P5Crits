@@ -86,7 +86,7 @@ function deleteModComBtn(idModComToDelete) {
     });
 }
 
-//COMMENTAIRES MODÉRÉ
+//MODAL
 modalUnmodereCom = new Modal(document.querySelector("body"), {
     id: "unmodereComModal",
     titre: "Modération",

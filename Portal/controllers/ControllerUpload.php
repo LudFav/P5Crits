@@ -40,16 +40,19 @@ class ControllerUpload{
         if( is_dir($tempDocPath) === false ){
           mkdir($tempDocPath);
         }
-        $filepath = $tempDocPath .'/ '. $filename; 
+        $filepath = $tempDocPath .'/'. $filename; 
         $return_arr[] = array("name" => $filename,"size" => $filesize, "src"=> $filepath);
         $finfo = finfo_open( FILEINFO_MIME_TYPE );
         $tmpname =  $_FILES['file']['tmp_name'][$i];
         $mtype = finfo_file( $finfo, $tmpname );
+        $typeOfFile = $mtype == "application/pdf"? 'document':'image';
         finfo_close( $finfo );
         $create = array(
           'userId'=>$userId,
           'name'=>$filename,
-          'file_url'=>$filepath
+          'file_url'=>$filepath,
+          'date' => (new \DateTime())->format('Y-m-d H:i'),
+          'type' => $typeOfFile
         );
 
         if($mtype == "application/pdf" || $mtype == "image/png"  || $mtype ==  "image/jpg" || $mtype ==  "image/jpeg" || $mtype == "image/gif" || $mtype == "image/bmp") {
@@ -82,8 +85,6 @@ class ControllerUpload{
 
          
       }
-      
-      
       $data['output'] = $output;
       $data['return_arr'] = $return_arr;
       $responseDocFile=json_encode($data);

@@ -101,10 +101,6 @@ class Modal {
                 //Fichier
                 let inputFile = $(' <div class="file_drag_area">Drop Files Here</div>').appendTo(this.modalFormName);
                 let dropzone =  $('<div class="upload-area"  id="uploadfile"></div>').appendTo(this.modalFormName);
-                //CREATION DIV et Button de modal, si local et session storage sont supporté on sauvegarde nom et prenom en local
-                this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
-                let validBtn = $('<button type="button" value="Envoyer" class="btn btn-primary" id="'+modalId + '-validBtn'+'" >Valider</button>').appendTo($(this.modalFooter));
-                let annulBtn = $('<button type="button" class="btn btn-secondary" data-dismiss="modal" id="'+modalId+'-cancelBtn">Annuler</button>').appendTo($(this.modalFooter));    
             }
 
         } 

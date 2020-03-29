@@ -8,6 +8,7 @@ class File
     private $_file_url;
     private $_userId;
     private $_date;
+    private $_type;
    
     public function __construct(array $data){
         $this->hydrate($data);
@@ -45,7 +46,11 @@ class File
     }
 
     public function setDate($date){
-        $this->_date= $date;   
+        $this->_date = $date;   
+    }
+
+    public function setType($type){
+        $this->_type = $type;
     }
  //getters
     public function id(){
@@ -65,5 +70,9 @@ class File
 
     public function date(){
         return $this->_date;
+    }
+
+    public function type(){
+        return $this->_type;
     }
 }

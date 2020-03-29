@@ -1125,33 +1125,147 @@ button#login {
 	fill:black; 
 }
 
-.nav-item{
-	padding-bottom: 15px;
-	background: #435d7d;
-	color: #fff;
-	padding: 16px 30px;
-	margin: -20px -25px 10px;
-	border-radius: 3px 3px 0 0;
-	cursor: pointer;
-}
-
-nav.sidebar {
-    margin-top: 50px;
-}
-
-.nav-link{
+/* SUBNAVBAR**************/
+:root {
 	font-size: 16px;
-	color:white;
+	font-family: 'Open Sans';
+	--text-primary: white;
+	--text-secondary: #d88554;
+	--bg-primary: #4a688b;
+	--bg-secondary: #33465e;
+	--transition-speed: 200ms;
+  }
+
+.subNavBar{
+	position: fixed;
+	background-color: var(--bg-primary);
+	transition: width 600ms ease;
 }
 
-.nav-item:hover{
-	color: #df7a72;
-	background: #bbc9da;
-}
+.subNavBar-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
+  }
+  .subNav-item {
+	width: 100%;
+  }
+  .subNav-link {
+	display: flex;
+	align-items: center;
+	height: 5rem;
+	color: var(--text-primary);
+	text-decoration: none;
+	filter: grayscale(20%) opacity(0.7);
+	transition: var(--transition-speed);
+  }
+  
+  .subNav-link:hover {
+	filter: grayscale(0%) opacity(1);
+	background: var(--bg-secondary);
+	color: var(--text-secondary);
+	text-decoration:none;
+	font-weight:bold;
+  }
+  
+  .link-text {
+	display: none;
+  }
 
-.nav-link:hover, .nav-link:focus{
-	color: #df7a72;
-}
+
+  .subNav-link i {
+	width: 2rem;
+	min-width: 2rem;
+	margin: 0 1rem;
+  }
+
+
+  
+  .subLogo {
+	font-weight: bold;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+  }
+  
+  .subLogo i {
+	transform: rotate(0deg);
+	transition: var(--transition-speed);
+	color: var(--text-primary);
+  }
+  
+  .subLogo-text
+  {
+	display: inline;
+	position: absolute;
+	text-align: center;
+	left: -999px;
+	transition: var(--transition-speed);
+	color: var(--text-primary);
+  }
+  
+  .subNavBar:hover .subLogo i {
+	transform: rotate(-180deg);
+  }
+  
+  /* Small screens */
+  @media screen and (max-width: 844px) {
+	.subNavBar {
+	  bottom: 0;
+	  width: 100vw;
+	  height: 5rem;
+	  z-index:12;
+	}
+  
+	.subLogo {
+	  display: none;
+	}
+  
+	.subNavBar-nav {
+	  flex-direction: row;
+	}
+  
+	.subNav-link {
+	  justify-content: center;
+	}
+  
+	main {
+	  margin: 0;
+	}
+  }
+  
+  /* Large screens */
+  @media screen and (min-width: 844px) {
+	.subNavBar {
+	  top: 150px;
+	  width: 5rem;
+	  height: auto;
+	  z-index:12;
+	}
+  
+	.subNavBar:hover {
+	  width: 16rem;
+	}
+  
+	.subNavBar:hover .link-text {
+	  display: inline;
+	}
+  
+	.subNavBar:hover .subLogo i
+	{
+	  margin-left: 11rem;
+	}
+  
+	.subNavBar:hover .subLogo-text
+	{
+	  left: 65px;
+	}
+  }
+
+
 
 .erreurMessage.cont{
 	position: relative;
@@ -1287,9 +1401,8 @@ body {
 	display:flex;
 }
 .thumbnail img{
-	width:90px;
-	height:80px;
-	margin:auto;
+	width:60px;
+	height:50px;
 }
 .size{
 	font-size:12px;
@@ -1663,7 +1776,7 @@ div#billetAccueil {
 #header nav {
 	padding: 0 1em;
 }
-#header h1, #headerAcueil h1 {
+#header h1, #headerAccueil h1 {
 	font-size: 3em;
 }
 

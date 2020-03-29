@@ -45,7 +45,7 @@ class FileManager extends Model implements crud {
     public function readOne($table, $obj, $id){
       $this->getBdd();
       $file = [];
-      $req = self::$_bdd->prepare("SELECT id, name, file_url $table WHERE id = ?");
+      $req = self::$_bdd->prepare("SELECT * FROM $table WHERE id = ?");
       $req->execute(array($id));
       while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
         $file[] = new File($data);
@@ -87,8 +87,8 @@ class FileManager extends Model implements crud {
       return $this->readAll($table, 'File', $page, $entiteParPage, $UserId);
     }
     
-    public function getFile($table, $UserId){
-      return $this->readOne($table, 'File', $UserId);
+    public function getFile($table, $id){
+      return $this->readOne($table, 'File', $id);
     }
     
     public function getPageMax($table, $entiteParPage, $UserId){
@@ -97,7 +97,7 @@ class FileManager extends Model implements crud {
     }
 
     public function deleteFile($table, $id){
-      return $this->delete($table, "`id` = '{$_POST['deleteFile']}'");
+      return $this->delete($table, $id);
     }
 
 }

@@ -34,6 +34,8 @@ function docTable() {
           newButtonDeleteDoc.on("click", function() {
           modalDeleteDoc;
           idDocToDelete = $(this).attr("value");
+          docNameToDel = $('.docname'+idDocToDelete).attr("value");
+          passValueDoc(idDocToDelete, docNameToDel)
           });
           $("#tbodyDocLibrary").html(newDocTable);
           pageDoc;
@@ -96,6 +98,8 @@ function docTable() {
           newButtonDeleteImg.on("click", function() {
           modalDeleteImg;
           idImgToDelete = $(this).attr("value");
+          imgNameToDel = $('.thumbnail.file'+idImgToDelete).attr("alt");
+          passValueImg(idImgToDelete, imgNameToDel);
           });
           $("#tbodyImgLibrary").html(newImgTable);
           pageImg;
@@ -148,11 +152,75 @@ function docTable() {
       }
     })
   }
-  
 
+  function deleteDocument(idDocToDelete, docNameToDel) {
+    $.post({
+      url: "admin",
+      data: { action: "deleteThisDoc", 'deleteDoc': idDocToDelete, 'deleteDocUrl':docNameToDel},
+      success: function(data) {
+        //console.log(data)
+        docTable();
+      }
+    });
+  }
+
+  function deleteImage(idImgToDelete, imgNameToDel) {
+    console.log('test delete image');
+    $.post({
+      url: "admin",
+      data: { action: "deleteThisImg", 'deleteImg': idImgToDelete, 'deleteImgUrl': imgNameToDel},
+      success: function(data) {
+        console.log(data);
+        imgTable();
+      }
+    });
+  }
+
+  function passValueDoc(idDocToDelete, docNameToDel){
+    $(".deleteDocFileModal-confirmBtn").attr({value: idDocToDelete, "data-name": docNameToDel});
+  }
+  function passValueImg(idImgToDelete, imgNameToDel){
+    $(".deleteImgFileModal-confirmBtn").attr({value: idImgToDelete, "data-name": imgNameToDel});
+  }
+//MODAL
+modalDeleteDoc = new Modal(document.querySelector("body"), {
+  id: "deleteDocFileModal",
+  titre: "Suppression de document",
+  type: "confirmation",
+  message: "Êtes-vous sur de vouloir supprimer ce document?"
+});
+
+modalDeleteImg = new Modal(document.querySelector("body"), {
+  id: "deleteImgFileModal",
+  titre: "Supression d'image",
+  type: "confirmation",
+  message: "Êtes-vous sur de vouloir supprimer cette image?"
+});
 
 
   $(window).bind("load", function() {
+    
+  $(".deleteDocFile").on("click", function() {
+    idDocToDelete = $(this).attr("value");
+    docNameToDel = $('.docname'+idDocToDelete).attr("value");
+    passValueDoc(idDocToDelete, docNameToDel)
+  });
+  $(".deleteDocFileModal-confirmBtn").on("click", function() {
+    $(".docFileRow" + idDocToDelete).fadeOut("slow", function() {
+      deleteDocument(idDocToDelete, docNameToDel);
+    });
+  });
+
+  $(".deleteImgFile").on("click", function() {
+    idImgToDelete = $(this).attr("value");
+    imgNameToDel = $('.thumbnail.file'+idImgToDelete).attr("alt");
+    passValueImg(idImgToDelete, imgNameToDel);
+  });
+  $(".deleteImgFileModal-confirmBtn").on("click", function() {
+    $(".imgFileRow" + idImgToDelete).fadeOut("slow", function() {
+      deleteImage(idImgToDelete, imgNameToDel);
+    });
+  });
 
     //DEBUT DRAGNDROP
       $(document).ready(function(){  
@@ -222,7 +290,6 @@ function docTable() {
 
   
 $("#docLib-wrapper").hide();
-
 $("#docLibraryLink").on("click", function(){
   $("#billet-wrapper").hide();
   $("#modCom-wrapper").hide();

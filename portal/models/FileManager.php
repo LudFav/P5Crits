@@ -72,9 +72,9 @@ class FileManager extends Model implements crud {
       $req->closeCursor();
     }
     
-    public function delete($table, $where){
+    public function delete($table, $id){
       $this->getBdd();
-      $req = self::$_bdd->prepare("DELETE FROM $table WHERE $where");
+      $req = self::$_bdd->prepare("DELETE FROM $table WHERE id = $id");
       $req->execute();
       $req->closeCursor();
     }

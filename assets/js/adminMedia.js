@@ -19,13 +19,14 @@ function docTable() {
           docPagesMax,
           pageDoc
         );
+        
         if (!$.trim(responseDocTable)) {
-          $("#docTableTitre h2").text("0 document enregistré");
-          $("#tableDoc").hide();
+          $(".docTable h5").text("0 document enregistré");
+          $("#tableDocLib").hide();
           $("#pageAdminDoc").hide();
         } else {
-          $("#docTableTitre h2").text("Documents PDF");
-          $("#tableDoc").show();
+          $(".docTable h5").text("Documents PDF");
+          $("#tableDocLib").show();
           if(docPagesMax<=1){ 
             $("#pageAdminDoc").hide();
           }
@@ -84,12 +85,12 @@ function docTable() {
           pageImg
         );
         if (!$.trim(responseImgTable)) {
-          $("#imgTableTitre h2").text("0 image enregistrée");
-          $("#tableImg").hide();
+          $(".imgTable h5").text("0 image enregistrée");
+          $("#tableImgLib").hide();
           $("#pageAdminImg").hide();
         } else {
-          $("#imgTableTitre h2").text("Images");
-          $("#tableImg").show();
+          $(".imgTable h5").text("Images");
+          $("#tableImgLib").show();
           if(imgPagesMax<=1){ 
             $("#pageAdminImg").hide();
           }

@@ -1006,18 +1006,18 @@ input.addBillet, input.editBillet{
 	background-color:#c56361
 }
 
-td.actionTd, td.commentActionTd {
+td.actionTd, td.commentActionTd, td.docFileAction, td.imgFileAction {
 	display: flex;
 }
 
-.visualBilBtn i{	
+.visualBilBtn i, .visualDocBtn i, .visualImgBtn i{	
 	color: #17a2b8;   
 }
 
 .editBilBtn i{
 	color: #ffc107;
 }
-.editBilBtn, .visualBilBtn {
+.editBilBtn, .visualBilBtn, .visualDocBtn, .visualImgBtn {
 	background-color: transparent;
 	border: none;	
     cursor: pointer;

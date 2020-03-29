@@ -2,32 +2,42 @@
 <div class="container-fluid" style="padding-top:20px;">
     <div class="row">
 
-        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-            <div class="sidebar-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item active" id="billetLink">
-                        <a class="nav-link" href="#">
-                            <span class="glyphicon glyphicon-book"></span> Billets
+        <nav class="subNavBar">
+            
+                <ul class="subNavBar-nav">
+                    <li class="subLogo">
+                      <a href="#" class="nav-link">
+                      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                      <span class="link-text subLogo-text">Administration</span>    
+                      </a>
+                    </li>
+                    <li class="subNav-item active" id="billetLink">
+                        <a class="subNav-link" href="#">
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                            <span class="link-text">Billets</span>
                         </a>
                     </li>
-                    <li class="nav-item active" id="docLibraryLink">
-                        <a class="nav-link" href="#">
-                            Mediathèque
+                    <li class="subNav-item" id="docLibraryLink">
+                        <a class="subNav-link" href="#">
+                        <i class="fa fa-picture-o" aria-hidden="true"></i>
+                           <span class="link-text">Mediathèque</span>
                         </a>
                     </li>
-                    <li class="nav-item" id="signalComLink">
-                        <a class="nav-link" href="#">
-                            Commentaires Signalés
+                    <li class="subNav-item" id="signalComLink">
+                        <a class="subNav-link" href="#">
+                        <i class="fa fa-comments" aria-hidden="true"></i>
+                        <span class="link-text">Commentaires Signalés</span> 
                         </a>
                     </li>
-                    <li class="nav-item" id="modComLink">
-                        <a class="nav-link" href="#">
-                            Commentaires Modérés
+                    <li class="subNav-item" id="modComLink">
+                        <a class="subNav-link" href="#">
+                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                        <span class="link-text">Commentaires Modérés</span> 
                         </a>
                     </li>
 
                 </ul>
-            </div>
+           
         </nav>
 
         <div class="billetAdmin col-md-9 ml-sm-auto col-lg-10 px-4">
@@ -80,7 +90,7 @@
 
                     <div class="container">
                         <div class="row">
-                            <div class="col">
+                            <div class=" docTable col">
                                 <h5>Documents PDF</h5>
                                 <table class="table table-striped table-hover" id='tableDocLib'>
                                     <thead>
@@ -96,7 +106,7 @@
                             </div>
                             </div>
                             
-                            <div class="col">
+                            <div class="imgTable col">
                                 <h5>Images</h5>
                                 <table class="table table-striped table-hover" id='tableImgLib'>
                                     <thead>

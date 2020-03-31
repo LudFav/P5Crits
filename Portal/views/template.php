@@ -36,6 +36,7 @@
 			<script src="assets/js/jquery-3.4.1.min.js"></script>
 			<script src="assets/js/tether.min.js"></script>
 			<script src="assets/js/bootstrap.js"></script>
+			<script src="assets/js/Pagination.js"></script>
 			<script src="assets/js/Modal.js"></script>
 			<script src="assets/js/ajax.js"></script>
 			<script src="assets/js/main.js"></script>

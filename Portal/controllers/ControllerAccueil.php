@@ -9,10 +9,17 @@ class ControllerAccueil{
     if (isset($url) && count($url) > 1) {
       throw new \Exception("Page introuvable", 1);
     } else {
-      $this->_billetManager = new \CritsPortal\models\BilletManager;
-      $billet = $this->_billetManager->getLastBillet();
-      $this->_view = new \CritsPortal\views\View('Accueil');
-      $this->_view->generate('CRITS - Accueil', array('billet' => $billet)); 
+      $this->accueil();
     } 
+  }
+
+  private function accueil(){
+    $this->_billetManager = new \CritsPortal\models\BilletManager;
+    $billet = $this->_billetManager->getLastBillet();
+  
+    $this->_view = new \CritsPortal\views\View('accueil');
+   
+    $this->_view->generate('Accueil', array('billet' => $billet));
+
   }
 }

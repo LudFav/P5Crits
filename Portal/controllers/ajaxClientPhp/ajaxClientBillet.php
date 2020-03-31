@@ -14,15 +14,15 @@ $pages = $_billetManager->getPageMax($entiteParPage);
 if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
   $billetsAccueilOutput = '';
   foreach ($billets as $billet){ 
-       $billetsAccueilOutput.= '<div class="col-lg-4 col-md-6">';
-       $billetsAccueilOutput.= '<div class="card h-100">';
-       $billetsAccueilOutput.= '<div class="single-post post-style-1">';
-       $billetsAccueilOutput.= '<div class="blog-info">';
+       $billetsAccueilOutput.= '<article>';
+       $billetsAccueilOutput.= '<header>';
+       $billetsAccueilOutput.= '<span class="date">' .$billet->date(). '</span>';
+       $billetsAccueilOutput.= '<h2><a href="#">' .$billet->titre(). '<br />';
+       $billetsAccueilOutput .='<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>';
        $billetsAccueilOutput.= '<h5 class="title"><a href="post&id=' .$billet->id(). '"><b>' .$billet->titre(). '</b></a></h5>';
-       $billetsAccueilOutput.= '</div><!-- blog-info -->';
-       $billetsAccueilOutput.= '</div><!-- single-post -->';
-       $billetsAccueilOutput.= '</div><!-- card -->';
-       $billetsAccueilOutput.= '</div><!-- col-lg-4 col-md-6 -->';
+       $billetsAccueilOutput.= '<li><a href="#" class="button">Lire Article</a></li>';
+       $billetsAccueilOutput.= '</ul>';
+       $billetsAccueilOutput.= '</article>';
   }
   $data['billetsAccueilOutput'] = $billetsAccueilOutput;
   $data['page'] = $page;
@@ -30,3 +30,8 @@ if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
   $response = json_encode($data);
   exit($response);
 }  
+
+
+
+    
+

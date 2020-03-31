@@ -11,7 +11,7 @@ function moderedCommentTable() {
       responsemod = JSON.parse(data);
       responsemodTable = responsemod.moderedCommentOutput
       comModPagesMax = responsemod.maxPagesComMod;
-      comModPagination = new AdminPagination(
+      comModPagination = new Pagination(
           "#paginationComMod",
           'pageAdminComMod',
           comModPagesMax,

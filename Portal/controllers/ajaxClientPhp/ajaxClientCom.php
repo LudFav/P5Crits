@@ -1,7 +1,7 @@
 <?php
 use CritsPortal\models\CommentManager;
 
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/CommentManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/CommentManager.php');
 
 
 $_commentManager;

@@ -7,7 +7,7 @@ class ControllerUpdate {
   private $_view;
 
   public function __construct(){
-    require_once('portal/controllers/Router.php');
+    require_once('Portal/controllers/Router.php');
     if (isset($url) && count($url) < 1) {
         throw new \Exception("Page Introuvable");
     } else {

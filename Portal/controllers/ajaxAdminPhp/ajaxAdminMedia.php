@@ -1,6 +1,6 @@
 <?php
 use CritsPortal\models\FileManager;
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/UserManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/UserManager.php');
 
 
 $_FileManager = new FileManager;

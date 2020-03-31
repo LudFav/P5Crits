@@ -1,6 +1,6 @@
 <?php
 use CritsPortal\models\BilletManager;
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/BilletManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/BilletManager.php');
 
 $_billetManager;
 $_billetManager = new BilletManager; 

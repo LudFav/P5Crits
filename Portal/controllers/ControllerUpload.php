@@ -3,7 +3,7 @@ namespace CritsPortal\controllers;
 
 
 require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
-require_once('portal/controllers/ajaxAdminPhp/ajaxAdminMedia.php');
+require_once('Portal/controllers/ajaxAdminPhp/ajaxAdminMedia.php');
 
 
 

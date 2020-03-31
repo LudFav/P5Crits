@@ -53,7 +53,7 @@
 	});
 	</script>
 	<script src="assets/js/Modal.js"></script>
-	<script src="assets/js/AdminPagination.js"></script>
+	<script src="assets/js/Pagination.js"></script>
 	<script src="assets/js/adminMedia.js"></script>
 	<script src="assets/js/adminComSign.js"></script>
 	<script src="assets/js/adminComMod.js"></script>

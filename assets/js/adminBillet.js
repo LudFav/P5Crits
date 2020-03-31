@@ -11,7 +11,7 @@ function billetTable() {
         responseBillet = JSON.parse(data);
         responseBilletTable = responseBillet.billetsOutput;
         pagesMax = responseBillet.maxPages;
-        billetPage = new AdminPagination(
+        billetPage = new Pagination(
           "#paginationAdminBillet",
           "pageAdminBillet",
           pagesMax,

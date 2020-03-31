@@ -4,11 +4,12 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="fr">
 	<head>
 		<title><?= $title?></title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link href="assets/css/main2.css" rel="stylesheet"/>
         <link href="assets/css/main.css" rel="stylesheet"/>
         <link href="assets/css/main2.css" rel="stylesheet"/>
 		<link href="assets/css/bootstrap.css" rel="stylesheet">

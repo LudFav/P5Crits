@@ -1,6 +1,5 @@
 <?php
 namespace CritsPortal\views;
-
 class View
 {
   //fichier a envoyer a la vue

@@ -10,6 +10,7 @@ class Billet {
   private $_auteur;
   private $_titre;
   private $_contenu;
+  private $_contenu_cut;
   private $_date;
 
   public function __construct(array $data){
@@ -53,6 +54,11 @@ class Billet {
     }
   }
 
+  public function setContenu_cut($contenu_cut){
+    if(is_string($contenu_cut)){
+        $this->_contenu_cut= $contenu_cut;
+    }
+  }
   public function setDate($date){
     $this->_date= $date;   
   }
@@ -72,6 +78,10 @@ class Billet {
 
   public function contenu(){
     return $this->_contenu;
+  }
+
+  public function contenu_cut(){
+    return $this->_contenu_cut;
   }
 
   public function date(){

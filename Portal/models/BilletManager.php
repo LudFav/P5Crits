@@ -32,7 +32,7 @@ class BilletManager extends Model implements crud{
     $this->getBdd();
     $var = [];
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
-    $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
+    $req = self::$_bdd->prepare("SELECT id, auteur, titre, IF(CHAR_LENGTH(contenu) > 100, CONCAT(LEFT(contenu, 100), '...'), contenu) AS contenu_cut, contenu, date FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
       $var[] = new Billet($data);
@@ -56,6 +56,19 @@ class BilletManager extends Model implements crud{
       return false;
     }
     
+    $req->closeCursor();
+  }
+  
+
+  public function readLast($table){
+    $this->getBdd();
+    $var = [];
+    $req = self::$_bdd->prepare("SELECT id, auteur, titre, IF(CHAR_LENGTH(contenu) > 100, CONCAT(LEFT(contenu, 100), '...'), contenu) AS contenu_cut, date FROM $table ORDER BY id DESC LIMIT 1");
+    $req->execute();
+    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
+      $var[] = new Billet($data);
+    }
+    return $var;
     $req->closeCursor();
   }
 
@@ -95,6 +108,10 @@ class BilletManager extends Model implements crud{
     } else {
     return $this->readOne('billets', 'Billet', $id);
     }
+  }
+
+  public function getLastBillet(){
+    return $this->readLast('billets');
   }
 
   public function getPageMax($nbreEntitesParPage){

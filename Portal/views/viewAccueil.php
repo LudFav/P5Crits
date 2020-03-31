@@ -1,4 +1,4 @@
-				<header id="headerAcueil">
+				<header id="headerAccueil">
 					<h1>Billet simple pour l'Alaska</h1>
 					<p>de Jean Forteroche</p>
 				</header>

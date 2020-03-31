@@ -9,7 +9,7 @@ function commentTable() {
         response = JSON.parse(data);
         responseTable = response.commentOutput;
         comSignPagesMax = response.maxComSignPages;
-        comSignPagination = new AdminPagination(
+        comSignPagination = new Pagination(
           "#paginationComSign",
           "pageAdminComSign",
           comSignPagesMax,

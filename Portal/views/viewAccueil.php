@@ -12,7 +12,7 @@
 
     <!-- Header -->
         <header id="header">
-            <a href="index.html" class="logo"><img src='assets/images/Crits.svg'></a>
+            <a href="accueil" class="logo"><img src='assets/images/Crits.svg'></a>
         </header>
 
     <!-- Nav -->
@@ -34,9 +34,9 @@
 			<h2><?=$billet[0]->titre()?></h2></br>
 			<?=$billet[0]->contenu_cut()?>
 		</header>
-		<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
+		<a href="#" class="image main"><img src="assets/images/pic01.jpg" alt="" /></a>
 		<ul class="actions special">
-			<li><a href="<?=$billet->id()?>" class="button large">Lire Article</a></li>
+			<li><a href="post&id<?=$billet[0]->id()?>" class="button large">Lire Article</a></li>
 		</ul>
     </article>
-
+    </div

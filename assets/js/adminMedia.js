@@ -13,7 +13,7 @@ function docTable() {
         responseDoc= JSON.parse(data);
         responseDocTable = responseDoc.docFileOutput;
         docPagesMax = responseDoc.docFileMaxPages;
-        docPage = new AdminPagination(
+        docPage = new Pagination(
           "#paginationAdminDoc",
           "pageAdminDoc",
           docPagesMax,
@@ -78,7 +78,7 @@ function docTable() {
         responseImgTable = responseImg.imgFileOutput;
         imgPagesMax = responseImg.imgFileMaxPages;
         console.log('image pages max :'+imgPagesMax)
-        imgPage = new AdminPagination(
+        imgPage = new Pagination(
           "#paginationAdminImg",
           "pageAdminImg",
           imgPagesMax,

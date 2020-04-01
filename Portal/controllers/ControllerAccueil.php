@@ -17,9 +17,9 @@ class ControllerAccueil{
     $this->_billetManager = new \CritsPortal\models\BilletManager;
     $billet = $this->_billetManager->getLastBillet();
   
-    $this->_view = new \CritsPortal\views\View('accueil');
+    $this->_view = new \CritsPortal\views\View('Accueil');
    
-    $this->_view->generate('Accueil', array('billet' => $billet));
+    $this->_view->generate('Crits-Accueil', array('billet' => $billet));
 
   }
 }

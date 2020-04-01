@@ -56,7 +56,8 @@ function showComment() {
     $.post({
         url: 'post',
         data: { 'action': 'showComment', 'pageCom' : pageCom, 'billetId': idBillet},
-        success: function (data) {
+        success: function(data) {
+            console.log(data)
             responseFrontCom = JSON.parse(data);
             responseFrontComTable = responseFrontCom.commentairesOutput;
             frontComPagesMax = responseFrontCom.maxPagesComFront;

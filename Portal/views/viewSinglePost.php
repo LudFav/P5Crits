@@ -1,37 +1,39 @@
+<!-- Wrapper -->
+<div id="wrapper">
 
-    <div class="post-area container">
-      <article>
-			  <div class="row justify-content-center">
-          <div class="col-lg-8 col-md-12 no-right-padding">
-          <h2><?=$billet[0]->titre()?></h2>
-            <div class="main-post">
+<!-- Header -->
+<header id="header">
+            <a href="accueil" class="logo"><img src='assets/images/Crits.svg'></a>
+</header>
 
-              <div class="blog-post-inner">
+<!-- Nav -->
+  <nav id="nav">
+    <ul class="links">
+      <li><a href=accueil>Accueil</a></li>
+      <li><a href="sommaire">Sommaire</a></li>
+    </ul>
+  </nav>
 
-                <div class="post-info" data-trf="<?=$billet[0]->id()?>">
-                <div class="middle-area">
-                    <h6 class="date">Posté le <?=$billet[0]->date()?></h6>
-                </div>
+<!-- Main -->
+  <div id="main">
 
-                </div><!-- post-info -->
+    <!-- Post -->
+      <section class="post">
+        <header class="major">
+          <span class="date"><?=$billet[0]->date()?></span>
+          <h1><?=$billet[0]->titre()?></h1>
+        </header>
+        <div class="image main"><img src="assets/images/pic01.jpg" alt="" /></div>
+        <?=$billet[0]->contenu()?>
+      </section>
 
-
-                <div class="para"><?=$billet[0]->contenu()?></div>
-              </div><!-- blog-post-inner -->
-            </div><!-- main-post -->
-
-
-            </div><!-- col-lg-8 col-md-12 -->
-        </div><!-- .row -->
-      </article>
-      </div><!-- .container -->
-
-
+  
+<!-- Section Commentaire -->
 <section class="comment-section">
   <div class="container">
-    
+
     <div class="row justify-content-center">
-    
+
       <div class="col-lg-8 col-md-12">
       <h4><b>Commentaires</b></h4>
         <div class="comment-form">
@@ -59,7 +61,17 @@
     </div><!--row-->    
   </div><!-- .container -->
 </section><!-- .section commentaire-->
-</div><!--wrapper-->
+</div>
+<!-- Footer -->
+<footer id="footer">
+    
 
+  
+    </section>
+  </footer>
 
-
+<!-- Copyright -->
+  <div id="copyright">
+    <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+  </div>
+</div>

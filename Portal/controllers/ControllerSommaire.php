@@ -9,7 +9,7 @@ class ControllerSommaire{
       throw new \Exception("Page introuvable", 1);
     } else {
       $this->_view = new \CritsPortal\views\View('Sommaire');
-      $this->_view->generate('Sommaire', array());
+      $this->_view->generate('Crits-Sommaire', array());
     } 
   } 
 }

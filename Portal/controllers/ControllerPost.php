@@ -37,7 +37,7 @@ class ControllerPost {
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     } else{
       $this->_view = new \CritsPortal\views\View('SinglePost');
-      $this->_view->generate('Billet', array('billet' => $billet));
+      $this->_view->generate('Crits-Billet', array('billet' => $billet));
     }
     
   

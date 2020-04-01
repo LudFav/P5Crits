@@ -9,8 +9,8 @@
 		<title><?= $title?></title>
 		<meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link href="assets/css/main2.css" rel="stylesheet"/>
-        <link href="assets/css/main.css" rel="stylesheet"/>
+        
+        <!--<link href="assets/css/main.css" rel="stylesheet"/>-->
         <link href="assets/css/main2.css" rel="stylesheet"/>
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,8 +24,10 @@
         <footer id="footer">
 						
                         </footer>
-    
-                    <!-- Copyright -->
+                        <div class="container">
+                        <li><a href="" class="fas fa-sign-in-alt" id="login" data-toggle="modal" data-target="#connexion"><span class="label"></span></a></li>
+                        </div>
+                        <!-- Copyright -->
                         <div id="copyright">
                             <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
                         </div>
@@ -39,7 +41,7 @@
                 <script src="assets/js/browser.min.js"></script>
                 <script src="assets/js/breakpoints.min.js"></script>
                 <script src="assets/js/util.js"></script>
-                <script src="assets/js/jquery-3.4.1.min.js"></script>
+                <!--<script src="assets/js/jquery-3.4.1.min.js"></script>-->
                 <script src="assets/js/tether.min.js"></script>
                 <script src="assets/js/bootstrap.js"></script>
                 <script src="assets/js/Modal.js"></script>

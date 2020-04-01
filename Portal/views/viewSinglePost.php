@@ -3,7 +3,7 @@
 
 <!-- Header -->
 <header id="header">
-            <a href="accueil" class="logo"><img src='assets/images/Crits.svg'></a>
+            <a href="accueil" class="logo"><img src='assets/images/Critstest.png'></a>
 </header>
 
 <!-- Nav -->
@@ -18,9 +18,9 @@
   <div id="main">
 
     <!-- Post -->
-      <section class="post">
+      <section class="post post-info"  data-trf="<?=$billet[0]->id()?>">
         <header class="major">
-          <span class="date"><?=$billet[0]->date()?></span>
+          <span class="date"><?php $date = $billet[0]->date(); $newDate = date('d/m/Y H:i', strtotime($date)); echo $newDate; ?></span>
           <h1><?=$billet[0]->titre()?></h1>
         </header>
         <div class="image main"><img src="assets/images/pic01.jpg" alt="" /></div>
@@ -69,9 +69,4 @@
   
     </section>
   </footer>
-
-<!-- Copyright -->
-  <div id="copyright">
-    <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-  </div>
 </div>

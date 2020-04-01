@@ -123,7 +123,7 @@ class BilletManager extends Model implements crud{
     'auteur' => $data['auteur'],
     'titre'  => $data['titre'],
     'contenu'=> $data['contenu'],
-    'date'   => (new \DateTime())->format('Y-m-d H:i')
+    'date'   => (new \DateTime())->format('d/m/Y H:i')
   ));
   }
 

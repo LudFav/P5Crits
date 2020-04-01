@@ -7,19 +7,19 @@ require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/BilletManager.ph
 $_billetManager;
 $_billetManager = new BilletManager;
 $page = isset($_POST['page']) && is_numeric($_POST['page'])? $_POST['page'] : 1;
-$entiteParPage = 9; 
+$entiteParPage = 6; 
 $billets = $_billetManager->getBillets($page, $entiteParPage);
 $pages = $_billetManager->getPageMax($entiteParPage);
-if(isset($_POST['action']) && $_POST['action']=='showAccueilBillet'){
+if(isset($_POST['action']) && $_POST['action']=='showSommaire'){
   $billetsAccueilOutput = '';
   foreach ($billets as $billet){ 
        $billetsAccueilOutput.= '<article>';
        $billetsAccueilOutput.= '<header>';
        $billetsAccueilOutput.= '<span class="date">' .$billet->date(). '</span>';
        $billetsAccueilOutput.= '<h2>' .$billet->titre(). '<h2></br>';
-       $billetsAccueilOutput .='<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>';
-       $billetsAccueilOutput.= '' .$billet->contenu_cut. '';
-       $billetsAccueilOutput.= '<li><a href="post&id' .$billet->id(). '" class="button">Lire Article</a></li>';
+       $billetsAccueilOutput.='<a href="#" class="image fit"><img src="assets/images/pic02.jpg" alt="" /></a>';
+       //$billetsAccueilOutput.= '<p>' .$billet->contenu_cut. '</p>';
+       $billetsAccueilOutput.= '<li><a href="post&id=' .$billet->id(). '" class="button">Lire Article</a></li>';
        $billetsAccueilOutput.= '</ul>';
        $billetsAccueilOutput.= '</article>';
   }

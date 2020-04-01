@@ -32,7 +32,7 @@ class BilletManager extends Model implements crud{
     $this->getBdd();
     $var = [];
     $limit = (htmlspecialchars($page) - 1) * $entiteParPage. ', ' .$entiteParPage;
-    $req = self::$_bdd->prepare("SELECT id, auteur, titre, IF(CHAR_LENGTH(contenu) > 100, CONCAT(LEFT(contenu, 100), '...'), contenu) AS contenu_cut, contenu, date FROM $table ORDER BY id DESC LIMIT $limit");
+    $req = self::$_bdd->prepare("SELECT * FROM $table ORDER BY id DESC LIMIT $limit");
     $req->execute();
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
       $var[] = new Billet($data);

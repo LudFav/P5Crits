@@ -19,6 +19,7 @@
         <nav id="nav">
             <ul class="links">
                 <li class="active"><a href="accueil">Accueil</a></li>
+                <li><a href="sommaire">Sommaire</a></li>
                 <!--li a >adresse a remplir vers dernier article php-->
             </ul>
         </nav>
@@ -36,7 +37,7 @@
 		</header>
 		<a href="#" class="image main"><img src="assets/images/pic01.jpg" alt="" /></a>
 		<ul class="actions special">
-			<li><a href="post&id<?=$billet[0]->id()?>" class="button large">Lire Article</a></li>
+			<li><a href="post&id=<?=$billet[0]->id()?>" class="button large">Lire Article</a></li>
 		</ul>
     </article>
     </div

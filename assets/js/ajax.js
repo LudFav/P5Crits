@@ -6,19 +6,22 @@ showComment();
 function billetAccueil() {
     $.post({
         url: 'sommaire',
-        data: { 'action': 'showAccueilBillet', 'page': page },
+        data: { 'action': 'showSommaire', 'page': page },
         success: function (data) {
             responseBilletAccueil = JSON.parse(data);
             billetAccueilTable = responseBilletAccueil.billetsAccueilOutput;
+            
             accueilMaxPages = responseBilletAccueil.maxPages;
+            console.log(accueilMaxPages);
             billetAccueilPagination = new Pagination(
-                "#paginationAccueil",
-                "pageAccueilBillet",
+                "#paginationSommaire",
+                "pageSommaire",
                 accueilMaxPages,
                 page
             )
+            
             if (accueilMaxPages <= 1) {
-                $('#pageAccueilBillet').hide();
+                $('#pageSommaire').hide();
             }
             $('#billetAccueil').html(billetAccueilTable);
             billetAccueilPagination;
@@ -28,20 +31,20 @@ function billetAccueil() {
 }
 
 function billetAccueilButtonPagination(accueilMaxPages) {
-    $(".pageAccueilBillet.page-link.next").one("click", function (e) {
+    $(".pageSommaire.page-link.next").one("click", function (e) {
         e.preventDefault();
         if (page < accueilMaxPages) {
             page = page + 1;
             billetAccueil();
         }
     });
-    $(".pageAccueilBillet.page-link.prev").on("click", function () {
+    $(".pageSommaire.page-link.prev").on("click", function () {
         if (page > 1) {
             page--;
             billetAccueil();
         }
     });
-    $(".pageAccueilBillet.page-link.but").on("click", function () {
+    $(".pageSommaire.page-link.but").on("click", function () {
         pagebutton = $(this).attr("value");
         page = parseInt(pagebutton);
         billetAccueil();

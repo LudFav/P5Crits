@@ -52,7 +52,7 @@
 		$this.each(function() {
 
 			var $t = $(this),
-				$bg = $('<div class="bg"></div>').appendTo($t),
+				$bg = $('<div class="bg"><video autoplay loop muted width="100%"><source src ="assets/videos/bgLoopedBckGrnd.webm"></source></video></div>').appendTo($t),
 				on, off;
 
 			on = function() {

@@ -25,7 +25,7 @@
 						
                         </footer>
                         <div class="container">
-                        <li><a href="" class="fas fa-sign-in-alt" id="login" data-toggle="modal" data-target="#connexion"><span class="label"></span></a></li>
+                        <a href="" class="fas fa-sign-in-alt" id="login" data-toggle="modal" data-target="#connexion"><span class="label"></span></a>
                         </div>
                         <!-- Copyright -->
                         <div id="copyright">

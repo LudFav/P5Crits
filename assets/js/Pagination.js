@@ -1,5 +1,4 @@
-class Pagination{
-  constructor(element, paginationId, pagesMax, pageName) {
+function Pagination(element, paginationId, pagesMax, pageName) {
     this.element = element;
     this.paginationId = paginationId;
     this.pagesMax = pagesMax;
@@ -85,6 +84,6 @@ class Pagination{
     } else {
       $(paginationNext).show();
     }
-  }
+  
 }
   

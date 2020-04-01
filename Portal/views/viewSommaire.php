@@ -3,7 +3,7 @@
 
 <!-- Header -->
 <header id="header">
-            <a href="accueil" class="logo"><img src='assets/images/Crits.svg'></a>
+            <a href="accueil" class="logo"><img src='assets/images/Critstest.png'></a>
 </header>
 
 <!-- Nav -->
@@ -17,11 +17,11 @@
 <!-- Main -->
   <div id="main">
       <!-- Posts -->
-    <h1>Sommaire</h1>
+    <h2>Sommaire</h2>
     <section class="posts" id="billetAccueil">
 
     
   
     </section><!-- .section -->
-    <div  id='paginationSommaire' style="background-color:grey; margin:auto;"></div> 
+    <div  id='paginationSommaire'></div> 
     </div>

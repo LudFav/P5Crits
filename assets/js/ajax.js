@@ -155,6 +155,8 @@ $('.submit-btn').on('click', function (e) {
                 showComment();
             }
         })
+    } else {
+        $('#alertComModal').modal('show');
     }
 })
 
@@ -167,6 +169,14 @@ function signalement(id) {
         }
     });
 }
+
+//MODAL ALERTE NON CONFORMITÉ FORM COMMENTAIRE
+modalAlertUpdate =  new Modal(document.querySelector("body"), {
+    id: "alertComModal",
+    titre: "Probleme",
+    type: "alert",
+    message: "Vous n'avez pas remplie tout les champs"
+  });
 //BOUTON SIGNALER
 $(window).bind('load', function () {
 

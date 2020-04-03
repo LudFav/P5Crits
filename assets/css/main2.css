@@ -155,7 +155,7 @@ a:hover{
 		}
 
 	body {
-		color: #212931;
+		color: black;
 	}
 
 	body, input, select, textarea {
@@ -309,7 +309,7 @@ a:hover{
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #660d0d !important;
+			color: #660d0d;
 		}
 
 	strong, b {
@@ -2217,7 +2217,7 @@ a:hover{
 	.button {
 		background-color: transparent;
 		box-shadow: inset 0 0 0 0.5px #212931;
-		color: #212931 !important;
+		color: black;
 	}
 
 		input[type="submit"]:hover,
@@ -2225,7 +2225,7 @@ a:hover{
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			box-shadow: inset 0 0 0 2px #660d0d;
+			box-shadow: inset 0 0 0 1px black;
 			color: #660d0d;
 			text-decoration:none;
 		}
@@ -3261,7 +3261,7 @@ a:hover{
 			-webkit-transition-delay: 0.75s;
 			-ms-transition-delay: 0.75s;
 			transition-delay: 0.75s;
-			background: #1e252d;
+			background: black;
 			content: '';
 			display: block;
 			height: 100%;
@@ -4788,6 +4788,7 @@ text-align: center;
 padding: 0 6px;
 }
 .page-link{
+	color:black !important;
 	border:none !important;
 }
 .page-link.active{
@@ -4951,6 +4952,12 @@ td.actionTd, td.commentActionTd, td.docFileAction, td.imgFileAction {
 display: flex;
 }
 
+.admin-btn, .admin-btn:hover{
+	border:none;
+	box-shadow:none;
+	padding:5px;
+}
+
 .visualBilBtn i, .visualDocBtn i, .visualImgBtn i{	
 color: #17a2b8;   
 }
@@ -5080,6 +5087,7 @@ font-size: 16px;
 font-family: 'Open Sans';
 --text-primary: white;
 --text-secondary: #d88554;
+--text-secondaryDarker: hsla(22, 63%, 59%, 0.842);
 --bg-primary: #4a688b;
 --bg-secondary: #33465e;
 --transition-speed: 200ms;
@@ -5089,6 +5097,7 @@ font-family: 'Open Sans';
 position: fixed;
 background-color: var(--bg-primary);
 transition: width 600ms ease;
+padding:0;
 }
 
 .subNavBar-nav {
@@ -5119,6 +5128,10 @@ background: var(--bg-secondary);
 color: var(--text-secondary);
 text-decoration:none;
 font-weight:bold;
+}
+
+.subNav-link:focus{
+color:var(--text-secondaryDarker);
 }
 
 .link-text {
@@ -5766,6 +5779,21 @@ margin: auto 10px;
 	}
 	#header h1, #headerAccueil h1 {
 		font-size: 3em;
+	}
+	.thumbnail{
+		width:auto;
+	}
+	#tableImgLib thead, #tableDocLib thead{
+		display:none;
+	}
+	#tbodyImgLibrary tr td, #tbodyDocLibrary tr td {
+		min-width: 100%;
+		height: auto;
+		display: flex;
+		margin: auto;
+		text-align: center;
+		justify-content: center;
+		font-size:10px;
 	}
 	
 	}

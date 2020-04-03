@@ -106,7 +106,7 @@ modalUnsignalCom = new Modal(document.querySelector("body"), {
     id: "unsignalComModal",
     titre: "Restauration",
     type: "confirmation",
-    message: "Êtes-vous sur de vouloir sortir ce commentaire des commentaires signalés?"
+    message: "Êtes-vous sur de ne plus vouloir considérer ce commentaire signalé?"
   });
   modalModereCom = new Modal(document.querySelector("body"), {
     id: "modereComModal",

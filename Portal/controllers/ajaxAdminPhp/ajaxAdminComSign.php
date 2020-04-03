@@ -31,9 +31,9 @@ if(isset($_POST['action']) && $_POST['action']=='showCommentSignaled'){
         $commentOutput.='<td>' .$contenuExtrais. '</td>';
         $commentOutput.='<td>' .$commentaire->date(). '</td>';
         $commentOutput.='<td class="commentActionTd">';       
-        $commentOutput.='<button class="unsignalComBtn" value="' .$commentaire->id(). '" data-toggle="modal" data-target ="#unsignalComModal"><i class="fa fa-comment-o" aria-hidden="true"></i></button>';
-        $commentOutput.='<button class="modereComBtn" value="' .$commentaire->id(). '" data-toggle="modal" data-target ="#modereComModal" ><i class="fa fa-commenting" aria-hidden="true"></i></button>';
-        $commentOutput.='<button class="deleteComBtn" value="' .$commentaire->id(). '" data-toggle="modal" data-target ="#deleteComModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
+        $commentOutput.='<button class="admin-btn unsignalComBtn" value="' .$commentaire->id(). '" data-toggle="modal" data-target ="#unsignalComModal"><i class="fa fa-comment-o" aria-hidden="true"></i></button>';
+        $commentOutput.='<button class="admin-btn modereComBtn" value="' .$commentaire->id(). '" data-toggle="modal" data-target ="#modereComModal" ><i class="fa fa-commenting" aria-hidden="true"></i></button>';
+        $commentOutput.='<button class="admin-btn deleteComBtn" value="' .$commentaire->id(). '" data-toggle="modal" data-target ="#deleteComModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $commentOutput.='</td>';
         $commentOutput.='</tr>';
     }

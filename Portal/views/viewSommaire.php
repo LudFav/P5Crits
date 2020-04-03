@@ -3,7 +3,7 @@
 
 <!-- Header -->
 <header id="header">
-            <a href="accueil" class="logo"><img src='assets/images/Critstest.png'></a>
+            <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
 </header>
 
 <!-- Nav -->

@@ -1,6 +1,6 @@
 <!--BILLET-->
 <div class="container-fluid" style="padding-top:20px;">
-    <div class="row">
+    <div class="row admin-menu">
 
         <nav class="subNavBar">
             
@@ -40,13 +40,13 @@
            
         </nav>
 
-        <div class="billetAdmin col-md-9 ml-sm-auto col-lg-10 px-4">
+        <div class="billetAdmin col-md-9 mx-auto col-lg-10 px-4">
 
             <div class="table-wrapper" id="billet-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6" id="billetTableTitre">
-                            <h2>Billets</h2>
+                            <h3>Billets</h3>
                         </div>
                         <div class="col-sm-6">
                             <a href="addbillet" class="btn btn-success"><i class="fa fa-plus"
@@ -77,7 +77,7 @@
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-6" id="docLibraryTableTitre">
-                            <h2>Mediathèque</h2>
+                            <h3>Mediathèque</h3>
                         </div>
                         <div class="col-sm-6">
                             <button class="btn btn-success" id="addDocFile" data-toggle="modal"
@@ -134,7 +134,7 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6" id="commentTableTitre">
-                                <h2>Commentaires Signalés</h2>
+                                <h3>Commentaires Signalés</h3>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                     <div class="table-title">
                         <div class="row">
                             <div class="col-sm-6" id="moderedCommentTableTitre">
-                                <h2>Commentaires Modérés</h2>
+                                <h3>Commentaires Modérés</h3>
                             </div>
                         </div>
                     </div>

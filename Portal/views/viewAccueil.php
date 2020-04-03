@@ -2,9 +2,9 @@
 <div id="wrapper" class="fade-in">
 
     <!-- Intro -->
-    <div class="bg"><video controls autoplay loop muted plays-inline id="bgVideo"><source src ="assets/videos/bgAnime.webm" type="video/webm"></source></video></div>
+    <div class="bg"><video controls autoplay loop muted id="bgVideo"><source src ="assets/videos/bgAnime.webm" type="video/webm"></video></div>
         <div id="intro">
-            <a href="accueil" class="logo"><img src='assets/images/Critstest.png'></a>
+            <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
             <p>Bienvenue sur le portail de Crits, une application en developpement vous permettant de jouer en ligne a des jeux de role papier, pour le moment voyez ce portail tel un devblog.</p>
             <ul class="actions">
                 <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
@@ -13,7 +13,7 @@
 
     <!-- Header -->
         <header id="header">
-            <a href="accueil" class="logo"><img src='assets/images/Critstest.png'></a>
+            <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
         </header>
 
     <!-- Nav -->
@@ -33,7 +33,7 @@
 		<header class="major">
             <div class="post-info" data-trf="<?=$billet[0]->id()?>"></div>
 			<span class="date"><?php $date = $billet[0]->date(); $newDate = date('d/m/Y H:i', strtotime($date)); echo $newDate;?></span>
-			<h2><?=$billet[0]->titre()?></h2></br>
+			<h2><?=$billet[0]->titre()?></h2>
 			<?=$billet[0]->contenu_cut()?>
 		</header>
 		<a href="#" class="image main"><img src="assets/images/pic01.jpg" alt="" /></a>
@@ -41,4 +41,4 @@
 			<li><a href="post&id=<?=$billet[0]->id()?>" class="button large">Lire Article</a></li>
 		</ul>
     </article>
-    </div
+</div>

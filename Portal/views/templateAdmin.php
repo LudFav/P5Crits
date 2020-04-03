@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <!--<link href="assets/css/main.css" rel="stylesheet"/>-->
+        
         <link href="assets/css/main2.css" rel="stylesheet"/>
 		<link href="assets/css/bootstrap.css" rel="stylesheet">
 		<link href="assets/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -73,6 +74,7 @@
                 <script src="assets/js/adminComSign.js"></script>
                 <script src="assets/js/adminMedia.js"></script>
                 <script src="assets/js/ajaxAdmin.js"></script>
+                <script src="assets/js/ajax.js"></script>
                 <script src="assets/js/main.js"></script>
         </body>
     </html>

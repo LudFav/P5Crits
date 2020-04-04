@@ -23,7 +23,7 @@ if(isset($_POST['action']) && $_POST['action']=='showbillet'){
          $billetsOutput.= '<a href="post&id' .$billet->id(). '"><td>' .$billet->id(). '</td></a>';
          $billetsOutput.= '<td>' .$billet->auteur(). '</td>';
          $billetsOutput.= '<td>' .$billet->titre(). '</td>';
-         $billetsOutput.= '<td>' .$billet->image(). '</td>';
+         $billetsOutput.= '<td class="thumbnail file"><img src="' .$billet->image(). '" ></td>';
          $billetsOutput.= '<td>' .$billet->date(). '</td>';
          $billetsOutput.= '<td class="actionTd" value="' .$pages. '">';
          $billetsOutput.= '<button class="admin-btn visualBilBtn"><a href="post&id=' .$billet->id(). '" ><i class="fa fa-eye"></i></a></button>';
@@ -55,8 +55,8 @@ if(isset($_POST['action']) && $_POST['action']=='showImageLib'){
     $imageOutput ='';
     foreach($imageBillet as $image){
     $imageOutput .= '<input type="radio" name="choice' .$image->id(). '" class=" sr-only imgRadioImpt" id="' .$image->type().$image->id(). '" value="' .$image->id(). '">';
-    $imageOutput .= '<label class="imgRadioLbl" for="choice' .$image->id(). '" value="' .$image->id(). '" >';
-    $imageOutput .= '<img src="' .$image->file_url(). '" alt="' .$image->name(). '" class="thumbnail file' .$image->id(). '">';
+    $imageOutput .= '<label class="thumbnail imgRadioLbl" for="choice' .$image->id(). '" value="' .$image->id(). '" >';
+    $imageOutput .= '<img src="' .$image->file_url(). '" alt="' .$image->name(). '" class="file' .$image->id(). '">';
     $imageOutput .= '</label>';
     }
     $data['imageOutput']=$imageOutput;

@@ -72,7 +72,6 @@ function Pagination(element, paginationId, pagesMax, pageName) {
         ' page-link next"><i class="fas fa-chevron-right"></i></button></li>'
     ).appendTo(paginationUl);
    let test = $('.page-link.active').attr('value');
-   console.log(test)
       $(paginationPrev).hide();
       if(pageName == 2) {
       $(paginationPrev).fadeIn(500);

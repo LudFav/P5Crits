@@ -77,7 +77,6 @@ function docTable() {
         responseImg= JSON.parse(data);
         responseImgTable = responseImg.imgFileOutput;
         imgPagesMax = responseImg.imgFileMaxPages;
-        console.log('image pages max :'+imgPagesMax)
         imgPage = new Pagination(
           "#paginationAdminImg",
           "pageAdminImg",

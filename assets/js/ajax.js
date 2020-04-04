@@ -12,7 +12,6 @@ function billetAccueil() {
             billetAccueilTable = responseBilletAccueil.billetsAccueilOutput;
             
             accueilMaxPages = responseBilletAccueil.maxPages;
-            console.log(accueilMaxPages);
             billetAccueilPagination = new Pagination(
                 "#paginationSommaire",
                 "pageSommaire",
@@ -57,7 +56,6 @@ function showComment() {
         url: 'post',
         data: { 'action': 'showComment', 'pageCom' : pageCom, 'billetId': idBillet},
         success: function(data) {
-            console.log(data)
             responseFrontCom = JSON.parse(data);
             responseFrontComTable = responseFrontCom.commentairesOutput;
             frontComPagesMax = responseFrontCom.maxPagesComFront;

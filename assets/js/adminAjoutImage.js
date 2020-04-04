@@ -10,54 +10,66 @@ function imageField() {
       success: function(data) {
         responseImages = JSON.parse(data);
         responseImagesRadio = responseImages.imageOutput;
-        pagesMax = responseImages.maxPages;
+        pagesMax = responseImages.pageMaxImg;
         imagePage = new Pagination(
-          "#paginationAdminBillet",
-          "pageAdminBillet",
+          "imageBillet-form",
+          "pageFieldset",
           pagesMax,
-          page
+          pageImg
         );
-        if (!$.trim(responseBilletTable)) {
-          $("#billetTableTitre h2").text("0 billet posté");
-          $("#tableBillet").hide();
-          $("#pageAdminBillet").hide();
+        if (!$.trim(responseImagesRadio)) {
+          $(".modal-body.mediaFile").text("Vous n'avez aucun fichier dans votre mediathèque");
+          $(".imageFieldset").hide();
+          $("#pageFieldset").hide();
         } else {
-          $("#billetTableTitre h2").text("Billets");
-          $("#tableBillet").show();
+          //$(".modal-body.media").text("Fichiers");
+          $(".imageFieldset").show();
           if(pagesMax<=1){ 
-            $("#pageAdminBillet").hide();
+            $("#pageFieldset").hide();
           }
-          newBilletTable = $(responseBilletTable);
-          newButtonDeleteBillet = newBilletTable.find(".deleteBilBtn");
-          newButtonDeleteBillet.on("click", function() {
+          newResponseImage = $(responseImagesRadio);
+          newButtonValidButton = newResponseImage.find(".imageBillet-confirmBtn");
+          newButtonValidButton.on("click", function() {
           modalDeleteBillet;
-          idBilletToDelete = $(this).attr("value");
+          idFileToUse = $(this).attr("value");
           });
-          $("#tbodyBillet").html(newBilletTable);
-          billetPage;
-          billetButtonPagination(pagesMax);
+          $(".imageFieldset").html(newResponseImage);
+          imagePage;
+          fileButtonPagination(pagesMax);
         }
       }
     });
   }
   
-  function billetButtonPagination(pagesMax) {
-    $(".pageAdminBillet.page-link.next").one("click", function(e) {
+  function fileButtonPagination(pagesMax) {
+    $(".pageFieldset.page-link.next").one("click", function(e) {
       e.preventDefault();
+      page = pageImg;
       if (page < pagesMax) {
         page = page + 1;
-        billetTable();
+        imageField();
       }
     });
-    $(".pageAdminBillet.page-link.prev").on("click", function() {
+    $(".pageFieldset.page-link.prev").on("click", function() {
       if (page > 1) {
         page--;
-        billetTable();
+        imageField();
       }
     });
-    $(".pageAdminBillet.page-link.but").on("click", function() {
+    $(".pageFieldset.page-link.but").on("click", function() {
       pagebutton = $(this).attr("value");
       page = parseInt(pagebutton);
-      billetTable();
+      imageField();
     });
   }
+
+
+  $(window).bind("load", function() {
+    $(".imgRadioLbl").on("click", function(){
+      idImgRadioLbl = $(this).attr("value");
+      $('.imgRadioImpt').prop("checked", false);
+      $("#image"+idImgRadioLbl).prop("checked", true);
+    })
+  })
+
+

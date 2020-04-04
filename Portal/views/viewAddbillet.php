@@ -9,7 +9,9 @@
     <label for="titre" class="labelBillet"><b>Titre</b></label>
     <input type="text" name="titre" class="form-control" id="titreB" placeholder="titre" required>
   </div>
-
+  <div class="form-group">
+  <button type="button" class="imgBilletBtn" data-toggle="modal" data-target="#imageBillet" style="width:auto;font-size:12px;">Lier une image au billet</button>
+  </div>
   <div class="form-group">
     <label for="contenu" class="labelBillet"><b>Contenu</b></label>
     <textarea class="form-control" name="contenu" id="textareaB" rows="3"></textarea>

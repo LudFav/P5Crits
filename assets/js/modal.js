@@ -22,6 +22,7 @@ class Modal {
         this.createModal();
     }
         createModal() {
+            
             if(this.options.type == 'connexion'){
             this.modal = $('<form method="post" action="ControllerLogin.php" class="modal" tabindex="-1" role="dialog" aria-labelledby="'+this.options.titre+'" aria-hidden="true"></form>').appendTo(this.element);
             let modalId = this.options.id;
@@ -112,9 +113,11 @@ class Modal {
                 this.modalHeader = $('<div class="modal-header"></div>').appendTo(this.modalContent);
                 this.modalTitle = $('<h5 class="modal-title" id="'+this.options.titre+'">'+this.options.titre+'</h5>').appendTo(this.modalHeader);
                 this.closeModal = $('<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>').appendTo(this.modalHeader);
-                this.modalBody = $('<div class="modal-body"><h4 style="text-align:center; margin-bottom:15px;">'+this.options.message+'</h4></div>').appendTo(this.modalContent);
-                this.modalFormName = $('<div class="container"></div>').appendTo(this.modalBody);
-                let radio = $(' <fieldset class="imageFieldset"></fieldset>').appendTo(this.modalFormName);
+                this.modalBody = $('<div class="modal-body mediaFile"><h4 style="text-align:center; margin-bottom:15px;">'+this.options.message+'</h4></div>').appendTo(this.modalContent);
+                //this.modalFormName = $('<div class="md-form mb-5"></div>').appendTo(this.modalBody);
+                this.modalForm = $('<form method="post" action="admin" class="'+this.options.id+'-form"></form>').appendTo($('.modal-body.mediaFile'))
+                let radio = $('<fieldset class="imageFieldset"></fieldset>').appendTo(this.modalForm);
+                this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
                 this.confirmBtn = $('<button type="button" class="btn btn-primary '+modalId+'-confirmBtn" data-dismiss="modal">OK</button>').appendTo(this.modalFooter);
                 this.cancelBtn = $('<button type="button" class="btn btn-secondary '+modalId+'-cancelBtn" data-dismiss="modal">Annuler</button>').appendTo(this.modalFooter);
             }

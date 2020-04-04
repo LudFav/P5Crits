@@ -90,9 +90,10 @@ $("#docFileModal-validBtn").on("click", function(){
 })
 });
 
-$('.imgBilletBtn').on('click', function(){
+/*$('.imgBilletBtn').on('click', function(){
+  console.log('test OK');
   $('#imageBillet').modal('show');
-})
+})*/
 
 $(".editBillet").on("click", function(){
   return validateEdit();

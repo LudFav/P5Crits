@@ -63,12 +63,31 @@ function imageField() {
     });
   }
 
+      
+function idImgToLink(idImgRadioLbl) {
+  $.post({
+    url: "addBillet",
+    data: {'idImage': idImgRadioLbl },
+    success: function(data) {
+    console.log(data)
+    }
+  });
+}
 
   $(window).bind("load", function() {
     $(".imgRadioLbl").on("click", function(){
       idImgRadioLbl = $(this).attr("value");
       $('.imgRadioImpt').prop("checked", false);
       $("#image"+idImgRadioLbl).prop("checked", true);
+      $(".imageBillet-confirmBtn").attr("value", idImgRadioLbl);
+    })
+
+    $('.imageBillet-cancelBtn').on("click", function(){
+      $(".imageBillet-confirmBtn").removeAttr( "value" )
+    })
+
+    $(".imageBillet-confirmBtn").on("click", function(){
+      idImgToLink(idImgRadioLbl)
     })
   })
 

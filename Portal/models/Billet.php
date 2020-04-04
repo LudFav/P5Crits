@@ -11,6 +11,7 @@ class Billet {
   private $_titre;
   private $_contenu;
   private $_contenu_cut;
+  private $_image;
   private $_date;
 
   public function __construct(array $data){
@@ -59,6 +60,13 @@ class Billet {
         $this->_contenu_cut= $contenu_cut;
     }
   }
+
+  public function setImage($image){
+    if(is_string($image)){
+      $this->_image= $image;
+  }
+  }
+
   public function setDate($date){
     $this->_date= $date;   
   }
@@ -82,6 +90,10 @@ class Billet {
 
   public function contenu_cut(){
     return $this->_contenu_cut;
+  }
+
+  public function image(){
+    return $this->_image;
   }
 
   public function date(){

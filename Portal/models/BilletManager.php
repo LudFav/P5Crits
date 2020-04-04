@@ -123,6 +123,7 @@ class BilletManager extends Model implements crud{
     'auteur' => $data['auteur'],
     'titre'  => $data['titre'],
     'contenu'=> $data['contenu'],
+    'image' => $data['image'],
     'date'   => (new \DateTime())->format('d/m/Y H:i')
   ));
   }
@@ -130,7 +131,8 @@ class BilletManager extends Model implements crud{
   public function updateBillet($data, $id){
     return $this->update('billets',array(
       'titre'  => $data['titre'],
-      'contenu'=> $data['contenu']
+      'contenu'=> $data['contenu'],
+      'image' => $data['image']
     ), "`id` = '{$_GET['id']}'");
   }
 

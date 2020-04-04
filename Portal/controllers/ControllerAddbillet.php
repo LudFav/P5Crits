@@ -5,6 +5,7 @@ require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
 class ControllerAddbillet
 {
   private $_billetManager;
+  private $_fileManager;
   private $_view;
 
   public function __construct()
@@ -19,6 +20,7 @@ class ControllerAddbillet
         $data = array(
         'auteur' => htmlspecialchars($_POST['auteur']),
         'titre' => htmlspecialchars($_POST['titre']),
+        'image' => $_POST['image'],
         'contenu' =>  $_POST['contenu']
         );
         $this->_billetManager = new \CritsPortal\models\BilletManager();

@@ -42,7 +42,7 @@ if(isset($_POST['action']) && $_POST['action']=='showImgFile'){
     $imgFileOutput = '';
     foreach ($imgFiles as $imgFile){
         $imgFileOutput .= '<tr class="imgFileRow' .$imgFile->id(). '">';
-        $imgFileOutput .= '<td><img src="' .$imgFile->file_url(). '" alt="' .$imgFile->name(). '" class="thumbnail file' .$imgFile->id(). '"></td>';
+        $imgFileOutput .= '<td  class="thumbnail file' .$imgFile->id(). '"><img src="' .$imgFile->file_url(). '" alt="' .$imgFile->name(). '"></td>';
         $imgFileOutput .= '<td>' .$imgFile->name(). '</td>';
         $imgFileOutput .= '<td class="imgFileAction">';
         $imgFileOutput.= '<button class="admin-btn visualImgBtn"><a href="' .$imgFile->file_url(). '" ><i class="fa fa-eye"></i></a></button>';

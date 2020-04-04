@@ -73,6 +73,7 @@
                 <script src="assets/js/adminComMod.js"></script>
                 <script src="assets/js/adminComSign.js"></script>
                 <script src="assets/js/adminMedia.js"></script>
+                <script src="assets/js/adminAjoutImage.js"></script>
                 <script src="assets/js/ajaxAdmin.js"></script>
                 <script src="assets/js/ajax.js"></script>
                 <script src="assets/js/main.js"></script>

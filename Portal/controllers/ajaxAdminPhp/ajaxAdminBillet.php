@@ -51,15 +51,18 @@ if(isset($_POST['action']) && $_POST['action']=='showImageLib'){
     $entiteParPage = 5;
     $page = $pageImg;
     $imageBillet =  $_fileManager->getFiles('imgfile', $userId, $page, $entiteParPage);
+    $pageMaxImg = $_fileManager->getPageMax('imgfile', $entiteParPage, $userId);
     $imageOutput ='';
     foreach($imageBillet as $image){
-    $imageOutput .= '<input type="radio" name="' .$image->name(). '" class="sr-only" id="' .$image->name(). '">';
-    $imageOutput .= '<label for = "' .$image->name(). '"';
-    $imageOutput .= '<img src="' .$imgFile->file_url(). '" alt="' .$imgFile->name(). '" class="thumbnail file' .$imgFile->id(). '" value="' .$imgFile->id(). '">';
+    $imageOutput .= '<input type="radio" name="choice' .$image->id(). '" class=" sr-only imgRadioImpt" id="' .$image->type().$image->id(). '" value="' .$image->id(). '">';
+    $imageOutput .= '<label class="imgRadioLbl" for="choice' .$image->id(). '" value="' .$image->id(). '" >';
+    $imageOutput .= '<img src="' .$image->file_url(). '" alt="' .$image->name(). '" class="thumbnail file' .$image->id(). '">';
     $imageOutput .= '</label>';
-    $data['imageOutput']=$imageOutput;
-    return $data['imageOutput'];
-
     }
+    $data['imageOutput']=$imageOutput;
+    $data['pageImg']=$pageImg;
+    $data['pageMaxImg']=$pageMaxImg;
+    $responseImgBillet = json_encode($data);
+    exit($responseImgBillet);
 }
 ?>

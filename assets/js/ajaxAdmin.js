@@ -54,6 +54,14 @@ modalAlertUpdate =  new Modal(document.querySelector("body"), {
   message: "Vous n'avez pas remplie tout les champs"
 });
 
+//MODAL RAJOUT IMAGE BILLET
+modalRajoutImage =  new Modal(document.querySelector("body"), {
+  id: "imageBillet",
+  titre: "Ajout d'image",
+  type: "mediatheque",
+  message: "Veuillez selectionner une image"
+});
+
 //MODAL UPLOAD
 modalDocFile = new Modal(document.querySelector("body"), {
   id: "docFileModal",
@@ -81,6 +89,10 @@ $("#docFileModal-validBtn").on("click", function(){
   showFile()
 })
 });
+
+$('.imgBilletBtn').on('click', function(){
+  $('#imageBillet').modal('show');
+})
 
 $(".editBillet").on("click", function(){
   return validateEdit();

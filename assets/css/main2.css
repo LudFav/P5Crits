@@ -5246,8 +5246,6 @@ display: none;
 
 /* Thumbnail */
 .thumbnail{
-width: 100%;
-height: 60px;
 padding: 2px;
 border: 2px solid lightgray;
 border-radius: 3px;
@@ -5255,8 +5253,8 @@ float: left;
 display:flex;
 }
 .thumbnail img{
-width:60px;
-height:50px;
+width:80px;
+height:80px;
 }
 .size{
 font-size:12px;
@@ -5264,8 +5262,6 @@ margin: auto 10px;
 }
 
 .imgRadioLbl {
-	width:150px;
-	height:75px;
 	cursor: pointer;
 	filter: grayscale(100%);
 }

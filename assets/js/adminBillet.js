@@ -18,11 +18,11 @@ function billetTable() {
           page
         );
         if (!$.trim(responseBilletTable)) {
-          $("#billetTableTitre h2").text("0 billet posté");
+          $("#billetTableTitre h3").text("0 billet posté");
           $("#tableBillet").hide();
           $("#pageAdminBillet").hide();
         } else {
-          $("#billetTableTitre h2").text("Billets");
+          $("#billetTableTitre h3").text("Billets");
           $("#tableBillet").show();
           if(pagesMax<=1){ 
             $("#pageAdminBillet").hide();

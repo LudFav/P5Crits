@@ -54,13 +54,7 @@ modalAlertUpdate =  new Modal(document.querySelector("body"), {
   message: "Vous n'avez pas remplie tout les champs"
 });
 
-//MODAL RAJOUT IMAGE BILLET
-modalRajoutImage =  new Modal(document.querySelector("body"), {
-  id: "imageBillet",
-  titre: "Ajout d'image",
-  type: "mediatheque",
-  message: "Veuillez selectionner une image"
-});
+
 
 //MODAL UPLOAD
 modalDocFile = new Modal(document.querySelector("body"), {

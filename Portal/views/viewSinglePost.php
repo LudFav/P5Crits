@@ -23,7 +23,7 @@
           <span class="date"><?php $date = $billet[0]->date(); $newDate = date('d/m/Y H:i', strtotime($date)); echo $newDate; ?></span>
           <h1><?=$billet[0]->titre()?></h1>
         </header>
-        <div class="image main"><img src="assets/images/pic01.jpg" alt="" /></div>
+        <div class="image main"><img src="<?=$billet[0]->image()?>" alt="" /></div>
         <?=$billet[0]->contenu()?>
       </section>
 

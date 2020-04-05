@@ -5,8 +5,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/BilletManager.ph
 
 $_billetManager;
 $_billetManager = new BilletManager; 
-$_fileManager;
-$_fileManager = new FileManager;
 $entiteParPage = 4;
 $nbreEntitesParPage = $entiteParPage;
 
@@ -44,15 +42,18 @@ if(isset($_POST['action']) && $_POST['action']=='deleteBillet'){
     $deleteBillet = $_billetManager->deleteBillet($_POST['deleteBillet']); 
 }
 
+
+//MODAL IMAGE ADDBILLET FORM
+$_fileManager;
+$_fileManager = new FileManager;
+$userId = $_SESSION['admin']['id'];
+$pageImg = isset($_POST['pageImg'])? $_POST['pageImg'] :1;
+$entiteImgParPage = 6;
+$imageBillet =  $_fileManager->getFiles('imgfile', $userId, $pageImg, $entiteImgParPage);
+$pageMaxImg = $_fileManager->getPageMax('imgfile', $entiteImgParPage, $userId);
+$imageOutput ='';
 if(isset($_POST['action']) && $_POST['action']=='showImageLib'){
     //$image = isset($_POST['idImage'])? $_POST['idImage'] :1;
-    $userId = $_SESSION['admin']['id'];
-    $pageImg = isset($_POST['pageImg'])? $_POST['pageImg'] :1;
-    $entiteParPage = 5;
-    $page = $pageImg;
-    $imageBillet =  $_fileManager->getFiles('imgfile', $userId, $page, $entiteParPage);
-    $pageMaxImg = $_fileManager->getPageMax('imgfile', $entiteParPage, $userId);
-    $imageOutput ='';
     foreach($imageBillet as $image){
     $imageOutput .= '<input type="radio" name="choice' .$image->id(). '" class=" sr-only imgRadioImpt" id="' .$image->type().$image->id(). '" value="' .$image->id(). '">';
     $imageOutput .= '<label class="thumbnail imgRadioLbl" for="choice' .$image->id(). '" value="' .$image->id(). '" >';

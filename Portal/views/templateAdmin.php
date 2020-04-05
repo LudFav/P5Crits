@@ -25,9 +25,11 @@
 						
                         </footer>
                         <div class="container">
-                        <li><a href="admin" class="fas fa-feather-alt" id="admin"></a></li>
-                        <li><a href="accueil" class="fas fa-book" id="retourSommaire"></a></li>
-                        <li><a class="logout fas fa-sign-out-alt" id="logout"></a></li>
+                            <ul class="menu admin">
+                                <li><a href="admin" class="fas fa-feather-alt" id="admin"> Administration</a></li>
+                                <li><a href="accueil" class="fas fa-book" id="retourSommaire"> Accueil du site</a></li>
+                                <li><a class="logout fas fa-sign-out-alt" id="logout"> Deconnexion</a></li>
+                            </ul>
                         </div>
                     <!-- Copyright -->
                         <div id="copyright">

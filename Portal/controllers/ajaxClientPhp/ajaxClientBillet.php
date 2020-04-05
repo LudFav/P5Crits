@@ -19,7 +19,7 @@ if(isset($_POST['action']) && $_POST['action']=='showSommaire'){
        $billetsAccueilOutput.= '<header>';
        $billetsAccueilOutput.= '<span class="date">' .$newDate. '</span>';
        $billetsAccueilOutput.= '<h2>' .$billet->titre(). '<h2></br>';
-       $billetsAccueilOutput.='<a href="#" class="image fit"><img src="assets/images/pic02.jpg" alt="" /></a>';
+       $billetsAccueilOutput.='<a href="post&id=' .$billet->id(). '" class="image fit"><img src="' .$billet->image(). '" alt="" /></a>';
        //$billetsAccueilOutput.= '<p>' .$billet->contenu_cut. '</p>';
        $billetsAccueilOutput.= '<a href="post&id=' .$billet->id(). '" class="button">Lire Article</a>';
        $billetsAccueilOutput.= '</ul>';

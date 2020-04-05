@@ -63,7 +63,7 @@ class BilletManager extends Model implements crud{
   public function readLast($table){
     $this->getBdd();
     $var = [];
-    $req = self::$_bdd->prepare("SELECT id, auteur, titre, IF(CHAR_LENGTH(contenu) > 100, CONCAT(LEFT(contenu, 100), '...'), contenu) AS contenu_cut, date FROM $table ORDER BY id DESC LIMIT 1");
+    $req = self::$_bdd->prepare("SELECT id, auteur, titre, image, IF(CHAR_LENGTH(contenu) > 100, CONCAT(LEFT(contenu, 100), '...'), contenu) AS contenu_cut, date FROM $table ORDER BY id DESC LIMIT 1");
     $req->execute();
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
       $var[] = new Billet($data);

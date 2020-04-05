@@ -16,11 +16,11 @@ function commentTable() {
           comSignPage
         );
         if (!$.trim(responseTable)) {
-          $("#commentTableTitre h2").text("0 commentaire signalé");
+          $("#commentTableTitre h3").text("0 commentaire signalé");
           $("#tableComments").hide();
           $("#pageAdminComSign").hide();
         } else {
-          $('#commentTableTitre h2').text('Commentaires Signalés');  
+          $('#commentTableTitre h3').text('Commentaires Signalés');  
           $('#tableComments').show();
           if(comSignPagesMax<=1){
             $("#pageAdminComSign").hide();

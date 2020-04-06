@@ -2821,7 +2821,7 @@ a:hover{
 		header > .date {
 			display: block;
 			font-size: 0.8rem;
-			height: 1;
+			height: 1px;
 			margin: 0 0 1rem 0;
 			position: relative;
 		}

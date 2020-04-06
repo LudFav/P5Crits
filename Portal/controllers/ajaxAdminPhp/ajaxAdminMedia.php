@@ -35,9 +35,10 @@ if(isset($_POST['action']) && $_POST['action']=='showDocFile'){
 
 
 //IMGFILE
+$imgParPage = 3;
 $pageImgFile = isset($_POST['pageImgFile'])? $_POST['pageImgFile'] : 1; 
-$imgFiles = $_FileManager->getFiles('imgfile', $userId, $pageImgFile, $entiteParPage);
-$imgFilePages = $_FileManager->getPageMax('imgfile', $entiteParPage, $userId);
+$imgFiles = $_FileManager->getFiles('imgfile', $userId, $pageImgFile, $imgParPage);
+$imgFilePages = $_FileManager->getPageMax('imgfile', $imgParPage, $userId);
 if(isset($_POST['action']) && $_POST['action']=='showImgFile'){
     $imgFileOutput = '';
     foreach ($imgFiles as $imgFile){

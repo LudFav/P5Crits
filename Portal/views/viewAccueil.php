@@ -5,7 +5,7 @@
     <div class="bg"></div>
         <div id="intro">
             <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
-            <p>Bienvenue sur le portail de Crits, une application en developpement vous permettant de jouer en ligne a des jeux de role papier, pour le moment voyez ce portail tel un devblog.</p>
+            <p>Bienvenue sur le portail de Crits, une application en développement vous permettant de jouer en ligne a des jeux de rôle papier, pour le moment voyez ce portail tel un devblog.</p>
             <ul class="actions">
                 <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
             </ul>

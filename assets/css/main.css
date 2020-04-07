@@ -3429,7 +3429,7 @@ a:hover{
 		-ms-user-select: none;
 		user-select: none;
 		height: 20rem;
-		padding-bottom: 8rem;
+		padding-bottom: 5rem;
 		position: relative;
 		text-align: center;
 		z-index: 2;
@@ -4806,11 +4806,21 @@ border-color: #dddddd;
 .modal textarea.form-control {
 resize: vertical;
 }
+
+.btn-primary{
+	color:black;
+}
+
+.btn.btn-primary:hover{
+	color:rgb(70, 67, 67);
+}
+
 .modal .btn {
 border-radius: 2px;
 min-width: 100px;
 background-color: transparent;
 border: none;
+color:black;
 }	
 
 .modal .btn:hover {

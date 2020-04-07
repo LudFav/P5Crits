@@ -136,19 +136,15 @@ function docTable() {
       url:"admin",
       data: { action: "addImg"},
       success: function(data) {
-        console.log(data);
       }
     })
   }
   
   function showFile(){
-    console.log('test bouton validation')
     $.post({
       url:"upload",
       data: {action:"showFiles"},
       success: function(data) {
-        console.log(data);
-        console.log('test ajax')
       }
     })
   }
@@ -158,19 +154,16 @@ function docTable() {
       url: "admin",
       data: { action: "deleteThisDoc", 'deleteDoc': idDocToDelete, 'deleteDocUrl':docNameToDel},
       success: function(data) {
-        //console.log(data)
         docTable();
       }
     });
   }
 
   function deleteImage(idImgToDelete, imgNameToDel) {
-    console.log('test delete image');
     $.post({
       url: "admin",
       data: { action: "deleteThisImg", 'deleteImg': idImgToDelete, 'deleteImgUrl': imgNameToDel},
       success: function(data) {
-        console.log(data);
         imgTable();
       }
     });
@@ -179,9 +172,11 @@ function docTable() {
   function passValueDoc(idDocToDelete, docNameToDel){
     $(".deleteDocFileModal-confirmBtn").attr({value: idDocToDelete, "data-name": docNameToDel});
   }
+
   function passValueImg(idImgToDelete, imgNameToDel){
     $(".deleteImgFileModal-confirmBtn").attr({value: idImgToDelete, "data-name": imgNameToDel});
   }
+
 //MODAL
 modalDeleteDoc = new Modal(document.querySelector("body"), {
   id: "deleteDocFileModal",
@@ -273,13 +268,13 @@ modalDeleteImg = new Modal(document.querySelector("body"), {
       var size = convertSize(data.size);
       var src = data.src;
     
-      // Creating an thumbnail
+      // Créé un thumbnail
       $("#uploadfile").append('<div id="thumbnail_'+num+'" class="thumbnail"></div>');
       $("#thumbnail_"+num).append('<img src="'+src+'" width="100%" height="78%">');
       $("#thumbnail_"+num).append('<span class="size">'+size+'<span>');
     }
     
-    // Bytes conversion
+    // Conversion
     function convertSize(size) {
       var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
       if (size == 0) return '0 Byte';

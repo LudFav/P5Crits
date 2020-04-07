@@ -8,8 +8,8 @@ interface crud
  * public function create
  * Fonction servant à insérer une entité dans la base de donné.
  * @param [string] $table
- * @param [array] $data
- * 
+ * @param array $data
+ *
  */
    public function create($table, $data);
 

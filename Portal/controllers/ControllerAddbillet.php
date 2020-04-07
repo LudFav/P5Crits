@@ -3,6 +3,8 @@ namespace CritsPortal\controllers;
 
 require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
 
+
+
 class ControllerAddbillet
 {
   private $_billetManager;

@@ -3,6 +3,8 @@ pageImg = 1;
 imageField();
 
 //TABLE BILLETS**********************************************************
+
+
 function imageField() {
     $.post({
       url: "admin",
@@ -22,7 +24,6 @@ function imageField() {
           $(".imageFieldset").hide();
           $("#paginationImgForm").hide();
         } else {
-          //$(".modal-body.media").text("Fichiers");
           $(".imageFieldset").show();
           if(pagesImgMax<=1){ 
             $("#paginationImgForm").hide();
@@ -43,7 +44,6 @@ function imageField() {
   function fileButtonPagination(pagesImgMax) {
     $(".pageFieldset.page-link.next").one("click", function(e) {
       e.preventDefault();
-      console.log('next '+pageImg);
       if (pageImg< pagesImgMax) {
         pageImg= pageImg+ 1;
         imageField();
@@ -53,13 +53,12 @@ function imageField() {
       if (pageImg> 1) {
         pageImg--;
         imageField();
-        console.log('prev '+pageImg);
+        
       }
     });
     $(".pageFieldset.page-link.but").on("click", function() {
       pagebutton = $(this).attr("value");
       pageImg= parseInt(pagebutton);
-      console.log('button  '+pageImg);
       imageField();
     });
   }
@@ -76,12 +75,10 @@ function idImgToLink(idImgRadioLbl) {
 }
 
 function idImgToEdit(idImgRadioLbl){
-  console.log('test 55')
   $.post({
     url: "update",
     data: {action:'editImage', 'idImage': idImgRadioLbl },
     success: function(data) {
-      console.log(data)
       $('.imgInput').replaceWith(data);
     }
   });
@@ -128,7 +125,6 @@ modalRajoutImage =  new Modal(document.querySelector("body"), {
     })
 
     $('.edit-confirmBtn').on("click", function(){
-      console.log(test)
       idImgToEdit(idImgRadioLbl);
     })
 

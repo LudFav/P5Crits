@@ -1,13 +1,27 @@
+<!-- Wrapper -->
+<div id="wrapper">
 
-<section class="blog-area section">
-    <div class="container">
-        <h1>Sommaire</h1>
-			<div class="row" id="billetAccueil">
+<!-- Header -->
+<header id="header">
+            <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
+</header>
 
-			</div><!-- .row -->
+<!-- Nav -->
+  <nav id="nav">
+    <ul class="links">
+      <li><a href=accueil>Accueil</a></li>
+      <li class="active"><a href="sommaire">Sommaire</a></li>
+    </ul>
+  </nav>
 
-			<div id='paginationAccueil'></div>
-		
-    </div><!-- .container -->
-</section><!-- .section -->
-</div><!--wrapper-->
+<!-- Main -->
+  <div id="main">
+      <!-- Posts -->
+    <h2>Sommaire</h2>
+    <section class="posts" id="billetAccueil">
+
+    
+  
+    </section><!-- .section -->
+    <div  id='paginationSommaire'></div> 
+    </div>

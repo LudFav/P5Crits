@@ -27,7 +27,7 @@ class Router {
         $controllerClass = "Controller".$controller; // $controllerClass = ControllerAccueil
 
         //on retrouve le chemin du controleur voulu
-        $controllerFile = "portal/controllers/".$controllerClass.".php"; // $controllerFile = "controllers/ControllerAccueil.php"
+        $controllerFile = "Portal/controllers/".$controllerClass.".php"; // $controllerFile = "controllers/ControllerAccueil.php"
 
         //on verifit si le fichier du controleur existe
         if (file_exists($controllerFile)) {
@@ -41,7 +41,7 @@ class Router {
         }
       }
       else {
-        require_once('portal/controllers/ControllerAccueil.php');
+        require_once('Portal/controllers/ControllerAccueil.php');
         $this->ctrl = new ControllerAccueil($url);
       }
       // si le routeur ne reconnait pas le parametre de la variable $url, il redirigera la page vers la page d'accueil

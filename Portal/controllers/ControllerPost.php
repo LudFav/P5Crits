@@ -1,14 +1,14 @@
 <?php
 namespace CritsPortal\controllers;
 
-require_once $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/controllers/ajaxClientPhp/ajaxClientCom.php';
+require_once $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/controllers/ajaxClientPhp/ajaxClientCom.php';
 
 class ControllerPost {
   private $_billetManager;
   private $_view;
 
   public function __construct(){
-    require_once('portal/controllers/Router.php');
+    require_once('Portal/controllers/Router.php');
     if (isset($url) && count($url) < 1) {
       throw new \Exception("Page Introuvable");
     } else {
@@ -37,7 +37,7 @@ class ControllerPost {
       $this->_view->generate('Erreur', array('errorMsg' => $errorMsg));
     } else{
       $this->_view = new \CritsPortal\views\View('SinglePost');
-      $this->_view->generate('Billet', array('billet' => $billet));
+      $this->_view->generate('Crits-Billet', array('billet' => $billet));
     }
     
   

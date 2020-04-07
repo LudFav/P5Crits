@@ -1,6 +1,8 @@
 <?php
+namespace CritsPortal;
 session_start();
+
 require "vendor/autoload.php"; 
-$router = new CritsPortal\controllers\Router();
+$router = new controllers\Router();
 $router->routeReq();
 ?>

@@ -86,10 +86,6 @@ class UserManager extends Model implements crud
   public function sessionInfo(){
     $this->getBdd();
   }
-  
-  /*public function getUsers(){
-    return $this->readAll('users', 'User', $page, $entiteParPage);
-  }*/
 
   public function getUser(){
     return $this->readAdmin('users', 'User');

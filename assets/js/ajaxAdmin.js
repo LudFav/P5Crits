@@ -54,6 +54,8 @@ modalAlertUpdate =  new Modal(document.querySelector("body"), {
   message: "Vous n'avez pas remplie tout les champs"
 });
 
+
+
 //MODAL UPLOAD
 modalDocFile = new Modal(document.querySelector("body"), {
   id: "docFileModal",

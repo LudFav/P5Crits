@@ -11,18 +11,18 @@ function moderedCommentTable() {
       responsemod = JSON.parse(data);
       responsemodTable = responsemod.moderedCommentOutput
       comModPagesMax = responsemod.maxPagesComMod;
-      comModPagination = new AdminPagination(
+      comModPagination = new Pagination(
           "#paginationComMod",
           'pageAdminComMod',
           comModPagesMax,
           comModPage
       )
         if (!$.trim(responsemodTable)) {
-          $("#moderedCommentTableTitre h2").text("0 commentaire modéré");
+          $("#moderedCommentTableTitre h3").text("0 commentaire modéré");
           $("#moderedCommentsTable").hide();
           $("#pageAdminComMod").hide();
         } else {
-          $('#moderedCommentTableTitre h2').text('Commentaires Modérés');  
+          $('#moderedCommentTableTitre h3').text('Commentaires Modérés');  
           $('#moderedCommentsTable').show();
           if(comModPagesMax<=1){ 
           $("#pageAdminComMod").hide();

@@ -1,6 +1,6 @@
 <?php
 use CritsPortal\models\FileManager;
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/UserManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/UserManager.php');
 
 
 $_FileManager = new FileManager;
@@ -20,8 +20,8 @@ if(isset($_POST['action']) && $_POST['action']=='showDocFile'){
         $docFileOutput .= '<tr class="docFileRow' .$docFile->id(). '">';
         $docFileOutput .= '<td class="docname' .$docFile->id(). '" value="' .$docFile->name(). '">' .$docFile->name(). '</td>';
         $docFileOutput .= '<td class="docFileAction"> ';
-        $docFileOutput .= '<button class="visualDocBtn"><a class ="doc' .$docFile->id(). '" href="' .$docFile->file_url(). '" ><i class="fa fa-eye"></i></a></button>';
-        $docFileOutput .= '<button class="deleteDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#deleteDocFileModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
+        $docFileOutput .= '<button class="admin-btn visualDocBtn"><a class ="doc' .$docFile->id(). '" href="' .$docFile->file_url(). '" ><i class="fa fa-eye"></i></a></button>';
+        $docFileOutput .= '<button class="admin-btn deleteDocFile" value="' .$docFile->id(). '" data-toggle="modal" data-target ="#deleteDocFileModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $docFileOutput .= '</td>';
         $docFileOutput .= '</tr>'; 
     }
@@ -35,18 +35,19 @@ if(isset($_POST['action']) && $_POST['action']=='showDocFile'){
 
 
 //IMGFILE
+$imgParPage = 3;
 $pageImgFile = isset($_POST['pageImgFile'])? $_POST['pageImgFile'] : 1; 
-$imgFiles = $_FileManager->getFiles('imgfile', $userId, $pageImgFile, $entiteParPage);
-$imgFilePages = $_FileManager->getPageMax('imgfile', $entiteParPage, $userId);
+$imgFiles = $_FileManager->getFiles('imgfile', $userId, $pageImgFile, $imgParPage);
+$imgFilePages = $_FileManager->getPageMax('imgfile', $imgParPage, $userId);
 if(isset($_POST['action']) && $_POST['action']=='showImgFile'){
     $imgFileOutput = '';
     foreach ($imgFiles as $imgFile){
         $imgFileOutput .= '<tr class="imgFileRow' .$imgFile->id(). '">';
-        $imgFileOutput .= '<td><img src="' .$imgFile->file_url(). '" alt="' .$imgFile->name(). '" class="thumbnail file' .$imgFile->id(). '"></td>';
+        $imgFileOutput .= '<td  class="thumbnail file' .$imgFile->id(). '"><img src="' .$imgFile->file_url(). '" alt="' .$imgFile->name(). '"></td>';
         $imgFileOutput .= '<td>' .$imgFile->name(). '</td>';
         $imgFileOutput .= '<td class="imgFileAction">';
-        $imgFileOutput.= '<button class="visualImgBtn"><a href="' .$imgFile->file_url(). '" ><i class="fa fa-eye"></i></a></button>';
-        $imgFileOutput .= '<button class="deleteImgFile" value="' .$imgFile->id(). '" data-toggle="modal" data-target ="#deleteImgFileModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
+        $imgFileOutput.= '<button class="admin-btn visualImgBtn"><a href="' .$imgFile->file_url(). '" ><i class="fa fa-eye"></i></a></button>';
+        $imgFileOutput .= '<button class="admin-btn deleteImgFile" value="' .$imgFile->id(). '" data-toggle="modal" data-target ="#deleteImgFileModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $imgFileOutput .= '</td>';
         $imgFileOutput .= '</tr>'; 
     }

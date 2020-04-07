@@ -9,18 +9,18 @@ function commentTable() {
         response = JSON.parse(data);
         responseTable = response.commentOutput;
         comSignPagesMax = response.maxComSignPages;
-        comSignPagination = new AdminPagination(
+        comSignPagination = new Pagination(
           "#paginationComSign",
           "pageAdminComSign",
           comSignPagesMax,
           comSignPage
         );
         if (!$.trim(responseTable)) {
-          $("#commentTableTitre h2").text("0 commentaire signalé");
+          $("#commentTableTitre h3").text("0 commentaire signalé");
           $("#tableComments").hide();
           $("#pageAdminComSign").hide();
         } else {
-          $('#commentTableTitre h2').text('Commentaires Signalés');  
+          $('#commentTableTitre h3').text('Commentaires Signalés');  
           $('#tableComments').show();
           if(comSignPagesMax<=1){
             $("#pageAdminComSign").hide();
@@ -106,7 +106,7 @@ modalUnsignalCom = new Modal(document.querySelector("body"), {
     id: "unsignalComModal",
     titre: "Restauration",
     type: "confirmation",
-    message: "Êtes-vous sur de vouloir sortir ce commentaire des commentaires signalés?"
+    message: "Êtes-vous sur de ne plus vouloir considérer ce commentaire signalé?"
   });
   modalModereCom = new Modal(document.querySelector("body"), {
     id: "modereComModal",

@@ -1,7 +1,7 @@
 <?php
 use CritsPortal\models\CommentManager;
 
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/CommentManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/CommentManager.php');
 
 
 $_commentManager;
@@ -15,8 +15,9 @@ $pages = $_commentManager->getPageMax($entiteParPage, $billetId);
 
 if(isset($_POST['action'])&& $_POST['action']=='showComment'){
   $commentairesOutput = '';
-  foreach ($commentaires as $commentaire){ 
-
+  foreach ($commentaires as $commentaire){
+    $date =  $commentaire->date();
+    $newDate = date('d/m/Y H:i:s', strtotime($date));
     $commentairesOutput.= '<div class="comments-area">';
 
     $commentairesOutput.=    '<div class="comment">';
@@ -24,7 +25,7 @@ if(isset($_POST['action'])&& $_POST['action']=='showComment'){
           $commentairesOutput.= '<div class="comment-info" value=' .$commentaire->id(). '>';
           $commentairesOutput.= '<div class="middle-area" value=' .$commentaire->modere(). '>';
           $commentairesOutput.= '<h6 class="commentName"><b><strong>La modération</strong></b></h6>';
-          $commentairesOutput.= '<h6 class="commentDate">' .$commentaire->date(). '</h6>';
+          $commentairesOutput.= '<h6 class="commentDate">' .$newDate. '</h6>';
           $commentairesOutput.= '</div>';
           $commentairesOutput.= '</div><!-- comment-info -->';
           $commentairesOutput.= '<p><i>Commentaire censuré par la modération</i></p>';
@@ -34,7 +35,7 @@ if(isset($_POST['action'])&& $_POST['action']=='showComment'){
             $commentairesOutput.= '<div class="comment-info" value=' .$commentaire->id(). '>';
             $commentairesOutput.= '<div class="middle-area" value=' .$commentaire->modere(). '>';
             $commentairesOutput.= '<h6 class="commentName"><b>' .$commentaire->auteur(). '</b></h6>';
-            $commentairesOutput.= '<h6 class="commentDate">' .$commentaire->date(). '</h6>';
+            $commentairesOutput.= '<h6 class="commentDate">' .$newDate. '</h6>';
             $commentairesOutput.= '</div>';
             $commentairesOutput.= '</div><!-- comment-info -->';
             $commentairesOutput.= '<p>' .$commentaire->contenu(). '</p>';
@@ -45,6 +46,7 @@ if(isset($_POST['action'])&& $_POST['action']=='showComment'){
             $commentairesOutput.= '</div>';
         }   
     }
+ 
     $data['commentairesOutput'] = $commentairesOutput;
     $data['pageComFront'] = $pageComAccueil;
     $data['maxPagesComFront'] = $pages;

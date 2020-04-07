@@ -1,8 +1,8 @@
 <?php
 use CritsPortal\models\CommentManager;
 use CritsPortal\models\BilletManager;
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/CommentManager.php');
-require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/portal/models/BilletManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/CommentManager.php');
+require_once($_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/models/BilletManager.php');
 
 $_commentManager;
 $_billetManager;
@@ -31,8 +31,8 @@ if(isset($_POST['action']) && $_POST['action']=='showCommentModered'){
         $moderedCommentOutput.='<td>' .$contenuExtrais. '</td>';
         $moderedCommentOutput.='<td>' .$commentaireModere->date(). '</td>';
         $moderedCommentOutput.='<td class="commentActionTd">';       
-        $moderedCommentOutput.='<button class="unmodereComBtn" value="' .$commentaireModere->id(). '" data-toggle="modal" data-target ="#unmodereComModal" ><i class="fa fa-commenting unmod" aria-hidden="true"></i></button>';
-        $moderedCommentOutput.='<button class="deleteModComBtn" value="' .$commentaireModere->id(). '" data-toggle="modal" data-target ="#deleteModComModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
+        $moderedCommentOutput.='<button class="admin-btn unmodereComBtn" value="' .$commentaireModere->id(). '" data-toggle="modal" data-target ="#unmodereComModal" ><i class="fa fa-commenting unmod" aria-hidden="true"></i></button>';
+        $moderedCommentOutput.='<button class="admin-btn deleteModComBtn" value="' .$commentaireModere->id(). '" data-toggle="modal" data-target ="#deleteModComModal" ><i class="fa fa-trash" aria-hidden="true"></i></button>';
         $moderedCommentOutput.='</td>';
         $moderedCommentOutput.='</tr>';
     }

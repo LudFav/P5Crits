@@ -1,4 +1,4 @@
-function AdminPagination(element, paginationId, pagesMax, pageName) {
+function Pagination(element, paginationId, pagesMax, pageName) {
     this.element = element;
     this.paginationId = paginationId;
     this.pagesMax = pagesMax;
@@ -20,45 +20,45 @@ function AdminPagination(element, paginationId, pagesMax, pageName) {
     ).appendTo($(pagination));
   
     let paginationPrev = $(
-      '<li class="page-item"><button class="' +
+      '<li class="page-item"><button type="button" class="' +
         paginationId +
-        ' page-link prev">Previous</button></li>'
+        ' page-link prev"><i class="fas fa-chevron-left"></i></button></li>'
     ).appendTo($(paginationUl));
   
     for (let i = numPage - pageNav; i < numPage; i++) {
       if (i > 0) {
         let leftPage = $(
-          '<li class="page-item"><a class="' +
+          '<li class="page-item"><button type="button" class="' +
             paginationId +
             ' page-link but left" value=' +
             i +
             ">" +
             i +
-            "</a></li>"
+            "</button></li>"
         );
         $(leftPage).appendTo($(paginationUl));
       }
     }
   
     let currentPage = $(
-      '<li class="page-item current"><p class="' +
+      '<li class="page-item current "><button class="' +
         paginationId +
         '  page-link active" value="' +
         numPage +
         '">' +
         numPage +
-        "</p></li>"
+        "</button></li>"
     ).appendTo($(paginationUl));
   
     for (let j = numPage + 1; j <= pagesMax; j++) {
       let rightPage = $(
-        '<li class="page-item"><a class="' +
+        '<li class="page-item"><button type="button" class="' +
           paginationId +
           ' page-link but right" value=' +
           j +
           ">" +
           j +
-          "</a></li>"
+          "</button></li>"
       );
       $(rightPage).appendTo($(paginationUl));
       if (j >= numPage + pageNav) {
@@ -67,22 +67,21 @@ function AdminPagination(element, paginationId, pagesMax, pageName) {
     }
   
     let paginationNext = $(
-      '<li class="page-item"><button class="' +
+      '<li class="page-item"><button type="button" class="' +
         paginationId +
-        ' page-link next">Next</button></li>'
+        ' page-link next"><i class="fas fa-chevron-right"></i></button></li>'
     ).appendTo(paginationUl);
-  
-    $(paginationPrev).hide();
-    if (pageName > 1) {
-      $(paginationPrev).show();
-    } else {
+   let test = $('.page-link.active').attr('value');
       $(paginationPrev).hide();
-    }
+      if(pageName == 2) {
+      $(paginationPrev).fadeIn(500);
+      }else if(pageName > 2){
+        $(paginationPrev).show();
+      } 
   
     if (pageName >= pagesmax) {
-      $(paginationNext).hide();
-    } else {
-      $(paginationNext).show();
+      $(paginationNext).fadeOut(500);
     }
-  }
+  
+}
   

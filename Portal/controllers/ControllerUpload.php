@@ -3,7 +3,7 @@ namespace CritsPortal\controllers;
 
 
 require_once($_SERVER['DOCUMENT_ROOT']. '/P5Crits/vendor/autoload.php');
-require_once('portal/controllers/ajaxAdminPhp/ajaxAdminMedia.php');
+require_once('Portal/controllers/ajaxAdminPhp/ajaxAdminMedia.php');
 
 
 
@@ -58,14 +58,14 @@ class ControllerUpload{
         if($mtype == "application/pdf" || $mtype == "image/png"  || $mtype ==  "image/jpg" || $mtype ==  "image/jpeg" || $mtype == "image/gif" || $mtype == "image/bmp") {
           if ( $filesize  > 5000000){
               $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file">';
-              $output.= '<img src="documents/error.png">';
+              $output.= '<img src="uploads/error.png">';
               $output.= '<p class="size" style="color:red;">'.$filename.' Depasse la limite de 5Mo<p></br>';
               $output.= '</div>';
               } else if( $mtype == "application/pdf") {    
                   $this->_fileManager->createFile('docfile', $create, $userId);
                   move_uploaded_file($_FILES['file']['tmp_name'][$i], $filepath);
                   $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file" data-type="document">';
-                  $output.= '<img src="documents/default.png">';
+                  $output.= '<img src="uploads/default.png">';
                   $output.= '<p class="size">'.$filename.'<p></br>';
                   $output.= '</div>';
               } else {
@@ -78,7 +78,7 @@ class ControllerUpload{
               }
           } else {
               $output.= '<div id="thumbnail_'.$fileTitle.'" class="thumbnail file">';
-              $output.= '<img src="documents/error.png">';
+              $output.= '<img src="uploads/error.png">';
               $output.= '<p class="size" style="color:red;">'.$filename.' Mauvais type de fichier<p></br>';
               $output.= '</div>';
           }

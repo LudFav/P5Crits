@@ -113,7 +113,16 @@
 	}
 
 /* Basic */
-
+:root {
+	font-size: 16px;
+	font-family: 'Open Sans';
+	--text-primary: white;
+	--text-secondary: #d88554;
+	--text-secondaryDarker: hsla(22, 63%, 59%, 0.842);
+	--bg-primary: #4a688b;
+	--bg-secondary: #33465e;
+	--transition-speed: 200ms;
+	}
 	// Set box model to border-box.
 	// Based on css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
 		html {
@@ -137,6 +146,8 @@
 			}
 
 	}
+
+
 
 	body, input, select, textarea {
 		color: _palette(fg);

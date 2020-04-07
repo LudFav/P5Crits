@@ -2,6 +2,8 @@ page = 1;
 pageCom = 1;
 billetAccueil();
 showComment();
+
+
 //  AJAX FRONT
 function billetAccueil() {
     $.post({
@@ -168,6 +170,7 @@ function signalement(id) {
     });
 }
 
+
 //MODAL ALERTE NON CONFORMITÉ FORM COMMENTAIRE
 modalAlertUpdate =  new Modal(document.querySelector("body"), {
     id: "alertComModal",
@@ -175,6 +178,8 @@ modalAlertUpdate =  new Modal(document.querySelector("body"), {
     type: "alert",
     message: "Vous n'avez pas remplie tout les champs"
   });
+
+
 //BOUTON SIGNALER
 $(window).bind('load', function () {
 

@@ -28,7 +28,7 @@ class BilletManager extends Model implements crud
    * par le nombre d'entités voulu par page 
    * @param [string] $table
    * @param [int] $nbreEntitesParPage
-   * 
+   * @return [int] $max (Nombre de pages d'entitées maximum)
    */
   function pagemax($table, $nbreEntitesParPage)
   {
@@ -122,10 +122,9 @@ class BilletManager extends Model implements crud
 
   /**
    * public function getBillets
-   *
    * @param [int] $pageB
    * @param [int] $entiteParPage
-   * 
+   * @return readAll result
    */
   public function getBillets($pageB, $entiteParPage)
   {
@@ -136,13 +135,12 @@ class BilletManager extends Model implements crud
 
   /**
    * public function getBillet
-   *
    * @param [int] $id
-   * 
+   * @return readOne result
    */
   public function getBillet($id)
   {
-    if ($this->readone('billets', 'Billet', $id) == false) {
+    if ($this->readOne('billets', 'Billet', $id) == false) {
       return false;
     } else {
       return $this->readOne('billets', 'Billet', $id);
@@ -152,8 +150,7 @@ class BilletManager extends Model implements crud
 
   /**
    * public function getLastBillet
-   *
-
+   * @return readLast result
    */
   public function getLastBillet()
   {
@@ -163,9 +160,8 @@ class BilletManager extends Model implements crud
 
   /**
    * public function getPageMax
-   *
    * @param [int] $nbreEntitesParPage
-   * 
+   * @return pagemax result
    */
   public function getPageMax($nbreEntitesParPage)
   {
@@ -175,9 +171,8 @@ class BilletManager extends Model implements crud
 
   /**
    * public function createBillet
-   *
    * @param [array] $data
-   * 
+   * @return create result
    */
   public function createBillet($data)
   {
@@ -193,10 +188,9 @@ class BilletManager extends Model implements crud
 
   /**
    * public function updateBillet
-   *
    * @param [array] $data
    * @param [int] $id
-   * 
+   * @return update result 
    */
   public function updateBillet($data, $id)
   {
@@ -210,9 +204,8 @@ class BilletManager extends Model implements crud
 
   /**
    * public function deleteBillet
-   *
    * @param [int] $id
-   * 
+   * @return delete result
    */
   public function deleteBillet($id)
   {

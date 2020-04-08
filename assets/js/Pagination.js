@@ -1,35 +1,43 @@
-function Pagination(element, paginationId, pagesMax, pageName) {
+class Pagination{
+
+  constructor(element, paginationId, pagesMax, pageName) {
     this.element = element;
     this.paginationId = paginationId;
     this.pagesMax = pagesMax;
     this.pageName = pageName;
     $(element).html("");
-    numPage = pageName;
-    pagesmax = pagesMax;
-    pageNav = 2;
+    
+    this.showPagination();
+  }
+       
+    
   
+  showPagination(){
+    this.pageNav = 2;
+    let numPage = this.pageName;
+    let pagesmax = this.pagesMax;
     let pagination = $(
       '<nav aria-label="Page navigation ' +
-        paginationId +
+        this.paginationId +
         '" id="' +
-        paginationId +
+        this.paginationId +
         '"></nav>'
-    ).appendTo($(element));
+    ).appendTo($(this.element));
     let paginationUl = $(
-      '<ul class="' + paginationId + ' paginationUl"></ul>'
+      '<ul class="' + this.paginationId + ' paginationUl"></ul>'
     ).appendTo($(pagination));
   
     let paginationPrev = $(
       '<li class="page-item"><button type="button" class="' +
-        paginationId +
+        this.paginationId +
         ' page-link prev"><i class="fas fa-chevron-left"></i></button></li>'
     ).appendTo($(paginationUl));
   
-    for (let i = numPage - pageNav; i < numPage; i++) {
+    for (let i = numPage - this.pageNav; i < numPage; i++) {
       if (i > 0) {
         let leftPage = $(
           '<li class="page-item"><button type="button" class="' +
-            paginationId +
+            this.paginationId +
             ' page-link but left" value=' +
             i +
             ">" +
@@ -42,7 +50,7 @@ function Pagination(element, paginationId, pagesMax, pageName) {
   
     let currentPage = $(
       '<li class="page-item current "><button class="' +
-        paginationId +
+        this.paginationId +
         '  page-link active" value="' +
         numPage +
         '">' +
@@ -50,10 +58,10 @@ function Pagination(element, paginationId, pagesMax, pageName) {
         "</button></li>"
     ).appendTo($(paginationUl));
   
-    for (let j = numPage + 1; j <= pagesMax; j++) {
+    for (let j = numPage + 1; j <= pagesmax; j++) {
       let rightPage = $(
         '<li class="page-item"><button type="button" class="' +
-          paginationId +
+          this.paginationId +
           ' page-link but right" value=' +
           j +
           ">" +
@@ -61,27 +69,27 @@ function Pagination(element, paginationId, pagesMax, pageName) {
           "</button></li>"
       );
       $(rightPage).appendTo($(paginationUl));
-      if (j >= numPage + pageNav) {
+      if (j >= numPage + this.pageNav) {
         break;
       }
     }
   
     let paginationNext = $(
       '<li class="page-item"><button type="button" class="' +
-        paginationId +
+        this.paginationId +
         ' page-link next"><i class="fas fa-chevron-right"></i></button></li>'
     ).appendTo(paginationUl);
    let test = $('.page-link.active').attr('value');
       $(paginationPrev).hide();
-      if(pageName == 2) {
+      if(numPage == 2) {
       $(paginationPrev).fadeIn(500);
-      }else if(pageName > 2){
+      }else if(numPage > 2){
         $(paginationPrev).show();
       } 
   
-    if (pageName >= pagesmax) {
+    if (numPage >= pagesmax) {
       $(paginationNext).fadeOut(500);
     }
-  
+  }
 }
   

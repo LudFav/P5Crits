@@ -11,9 +11,11 @@ function commentTable() {
         comSignPagesMax = response.maxComSignPages;
         comSignPagination = new Pagination(
           "#paginationComSign",
-          "pageAdminComSign",
           comSignPagesMax,
-          comSignPage
+          comSignPage, {
+            paginationId: "pageAdminComSign",
+            pageNav:2
+          }
         );
         if (!$.trim(responseTable)) {
           $("#commentTableTitre h3").text("0 commentaire signalé");

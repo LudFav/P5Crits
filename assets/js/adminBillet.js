@@ -15,7 +15,7 @@ function billetTable() {
           "#paginationAdminBillet",
           pagesMax,
           page, {
-            pagintionId: "pageAdminBillet",
+            paginationId: "pageAdminBillet",
             pageNav: 2
           }
         );

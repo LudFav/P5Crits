@@ -13,9 +13,11 @@ function moderedCommentTable() {
       comModPagesMax = responsemod.maxPagesComMod;
       comModPagination = new Pagination(
           "#paginationComMod",
-          'pageAdminComMod',
           comModPagesMax,
-          comModPage
+          comModPage, {
+            paginationId: 'pageAdminComMod',
+            pageNav:2
+          }
       )
         if (!$.trim(responsemodTable)) {
           $("#moderedCommentTableTitre h3").text("0 commentaire modéré");

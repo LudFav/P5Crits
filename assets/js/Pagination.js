@@ -1,5 +1,12 @@
 class Pagination{
-
+  /**
+     * @param {HTMLElement} element
+     * @param {int} pagesMax (Nombre entier de pages maximum)
+     * @param {int} pageName (Nombre entier, numéro de page )
+     * @param {Object} options
+     *  @param {string} paginationId (Selecteur id de la pagination)
+     *  @param {int} pageNav (Nombre , numéro de pages visibles a gauche et a droite du numéro de la page actuelle)
+    **/
   constructor(element, pagesMax, pageName, options) {
     this.element = element;
     this.pagesMax = pagesMax;

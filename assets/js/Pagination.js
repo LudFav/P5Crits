@@ -19,11 +19,7 @@ class Pagination{
     this.showPagination();
   }
        
-    
-  
   showPagination(){
-    
-    
     let numPage = this.pageName;
     let pagesmax = this.pagesMax;
     let pagination = $(

@@ -5,7 +5,7 @@ class Pagination{
      * @param {int} pageName (Nombre entier, numéro de page )
      * @param {Object} options
      *  @param {string} paginationId (Selecteur id de la pagination)
-     *  @param {int} pageNav (Nombre , numéro de pages visibles a gauche et a droite du numéro de la page actuelle)
+     *  @param {int} pageNav (Nombre de numéros de pages visibles a gauche et a droite du numéro de la page actuelle)
     **/
   constructor(element, pagesMax, pageName, options) {
     this.element = element;

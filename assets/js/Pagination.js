@@ -1,43 +1,46 @@
 class Pagination{
 
-  constructor(element, paginationId, pagesMax, pageName) {
+  constructor(element, pagesMax, pageName, options) {
     this.element = element;
-    this.paginationId = paginationId;
     this.pagesMax = pagesMax;
     this.pageName = pageName;
+    this.options = {
+      paginationId: options.paginationId,
+      pageNav: options.pageNav
+    }
     $(element).html("");
-    
     this.showPagination();
   }
        
     
   
   showPagination(){
-    this.pageNav = 2;
+    
+    
     let numPage = this.pageName;
     let pagesmax = this.pagesMax;
     let pagination = $(
       '<nav aria-label="Page navigation ' +
-        this.paginationId +
+        this.options.paginationId +
         '" id="' +
-        this.paginationId +
+        this.options.paginationId +
         '"></nav>'
     ).appendTo($(this.element));
     let paginationUl = $(
-      '<ul class="' + this.paginationId + ' paginationUl"></ul>'
+      '<ul class="' + this.options.paginationId + ' paginationUl"></ul>'
     ).appendTo($(pagination));
   
     let paginationPrev = $(
       '<li class="page-item"><button type="button" class="' +
-        this.paginationId +
+        this.options.paginationId +
         ' page-link prev"><i class="fas fa-chevron-left"></i></button></li>'
     ).appendTo($(paginationUl));
   
-    for (let i = numPage - this.pageNav; i < numPage; i++) {
+    for (let i = numPage - this.options.pageNav; i < numPage; i++) {
       if (i > 0) {
         let leftPage = $(
           '<li class="page-item"><button type="button" class="' +
-            this.paginationId +
+            this.options.paginationId +
             ' page-link but left" value=' +
             i +
             ">" +
@@ -50,7 +53,7 @@ class Pagination{
   
     let currentPage = $(
       '<li class="page-item current "><button class="' +
-        this.paginationId +
+        this.options.paginationId +
         '  page-link active" value="' +
         numPage +
         '">' +
@@ -61,7 +64,7 @@ class Pagination{
     for (let j = numPage + 1; j <= pagesmax; j++) {
       let rightPage = $(
         '<li class="page-item"><button type="button" class="' +
-          this.paginationId +
+          this.options.paginationId +
           ' page-link but right" value=' +
           j +
           ">" +
@@ -69,14 +72,14 @@ class Pagination{
           "</button></li>"
       );
       $(rightPage).appendTo($(paginationUl));
-      if (j >= numPage + this.pageNav) {
+      if (j >= numPage + this.options.pageNav) {
         break;
       }
     }
   
     let paginationNext = $(
       '<li class="page-item"><button type="button" class="' +
-        this.paginationId +
+        this.options.paginationId +
         ' page-link next"><i class="fas fa-chevron-right"></i></button></li>'
     ).appendTo(paginationUl);
    let test = $('.page-link.active').attr('value');

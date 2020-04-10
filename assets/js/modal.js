@@ -5,8 +5,8 @@ class Modal {
      *  @param {string} id
      *  @param {string} titre
      *  @param {string} type
-     *  @param {string} pseudonyme
-     *  @param {string} motDePasse
+        *  @param {string} pseudonyme
+        *  @param {string} motDePasse
      *  @param {string} message
     **/
     constructor(element, options) {

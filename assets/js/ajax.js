@@ -16,9 +16,11 @@ function billetAccueil() {
             accueilMaxPages = responseBilletAccueil.maxPages;
             billetAccueilPagination = new Pagination(
                 "#paginationSommaire",
-                "pageSommaire",
                 accueilMaxPages,
-                page
+                page, {
+                    paginationId:"pageSommaire",
+                    pageNav: 3
+                }
             )
             
             if (accueilMaxPages <= 1) {
@@ -63,9 +65,11 @@ function showComment() {
             frontComPagesMax = responseFrontCom.maxPagesComFront;
             frontComPagination = new Pagination(
                 "#paginationFrontCom",
-                "frontComPage",
                 frontComPagesMax,
-                pageCom
+                pageCom, {
+                    paginationId:  "frontComPage",
+                    pageNav:2
+                }
             )
             if (!$.trim(responseFrontComTable)) {
                 let noComment = '<p class ="noComment">Soyez la première personne à écrire un commentaire sur ce billet.</p>';

@@ -15,9 +15,11 @@ function docTable() {
         docPagesMax = responseDoc.docFileMaxPages;
         docPage = new Pagination(
           "#paginationAdminDoc",
-          "pageAdminDoc",
           docPagesMax,
-          pageDoc
+          pageDoc, {
+            paginationId: "pageAdminDoc",
+            pageNav:2
+          }
         );
         
         if (!$.trim(responseDocTable)) {
@@ -79,9 +81,11 @@ function docTable() {
         imgPagesMax = responseImg.imgFileMaxPages;
         imgPage = new Pagination(
           "#paginationAdminImg",
-          "pageAdminImg",
           imgPagesMax,
-          pageImg
+          pageImg, {
+            paginationId: "pageAdminImg",
+            pageNav:2
+          }
         );
         if (!$.trim(responseImgTable)) {
           $(".imgTable h5").text("0 image enregistrée");

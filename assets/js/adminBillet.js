@@ -13,9 +13,11 @@ function billetTable() {
         pagesMax = responseBillet.maxPages;
         billetPage = new Pagination(
           "#paginationAdminBillet",
-          "pageAdminBillet",
           pagesMax,
-          page
+          page, {
+            pagintionId: "pageAdminBillet",
+            pageNav: 2
+          }
         );
         if (!$.trim(responseBilletTable)) {
           $("#billetTableTitre h3").text("0 billet posté");

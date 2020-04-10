@@ -32,7 +32,7 @@
     <article class="post featured">
 		<header class="major">
             <div class="post-info" data-trf="<?=$billet[0]->id()?>"></div>
-			<span class="date"><?php $date = $billet[0]->date(); $newDate = date('d/m/Y H:i', strtotime($date)); echo $newDate;?></span>
+			<span class="date"><?= $date = $billet[0]->date(); $newDate = date('d/m/Y H:i', strtotime($date)); echo $newDate;?></span>
 			<h2><?=$billet[0]->titre()?></h2>
 			<?=$billet[0]->contenu_cut()?>
 		</header>

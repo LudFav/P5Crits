@@ -4869,6 +4869,7 @@ margin-top:25px;
 
 td.actionTd, td.commentActionTd, td.docFileAction, td.imgFileAction {
 display: flex;
+height:100px;
 }
 
 .admin-btn, .admin-btn:hover{
@@ -5268,14 +5269,11 @@ display: none;
 /* Thumbnail */
 .thumbnail{
 padding: 2px;
-border: 2px solid lightgray;
-border-radius: 3px;
-float: left;
-display:flex;
 }
 .thumbnail img{
 width:80px;
 height:80px;
+vertical-align:top;
 }
 .size{
 font-size:12px;

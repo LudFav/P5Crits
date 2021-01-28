@@ -19,7 +19,6 @@ class UserManager extends Model implements crud
     $req->closeCursor();
   }
 
-
   public function readAll($table, $obj, $page, $entiteParPage){
     $this->getBdd();
     $var = [];
@@ -31,7 +30,6 @@ class UserManager extends Model implements crud
     }
     return $var;
     $req->closeCursor();
-
   }
 
   public function readOne($table, $obj, $id){

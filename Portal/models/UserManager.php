@@ -37,7 +37,7 @@ class UserManager extends Model implements crud
   public function readOne($table, $obj, $id){
     $this->getBdd();
     $var = [];
-    $req = self::$_bdd->prepare("SELECT id, username, password, role FROM $table WHERE id = ?");
+    $req = self::$_bdd->prepare("SELECT id, email, username, password, role FROM $table WHERE id = ?");
     $req->execute(array($id));
     while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
       $var[] = new $obj($data);
@@ -100,6 +100,7 @@ class UserManager extends Model implements crud
   public function createUser($data){
     return $this->create('users',array(
     'username' => $data['username'],
+    'email' => $data['email'],
     'password'  => $data['password'],
     'role'  => $data['role']
   ));

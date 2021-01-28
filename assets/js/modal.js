@@ -57,7 +57,7 @@ class Modal {
 
             //LIEN VERS INSCRIPTION
             this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
-            this.modalLinkToInscription = $('<div class="newHere">Nouveau sur le site ?</br><a class="inscription" href="register">Inscrivez vous ici</a></div>').appendTo(this.modalFooter);
+            this.modalLinkToInscription = $('<div class="newHere">Nouveau sur le site ?</br><a class="inscription" href="inscription">Inscrivez vous ici</a></div>').appendTo(this.modalFooter);
         }
 
         if (this.options.type == 'confirmation') {

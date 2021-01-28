@@ -54,6 +54,11 @@ class User
     public function id(){
         return $this->_id;
     }
+
+    public function email(){
+        return $this->_email;
+    }
+
     public function username(){
         return $this->_username;
     }

@@ -4,6 +4,7 @@ namespace CritsPortal\models;
 class User
 {
     private $_id;
+    private $_email;
     private $_username;
     private $_password;
     private $_role;
@@ -23,6 +24,12 @@ class User
 //setters 
     public function setId($id){
     $this->_id= (int) $id;
+    }
+
+    public function setEmail($email){
+        if(is_string($email)){
+            $this->_email= $email;
+        }
     }
     
     public function setUsername($username){

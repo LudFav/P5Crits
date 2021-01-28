@@ -30,6 +30,7 @@ class UserManager extends Model implements crud
     }
     return $var;
     $req->closeCursor();
+
   }
 
   public function readOne($table, $obj, $id){
@@ -77,6 +78,19 @@ class UserManager extends Model implements crud
   public function delete($table, $where){
     $this->getBdd();
     $req = self::$_bdd->prepare("DELETE FROM $table WHERE $where");
+    $req->execute();
+    $req->closeCursor();
+  }
+
+  public function getUserEmail($email){
+    $this->getBdd();
+    $req = self::$_bdd->prepare("SELECT FROM $table WHERE email = :email");
+    $req->bindValue("email", $email);
+    if($req->rowCount() > 0){
+      return true;
+    } else{
+      return false;
+    }
     $req->execute();
     $req->closeCursor();
   }

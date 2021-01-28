@@ -53,7 +53,6 @@ $imageBillet =  $_fileManager->getFiles('imgfile', $userId, $pageImg, $entiteImg
 $pageMaxImg = $_fileManager->getPageMax('imgfile', $entiteImgParPage, $userId);
 $imageOutput ='';
 if(isset($_POST['action']) && $_POST['action']=='showImageLib'){
-    //$image = isset($_POST['idImage'])? $_POST['idImage'] :1;
     foreach($imageBillet as $image){
     $imageOutput .= '<input type="radio" name="choice' .$image->id(). '" class=" sr-only imgRadioImpt" id="' .$image->type().$image->id(). '" value="' .$image->id(). '">';
     $imageOutput .= '<label class="thumbnail imgRadioLbl" for="choice' .$image->id(). '" value="' .$image->id(). '" >';

@@ -23,13 +23,12 @@ class ControllerLogin {
         $password= password_verify($passwordSubmitted, $passwordHashed);
         if($_POST['username'] == $userInfo[0]->username() && $password == true){
         $_SESSION['admin'] = array('id'=>$userId, 'username'=>$goodUsername);
-        //$username;
         $link = "admin";
         echo $link; 
         } else if(empty($_POST['username']) || empty($_POST['password'])){
           echo 'inputVide';
         } else if(($_POST['username'] != $goodUsername && $password == false) || ($_POST['username'] == $goodUsername && $password == false) || ($_POST['username'] != $goodUsername && $password == true)){
-         echo 'wrong login';
+          echo 'wrong login';
         } 
       }
   }

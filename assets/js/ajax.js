@@ -6,12 +6,7 @@ showComment();
 
 //  AJAX FRONT
 
-function register() {
-    $.post({
-        url: 'register',
-        data: { 'action': 'inscription' }
-    })
-}
+
 
 function billetAccueil() {
     $.post({
@@ -151,9 +146,9 @@ function errorMessageLogin() {
 $('.submit-btn').on('click', function(e) {
     e.preventDefault();
     if ($('#formCommentaire')[0].checkValidity()) {
-        var idBillet = $('.post-info').attr('data-trf');
-        var auteur = $('#auteur').val();
-        var contenu = $('#contenu').val();
+        let idBillet = $('.post-info').attr('data-trf');
+        let auteur = $('#auteur').val();
+        let contenu = $('#contenu').val();
         $.post({
             url: 'post',
             data: {
@@ -169,6 +164,32 @@ $('.submit-btn').on('click', function(e) {
         })
     } else {
         $('#alertComModal').modal('show');
+    }
+});
+
+//FORMULAIRE D'INSCRIPTION
+$('.registerBtn').on('click', function(e) {
+    e.preventDefault();
+    if ($('#formRegister')[0].checkValidity()) {
+        let username = $('#registerName').val();
+        let email = $('#registerEmail').val();
+        let password = $('#registerPassword').val();
+        let confirmedPassword = $('#registerPassword-repeat').val();
+        console.log('user: ' + username + 'email: ' + email + 'password: ' + password + 'passwordConfirm: ' + confirmedPassword);
+        $.post({
+            url: 'register',
+            data: {
+                'action': 'register',
+                'username': username,
+                'email': email,
+                'password': password,
+                'confirmedPassword': confirmedPassword
+            },
+            success: function(data) {
+                //console.log(data)
+            }
+        })
+
     }
 })
 
@@ -214,8 +235,8 @@ $(window).bind('load', function() {
     $('#username').val(user);
 
     $('#connexion-validBtn').on('click', function() {
-        var username = $('#username').val();
-        var password = $('#password').val();
+        let username = $('#username').val();
+        let password = $('#password').val();
         $.post({
             url: 'login',
             data: { 'action': 'login', 'username': username, 'password': password },

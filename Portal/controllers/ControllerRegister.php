@@ -24,10 +24,10 @@ class ControllerRegister
         'username' => trim(htmlspecialchars($_POST['username'])),
         'email' => trim(htmlspecialchars($_POST['email'])),
         'password' => trim(htmlspecialchars($_POST['password'])),
-        'confirmedPassword' => trim(htmlspecialchars($_POST['confirmedPassword']))
+        'confirmedPassword' => trim(htmlspecialchars($_POST['confirmedPassword'])),
+        'role' => 'user'
         );
         //Validation du nom : il peut comporter des lettres et des numeros
-        var_dump($data);
         
         $nameValidation= "/^[a-zA-Z0-9]*$/";
       

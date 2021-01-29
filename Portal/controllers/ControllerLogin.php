@@ -21,7 +21,7 @@ class ControllerLogin {
         $goodUsername = $userInfo[0]->username();
         $userId = $userInfo[0]->id();
         $password= password_verify($passwordSubmitted, $passwordHashed);
-        if($_POST['username'] == $userInfo[0]->username() && $password == true){
+        if($_POST['username'] == $userInfo->username() && $password == true){
         $_SESSION['admin'] = array('id'=>$userId, 'username'=>$goodUsername);
         $link = "admin";
         echo $link; 

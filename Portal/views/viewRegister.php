@@ -19,7 +19,7 @@
     <div id="main">
 
 <!-- Formulaire d'inscription -->
-<form name="registerForm" action="inscription" method="post" id="formRegister">
+<form name="registerForm" action="register" method="post" id="formRegister">
   <div class="form-group">
     <label for="username" class="labelName"><b>Pseudonyme</b></label>
     <input type="text" placeholder="Entrez votre pseudonyme" name="username" class="form-control" id="registerName" required>

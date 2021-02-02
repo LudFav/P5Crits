@@ -25,30 +25,51 @@ class ControllerRegister
         'email' => trim(htmlspecialchars($_POST['email'])),
         'password' => trim(htmlspecialchars($_POST['password'])),
         'confirmedPassword' => trim(htmlspecialchars($_POST['confirmedPassword'])),
-        'role' => 'user'
+        'role' => 'user',
+        'usernameError' => '',
+        'emailError' => '',
+        'passwordError' => '',
+        'confirmPasswordError' => ''
         );
+
         //Validation du nom : il peut comporter des lettres et des numeros
-        
-        $nameValidation= "/^[a-zA-Z0-9]*$/";
-      
+        $nameValidation= "/^[a-zA-Z0-9]*$/"; 
         if(!preg_match($nameValidation, $data['username'])){
-          echo 'votre pseudo ne peut contenir que des lettres et des numéros';
+          $data['usernameError'] ='votre pseudo ne peut contenir que des lettres et des numéros';
         }
-        $emailValidation = $data['email'];
+
+        //Validation Email: vérification des caracteres utilisés et que l'email n'existe pas deja dans la bdd
+        $email = $data['email'];
         if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
-          echo 'adresse email non valide';
-        }/*elseif($this->_userManager->getUserEmail($emailValidation)){
-          echo 'email déja utilisé';
-        }*/
+          $data['emailError'] ='adresse email non valide';
+        }elseif($this->_userManager->getUserEmail($email)){
+          $data['emailError'] ='email déja utilisé';
+        }
 
+        //Mot de passe et mot de passe de confirmation
+        $passValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
+        if(preg_match($passValidation, $data['password'])){
+          $data['passwordError'] = 'Votre mot de passe doit contenir un chiffre';
+        } elseif(strlen($data['password']) <= 7){
+          $data['passwordError'] = 'Votre mot de passe doit avoir au moin 8 caractères';
+        }
+        if ($data['password'] != $data['confirmedPassword']) {
+          $data['confirmPasswordError'] = 'Vos mots de passe ne correspondent pas, veuillez rééessayer.';
+        }
 
-        $this->_userManager = new \CritsPortal\models\UserManager();
-        $users = $this->_userManager->createUser($data);
-        //creer une vue User
-        header('Location:accueil');
-      } else {
+        //Si aucune erreur on créé le compte sinon on reste sur la page
+        if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+          $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT, ['cost' => 12]);
+          $this->_userManager = new \CritsPortal\models\UserManager();
+          $users = $this->_userManager->createUser($data);
+          header('Location:accueil');
+          } else {
+              return false;
+          }
+          // POST IT creer une vue/session USER
+        } else {
         return false;
-      }
+        }
     } 
   }
 }

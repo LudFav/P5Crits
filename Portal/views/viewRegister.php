@@ -32,7 +32,7 @@
 
     <label for="psw-repeat"><b>Confirmation du mot de passe</b></label>
     <input type="password" placeholder="Confirmez votre mot de passe" name="psw-repeat" class="form-control" id="registerPassword-repeat" required>
-    <hr>
+    <div class="blankSpace" style="height:80px;"></div>
     <button type="submit" class="registerBtn">S'Enregistrer</button>
   </div>
 </form>

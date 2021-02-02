@@ -26,45 +26,43 @@ class ControllerRegister
         'password' => trim(htmlspecialchars($_POST['password'])),
         'confirmedPassword' => trim(htmlspecialchars($_POST['confirmedPassword'])),
         'role' => 'user',
-        'usernameError' => '',
-        'emailError' => '',
-        'passwordError' => '',
-        'confirmPasswordError' => ''
+        'error' => ''
         );
 
         //Validation du nom : il peut comporter des lettres et des numeros
         $nameValidation= "/^[a-zA-Z0-9]*$/"; 
         if(!preg_match($nameValidation, $data['username'])){
-          $data['usernameError'] ='votre pseudo ne peut contenir que des lettres et des numéros';
+          $data['error'] ='usernameError';
         }
 
         //Validation Email: vérification des caracteres utilisés et que l'email n'existe pas deja dans la bdd
         $email = $data['email'];
         if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
-          $data['emailError'] ='adresse email non valide';
+          $data['error'] ='mailInvald';
         }elseif($this->_userManager->getUserEmail($email)){
-          $data['emailError'] ='email déja utilisé';
+          $data['error'] ='mailAlreadyUsed';
         }
 
         //Mot de passe et mot de passe de confirmation
         $passValidation = "/^(.{0,7}|[^a-z]*|[^\d]*)$/i";
         if(preg_match($passValidation, $data['password'])){
-          $data['passwordError'] = 'Votre mot de passe doit contenir un chiffre';
-        } elseif(strlen($data['password']) <= 7){
-          $data['passwordError'] = 'Votre mot de passe doit avoir au moin 8 caractères';
+          $data['error'] = 'passWithoutNumber';
+        } 
+        if(strlen($data['password']) <= 7){
+          $data['error'] = 'passTooShort';
         }
         if ($data['password'] != $data['confirmedPassword']) {
-          $data['confirmPasswordError'] = 'Vos mots de passe ne correspondent pas, veuillez rééessayer.';
+          $data['error'] = 'passUnmatched';
         }
 
-        //Si aucune erreur on créé le compte sinon on reste sur la page
-        if (empty($data['usernameError']) && empty($data['emailError']) && empty($data['passwordError']) && empty($data['confirmPasswordError'])){
+        //Si aucune erreur on créer le compte sinon on reste sur la page
+        if (empty($data['error'])){
           $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT, ['cost' => 12]);
-          $this->_userManager = new \CritsPortal\models\UserManager();
           $users = $this->_userManager->createUser($data);
           header('Location:accueil');
-          } else {
-              return false;
+          } else{
+              echo $data['error'];
+              exit();
           }
           // POST IT creer une vue/session USER
         } else {

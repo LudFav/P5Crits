@@ -175,7 +175,6 @@ $('.registerBtn').on('click', function(e) {
         let email = $('#registerEmail').val();
         let password = $('#registerPassword').val();
         let confirmedPassword = $('#registerPassword-repeat').val();
-        console.log('user: ' + username + 'email: ' + email + 'password: ' + password + 'passwordConfirm: ' + confirmedPassword);
         $.post({
             url: 'register',
             data: {
@@ -186,7 +185,7 @@ $('.registerBtn').on('click', function(e) {
                 'confirmedPassword': confirmedPassword
             },
             success: function(data) {
-                //console.log(data)
+                console.log(data)
             }
         })
 

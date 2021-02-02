@@ -83,26 +83,19 @@ class UserManager extends Model implements crud
   }
 
   public function readUserEmail($table, $email){
-    var_dump('testage2');
     $this->getBdd();
-    $req = self::$_bdd->prepare("SELECT email FROM $table WHERE email = :email");
-    var_dump($email);
-    $req->bindValue("email", $email);
-
-   /* if($req->rowCount() > 0){
-      return true;
-    } else{
-      return false;
-    }*/
+    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE email = :email");
+    $req->bindValue(":email", $email);
     $req->execute();
+    if($req->rowCount() > 0){
+     return true;
+    }
     $req->closeCursor();
   }
 
-  public function getUserEmail(){
-    var_dump('testage');
-    /*return $this->readUserEmail('users', array(
-      'email' => $email
-    ));*/
+  public function getUserEmail($email){
+    return $this->readUserEmail('users', $email
+    );
   }
 
   public function sessionInfo(){

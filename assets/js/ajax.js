@@ -185,7 +185,9 @@ $('.registerBtn').on('click', function(e) {
                 'confirmedPassword': confirmedPassword
             },
             success: function(data) {
-                console.log(data)
+                if (data == mailAlreadyUsed) {
+                    let errorMessage = $('<div class="errorMessage"><p>Email déja utilisé</p></div>').appendTo($('.blankSpace'))
+                }
             }
         })
 

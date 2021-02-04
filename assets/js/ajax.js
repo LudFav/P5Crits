@@ -120,24 +120,32 @@ function frontComButtonPagination(frontComPagesMax) {
     });
 }
 
-function errorMessageEmpty() {
-    let emptyLogins = '<div class="emptylogins alert alert-warning" role="alert">Veuillez remplir tout les champs</div>';
-    $(emptyLogins).insertAfter($('.md-form.mb-4'));
-    $('.emptylogins').fadeIn(1000);
+function errorMessageInscription(errorType) {
+    if (errorType == 1) {
+        let errorMessage = $('<p class="errorType  alert alert-warning">Email déja utilisé</p>').appendTo($('.blankSpace '))
+    }
+
+    $('.errorType').fadeIn(1000);
     setTimeout(function() {
-        $('.emptylogins').fadeOut("slow", function() {
-            $('.emptylogins').remove();
+        $('.errorType').fadeOut("slow", function() {
+            $('.errorType').remove();
         });
     }, 2000);
 }
 
-function errorMessageLogin() {
-    let errorLogin = '<div class="errorlogins alert alert-warning" role="alert">Erreur de login, veuillez reessayer</div>';
-    $(errorLogin).insertAfter($('.md-form.mb-4'));
-    $('.errorlogins').fadeIn(1000);
+
+function errorMessageLogin(errorType) {
+
+    if (errorType == 1) {
+        let errorLogin = $('<p class="errorLoginText alert alert-warning" role="alert">Veuillez rentrer tout vos logins</p>').appendTo($('.errorLogin'));
+    } else if (errorType == 2) {
+        let errorLogin = $('<p class="errorLoginText alert alert-warning" role="alert">Logins invalides</p>').appendTo($('.errorLogin'));;
+    }
+
+    $('.errorLoginText').fadeIn(1000);
     setTimeout(function() {
-        $('.errorlogins').fadeOut("slow", function() {
-            $('.errorlogins').remove();
+        $('.errorLoginText').fadeOut("slow", function() {
+            $('.errorLoginText').remove();
         });
     }, 2000);
 }
@@ -175,6 +183,7 @@ $('.registerBtn').on('click', function(e) {
         let email = $('#registerEmail').val();
         let password = $('#registerPassword').val();
         let confirmedPassword = $('#registerPassword-repeat').val();
+
         $.post({
             url: 'register',
             data: {
@@ -185,8 +194,12 @@ $('.registerBtn').on('click', function(e) {
                 'confirmedPassword': confirmedPassword
             },
             success: function(data) {
-                if (data == mailAlreadyUsed) {
-                    let errorMessage = $('<div class="errorMessage"><p>Email déja utilisé</p></div>').appendTo($('.blankSpace'))
+                console.log(data);
+                let responseInscription = JSON.parse(data);
+                console.log(responseInscription);
+                if (responseInscription == 'mailAlreadyUsed') {
+                    errorType = 1;
+                    errorMessageInscription(errorType)
                 }
             }
         })
@@ -244,9 +257,12 @@ $(window).bind('load', function() {
             success: function(data) {
 
                 if (data == 'inputVide') {
-                    errorMessageEmpty();
+                    errorType = 1;
+                    errorMessageLogin(errorType);
+                    $('errorlogins').text();
                 } else if (data == 'wrong login') {
-                    errorMessageLogin();
+                    errorType = 2;
+                    errorMessageLogin(errorType);
                 } else {
                     $('#connexion-validBtn').attr('data-dismiss', 'modal');
                     window.location.href = data;

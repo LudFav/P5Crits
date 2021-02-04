@@ -48,13 +48,15 @@ class Modal {
             this.options.motDePasse = inputMotDePasse;
             let labelMotDePasse = $('<label for="password" data-error="wrong" data-success="right"></label>').appendTo(this.modalFormPass);
             $(labelMotDePasse).addClass(modalId + '-lblMdp');
+
             //CREATION DIV et Button de modal, si local et session storage sont supporté on sauvegarde nom et prenom en local
-            this.modalButtons = $('<div class="md-form"/>').appendTo(this.modalBody);
+            this.modalButtons = $('<div class="md-form mb-4"/>').appendTo(this.modalBody);
             let validBtn = $('<button type="button" value="Connexion" class="btn btn-primary" id="' + modalId + '-validBtn' + '" >Valider</button>').appendTo($(this.modalButtons));
             $(validBtn).on('click', function() {
-                localStorage.setItem("name", inputPseudo.val()); //savgrd le pseudo
-            })
-
+                    localStorage.setItem("name", inputPseudo.val()); //savgrd le pseudo
+                })
+                //ERREUR
+            this.error = $('<div class="errorLogin mb-4" style="height:30px;"/ > ').appendTo(this.modalBody);
             //LIEN VERS INSCRIPTION
             this.modalFooter = $('<div class="modal-footer"></div>').appendTo(this.modalContent);
             this.modalLinkToInscription = $('<div class="newHere">Nouveau sur le site ?</br><a class="inscription" href="register">Inscrivez vous ici</a></div>').appendTo(this.modalFooter);

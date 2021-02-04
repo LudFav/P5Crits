@@ -82,10 +82,10 @@ class UserManager extends Model implements crud
     $req->closeCursor();
   }
 
-  public function readUserEmail($table, $email){
+  public function readUserInfo($table, $info, $type){
     $this->getBdd();
-    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE email = :email");
-    $req->bindValue(":email", $email);
+    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE $type= :$type");
+    $req->bindValue(":$type", $info);
     $req->execute();
     if($req->rowCount() > 0){
      return true;
@@ -93,8 +93,8 @@ class UserManager extends Model implements crud
     $req->closeCursor();
   }
 
-  public function getUserEmail($email){
-    return $this->readUserEmail('users', $email
+  public function getUserInfo($info, $type){
+    return $this->readUserInfo('users', $info, $type
     );
   }
 

@@ -122,13 +122,25 @@ function frontComButtonPagination(frontComPagesMax) {
 
 function errorMessageInscription(errorType) {
     if (errorType == 1) {
-        let errorMessage = $('<p class="errorType  alert alert-warning">Email déja utilisé</p>').appendTo($('.blankSpace '))
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Votre pseudo ne peut contenir que des lettres et des chiffres</p>').appendTo($('.blankSpace '));
+    } else if (errorType == 2) {
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Pseudonyme déja utilisé</p>').appendTo($('.blankSpace '));
+    } else if (errorType == 3) {
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Adresse Email non valide</p>').appendTo($('.blankSpace '));
+    } else if (errorType == 4) {
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Adresse Email déja utilisé</p>').appendTo($('.blankSpace '));
+    } else if (errorType == 5) {
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Votre mot de passe doit avoir au moins 1 caractère chiffré</p>').appendTo($('.blankSpace '));
+    } else if (errorType == 6) {
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Votre mot de passe doit contenir au moins 8 caractères</p>').appendTo($('.blankSpace '));
+    } else if (errorType == 7) {
+        let errorMessage = $('<p class="errorRegisterText  alert alert-warning">Votre confirmation de mot de passe ne correspond pas avec votre mot de passe</p>').appendTo($('.blankSpace '));
     }
 
-    $('.errorType').fadeIn(1000);
+    $('.errorRegisterText').fadeIn(1000);
     setTimeout(function() {
-        $('.errorType').fadeOut("slow", function() {
-            $('.errorType').remove();
+        $('.errorRegisterText').fadeOut("slow", function() {
+            $('.errorRegisterText').remove();
         });
     }, 2000);
 }
@@ -183,7 +195,6 @@ $('.registerBtn').on('click', function(e) {
         let email = $('#registerEmail').val();
         let password = $('#registerPassword').val();
         let confirmedPassword = $('#registerPassword-repeat').val();
-
         $.post({
             url: 'register',
             data: {
@@ -194,18 +205,49 @@ $('.registerBtn').on('click', function(e) {
                 'confirmedPassword': confirmedPassword
             },
             success: function(data) {
-                console.log(data);
-                let responseInscription = JSON.parse(data);
-                console.log(responseInscription);
-                if (responseInscription == 'mailAlreadyUsed') {
-                    errorType = 1;
-                    errorMessageInscription(errorType)
+                if (!$.trim(data)) {
+                    window.location.href = 'accueil';
+                } else {
+                    let responseInscription = JSON.parse(data);
+                    switch (responseInscription) {
+                        case 'usernameError':
+                            errorType = 1;
+                            errorMessageInscription(errorType);
+                            break;
+                        case 'nameAlreadyUsed':
+                            errorType = 2;
+                            errorMessageInscription(errorType);
+                            break;
+                        case 'mailInvalid':
+                            errorType = 3;
+                            errorMessageInscription(errorType);
+                            break;
+                        case 'mailAlreadyUsed':
+                            errorType = 4;
+                            errorMessageInscription(errorType);
+                            break
+                        case 'passWithoutNumber':
+                            errorType = 5;
+                            errorMessageInscription(errorType);
+                            break
+                        case 'passTooShort':
+                            errorType = 6;
+                            errorMessageInscription(errorType);
+                            break;
+                        case 'passUnmatched':
+                            errorType = 7;
+                            errorMessageInscription(errorType);
+                            break;
+                        default:
+                            errorType = '';
+                    }
                 }
+
             }
         })
-
     }
 })
+
 
 function signalement(id) {
     $.post({
@@ -229,11 +271,12 @@ modalAlertUpdate = new Modal(document.querySelector("body"), {
 
 //BOUTON SIGNALER
 $(window).bind('load', function() {
-
     $('#formCommentaire').attr('action', '');
     $('.signalbtn').on('click', function() {
         signalement($(this).attr('value'));
     });
+
+    //LOGIN
     let login = new Modal(document.querySelector('body'), {
         id: 'connexion',
         titre: 'Connexion',

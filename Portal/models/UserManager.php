@@ -46,15 +46,29 @@ class UserManager extends Model implements crud
   }
 
 
-  public function readAdmin($table, $obj){
+  public function readUser($table, $username){
     $this->getBdd();
-    $var = [];
-    $req = self::$_bdd->prepare("SELECT * FROM $table");
-    $req->execute(array());
-    while ($data = $req->fetch(\PDO::FETCH_ASSOC)) {
-      $var[] = new User($data);
+    $user=[];
+    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE username = :username");
+    $req->bindValue(":username", $username);
+    $req->execute();
+    $result= $req->fetch(\PDO::FETCH_ASSOC);
+    if(!empty($result)){
+      $user = new User($result);
     }
-    return $var;
+    return $user;
+    
+    $req->closeCursor();
+  }
+
+  public function readUserInfo($table, $info, $type){
+    $this->getBdd();
+    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE $type= :$type");
+    $req->bindValue(":$type", $info);
+    $req->execute();
+    if($req->rowCount() > 0){
+     return true;
+    }
     $req->closeCursor();
   }
 
@@ -82,28 +96,16 @@ class UserManager extends Model implements crud
     $req->closeCursor();
   }
 
-  public function readUserInfo($table, $info, $type){
-    $this->getBdd();
-    $req = self::$_bdd->prepare("SELECT * FROM $table WHERE $type= :$type");
-    $req->bindValue(":$type", $info);
-    $req->execute();
-    if($req->rowCount() > 0){
-     return true;
-    }
-    $req->closeCursor();
-  }
+
+
 
   public function getUserInfo($info, $type){
     return $this->readUserInfo('users', $info, $type
     );
   }
 
-  public function sessionInfo(){
-    $this->getBdd();
-  }
-
-  public function getUser(){
-    return $this->readAdmin('users', 'User');
+  public function getUser($username){
+    return $this->readUser('users', $username);
   }
 
   public function updateUser($data){

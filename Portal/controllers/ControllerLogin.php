@@ -13,32 +13,32 @@ class ControllerLogin {
 
   public function login(){
       if(isset($_POST['action']) && $_POST['action'] == 'login'){  
-        $userInfo = $this->_userManager->getUser();
         $username = htmlspecialchars($_POST['username']);
         $passwordSubmitted = htmlspecialchars($_POST['password']);
-        $passwordHashed = $userInfo[0]->password();
-        $goodUsername = $userInfo[0]->username();
-        $userId = $userInfo[0]->id();
+        $userLogins = $this->_userManager->getUser($username);
+        $passwordHashed = $userLogins->password();
+        $goodUsername = $userLogins->username();
+        $userRole = $userLogins->role();   
+        $userId = $userLogins->id();
         $password= password_verify($passwordSubmitted, $passwordHashed);
-        if($_POST['username'] == $userInfo->username() && $password == true){
-        $_SESSION['admin'] = array('id'=>$userId, 'username'=>$goodUsername);
-        $link = "admin";
+        if($_POST['username'] == $userLogins->username() && $password == true){
+        $_SESSION[$userRole] = array('id'=>$userId, 'username'=>$goodUsername);
+        $link = "accueil";
         echo $link; 
         } else if(empty($_POST['username']) || empty($_POST['password'])){
           echo 'inputVide';
         } else if(($_POST['username'] != $goodUsername && $password == false) || ($_POST['username'] == $goodUsername && $password == false) || ($_POST['username'] != $goodUsername && $password == true)){
           echo 'wrong login';
         } 
+        
       }
   }
 
   public function isLoggedIn(){
-    if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
       if(isset($_POST['action']) && $_POST['action'] == 'isLogged'){
       $logged = true;
       echo $logged;
       }
-    }
   }
 
   public function logout(){

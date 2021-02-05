@@ -30,7 +30,7 @@ if(isset($_POST['action']) && $_POST['action']=='register'){
     $infoEmail = $data['email'];
     $typeEmail = 'email';
     if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
-      $error ='mailInvald';
+      $error ='mailInvalid';
     }elseif($_userManager->getUserInfo($infoEmail, $typeEmail)){
       $error ='mailAlreadyUsed';
     }

@@ -16,6 +16,15 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
+     <!-- Nav -->
+    <nav id="nav">
+            <ul class="links">
+                <li class="active"><a href="accueil">Accueil</a></li>
+                <li><a href="sommaire">Sommaire</a></li>
+                <li><a class="logout" id="logout">Déconnexion</a></li>
+                <!--li a >adresse a remplir vers dernier article php-->
+            </ul>
+    </nav>
     <!--Content-->
     <?= $content ?>	
     	<!-- Footer -->
@@ -26,7 +35,6 @@
                             <ul class="menu admin">
                                 <li><a href="admin" class="fas fa-feather-alt" id="admin"> Administration</a></li>
                                 <li><a href="accueil" class="fas fa-book" id="retourSommaire"> Accueil du site</a></li>
-                                <li><a class="logout fas fa-sign-out-alt" id="logout"> Deconnexion</a></li>
                             </ul>
                         </div>
                     <!-- Copyright -->

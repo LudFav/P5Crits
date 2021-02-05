@@ -15,7 +15,11 @@ class View
     $content = $this->generateFile($this->_file, $data);
     if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
       $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/templateAdmin.php';
-    } else {
+    } 
+    elseif(isset($_SESSION['user']) && !empty($_SESSION['user'])){
+      $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/templateUser.php';
+    } 
+    else {
       $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/template.php';
     }
     $view = $this->generateFile($template, array('title'=>$title, 'content' => $content));

@@ -11,6 +11,7 @@
     <ul class="links">
       <li><a href=accueil>Accueil</a></li>
       <li><a href="sommaire">Sommaire</a></li>
+      <li><a href="" id="login" data-toggle="modal" data-target="#connexion">Connexion</a></li>
     </ul>
   </nav>
 

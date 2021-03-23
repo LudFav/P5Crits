@@ -30,5 +30,19 @@ $(window).bind("load", function() {
     });
 });
 
+new CharacterSheet(document.querySelector('#tableCarac'), {
+    force: 10,
+    dexterite: 10,
+    constitution: 10,
+    intelligence: 10,
+    sagesse: 10,
+    charisme: 10,
+    modForce: 0,
+    modDexterite: 0,
+    modConstitution: 0,
+    modIntelligence: 0,
+    modSagesse: 0,
+    modCharisme: 0
+});
 
 isLoggedin();

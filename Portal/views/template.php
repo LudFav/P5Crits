@@ -16,16 +16,44 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-     <!-- Nav -->
+     <!-- Nav 
      <nav id="nav">
             <ul class="links">
                 <li class="active"><a href="accueil">Accueil</a></li>
                 <li><a href="sommaire">Sommaire</a></li>
                 <li><a href="" id="login" data-toggle="modal" data-target="#connexion">Connexion</a></li>
-                <!--li a >adresse a remplir vers dernier article php-->
             </ul>
-        </nav>
+    </nav>-->
+
     <!--Content-->
+    <!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+
+<!-- Intro -->
+<div class="bg"></div>
+    <div id="intro">
+        <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
+        <p>Bienvenue sur le portail de Crits, une application en développement vous permettant de jouer en ligne a des jeux de rôle papier, pour le moment voyez ce portail tel un devblog.</p>
+        <ul class="actions">
+            <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+        </ul>
+    </div>
+
+<!-- Header -->
+    <header id="header">
+        <a href="accueil" class="logo"><img src='assets/images/Critstest.png' alt="logo"></a>
+    </header>
+
+<!-- Nav -->
+
+ <nav id="nav">
+        <ul class="links">
+            <li class="active"><a href="accueil">Accueil</a></li>
+            <li><a href="sommaire">Sommaire</a></li>
+            <li><a href="" id="login" data-toggle="modal" data-target="#connexion">Connexion</a></li>
+        </ul>
+</nav>
+
     <?= $content ?>	
     	<!-- Footer -->
         <footer id="footer">

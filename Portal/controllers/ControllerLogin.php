@@ -22,7 +22,7 @@ class ControllerLogin {
         $userId = $userLogins->id();
         $password= password_verify($passwordSubmitted, $passwordHashed);
         if($_POST['username'] == $userLogins->username() && $password == true){
-        $_SESSION[$userRole] = array('id'=>$userId, 'username'=>$goodUsername);
+        $_SESSION['username'] = $goodUsername;
         $link = "accueil";
         echo $link; 
         } else if(empty($_POST['username']) || empty($_POST['password'])){

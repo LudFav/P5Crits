@@ -13,14 +13,22 @@ class View
   public function generate($title, $data){
     //définir le contenu à envoyer
     $content = $this->generateFile($this->_file, $data);
-    if(isset($_SESSION['admin']) && !empty($_SESSION['admin'])){
-      $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/templateAdmin.php';
-    } 
-    elseif(isset($_SESSION['user']) && !empty($_SESSION['user'])){
-      $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/templateUser.php';
-    } 
-    else {
+    
+    if(isset($_SESSION['role']) && !empty($_SESSION['role'])){
+    
+      $role = $_SESSION['role'];
+      if($role=='admin'){
+        $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/templateAdmin.php';
+        
+      } 
+      if($role=='user'){ 
+        $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/templateUser.php';
+       
+      }
+      
+    } elseif(empty($_SESSION['role'])) {
       $template = $_SERVER["DOCUMENT_ROOT"]. '/P5Crits/Portal/views/template.php';
+      
     }
     $view = $this->generateFile($template, array('title'=>$title, 'content' => $content));
     echo $view;

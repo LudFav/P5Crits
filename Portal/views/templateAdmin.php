@@ -21,6 +21,7 @@
             <ul class="links">
                 <li class="active"><a href="accueil">Accueil</a></li>
                 <li><a href="sommaire">Sommaire</a></li>
+                <li><a href="profil">Profil</a></li>
                 <li><a class="logout" id="logout">Déconnexion</a></li>
                 <!--li a >adresse a remplir vers dernier article php-->
             </ul>

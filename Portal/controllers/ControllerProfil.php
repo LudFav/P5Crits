@@ -17,10 +17,10 @@ class ControllerProfil {
   }
 
   private function profil(){
-    if(isset($_SESSION[$userRole]) && !empty($_SESSION[$userRole])){
+    if(isset($_SESSION['username']) && !empty($_SESSION['username'])){
     //username  
         
-        $username = $_SESSION[$userRole]['username'];
+        $username = $_SESSION['username'];
         /**
          * Profil a montrer
          */

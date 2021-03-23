@@ -16,12 +16,12 @@ class ControllerLogin {
         $username = htmlspecialchars($_POST['username']);
         $passwordSubmitted = htmlspecialchars($_POST['password']);
         $userLogins = $this->_userManager->getUser($username);
-        $passwordHashed = $userLogins->password();
-        $goodUsername = $userLogins->username();
-        $userRole = $userLogins->role();   
-        $userId = $userLogins->id();
+        $passwordHashed = $userLogins[0]->password();
+        $goodUsername = $userLogins[0]->username();
+        $userRole = $userLogins[0]->role();   
+        $userId = $userLogins[0]->id();
         $password= password_verify($passwordSubmitted, $passwordHashed);
-        if($_POST['username'] == $userLogins->username() && $password == true){
+        if($_POST['username'] == $userLogins[0]->username() && $password == true){
         $_SESSION['role'] = $userRole;
         $_SESSION['id'] = $userId;
         $_SESSION['username'] = $goodUsername;

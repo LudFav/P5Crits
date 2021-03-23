@@ -10,8 +10,6 @@ class ControllerProfil{
   
       if(isset($_SESSION['id']) && !empty($_SESSION['id'])){
         $this->_userManager = new \CritsPortal\models\UserManager;
-        var_dump($_SESSION['username']);
-        var_dump($_SESSION['role']);
         $userName=$_SESSION['username'];
         $user = $this->_userManager->getUser($userName);
         $this->_view = new View('Profil'); 

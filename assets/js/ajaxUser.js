@@ -17,7 +17,6 @@ function isLoggedin() {
             if (data == "1") {
                 let logout = '<a href="" class="logout">Déconnexion</a>';
                 $('#login').replaceWith($(logout));
-                let profilButton = $('<li><a href="profil" class="userProfil">Profil</a></li>').insertBefore($('.logout').parent());
                 let createCharacterButton = $('<li><a href="character" class="characterBtn">Création de personnage</a></li>').insertBefore($('.logout').parent());
             }
         }

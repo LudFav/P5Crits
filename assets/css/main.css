@@ -8,6 +8,49 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+div#tableCarac {
+    background-color: rgba(255, 255, 255, 0.781);
+}
+
+.selectionArmure h3,
+.saveRoll h3 {
+    font-size: 2em;
+}
+
+select#equippedArmor {
+    width: auto;
+    max-width: 150px;
+    text-align: center;
+}
+
+.characLvlInpt,
+#forceScore,
+#forceMod,
+#dextScore,
+#dextMod,
+#constitScore,
+#constitMod,
+#intelScore,
+#intelMod,
+#sageScore,
+#sageMod,
+#charismScore,
+#charismMod,
+#armorNumber,
+#shieldNumber,
+#constitSaveMod,
+#dextSaveMod,
+#sageSaveMod,
+#objConstitSaveMod,
+#objDextSaveMod,
+#objSageSaveMod,
+.bonusInpt,
+.skillNum,
+#armorDext,
+#armorClass {
+    width: 40px;
+}
+
 html,
 body,
 div,

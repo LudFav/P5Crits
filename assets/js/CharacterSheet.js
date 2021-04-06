@@ -1,8 +1,8 @@
 class CharacterSheet {
     /**
      * @param {HTMLElement} element
-     * @param {string} nom 
-     * @param {string} race 
+     * @param {string} nom
+     * @param {string} race
      * @param {string} classe
      * @param {string} sexe
      * @param {string} joueur
@@ -10,7 +10,7 @@ class CharacterSheet {
      *      @param {int} dexterite
      *      @param {int} constitution
      *      @param {int} intelligence
-     *      @param {int} sagesse 
+     *      @param {int} sagesse
      *      @param {int} charisme
      **/
     constructor(element, options) {
@@ -35,37 +35,36 @@ class CharacterSheet {
     }
 
     showCharacterSheet() {
-        //import armor from 'armor.js'
 
-        //console.log(armor);
-        this.form = $('<form id="characInfo" class="col-8 px-5"/>').appendTo(this.element);
-        let characTitle = $('<h3>Caractéristiques</h3>').appendTo(this.form);
-        let characFirstRow = $("<div class='names row mb-2 align-items-center'/>").appendTo(this.form);
-        let nameOfPlayerLbl = $('<label for="name" class="col label name">Joueur : </label>').appendTo(characFirstRow);
-        let nameOfPlayerInpt = $('<input type="text" class="input name"/>').appendTo(nameOfPlayerLbl);
-        let nameOfCharacLbl = $('<label for="name" class="col label characName">Perso : </label>').appendTo(characFirstRow);
-        let nameOfCharacInpt = $('<input type="text" class="input characName"/>').appendTo(nameOfCharacLbl);
-        let classOfCharac = $(
-            '<div class="row mb-2 justify-content-start classOfCharac"/>').appendTo(this.form);
-        let class1OfCharac = $(
-            '<div class="col"><label for="classe de predilection">Classe de Prédilection</label><br/> <select name="classe_1" id="classe1"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select></div> ').appendTo(classOfCharac);
-        let class2OfCharac = $(
-            '<div class="col"><label for="classe 1">Classe 1</label><br/> <select name="classe_1" id="classe1"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select ></div> ').appendTo(classOfCharac);
-        let class3OfCharac = $(
-            '<div class="col"><label for="classe 2" >Classe 2</label><br/> <select name="classe_2" id="classe2"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select></div> ').appendTo(classOfCharac);
-        let rah = $('<div class="row mb-2 justify-content-start rah" />').appendTo(this.form);
-        let raceOfCharac = $(
-            '<div class="rahcol col"><label for="race"> Race : </label></br><select name="race" id="race"> <option value = " " ></option><option value = "Humain" > Humain </option > <option value = "Elfe" > Elfe </option> <option value = "Nain" > Nain </option > <option value = "Gnome" > Gnome </option> <option value = "Halfelin" > Halfelin </option > <option value = "Demi-Elfe" > Demi-Elfe </option> <option value = "Demi-Orc" > Demi-Orc </option > </select></div>').appendTo(rah);
-        let alignement = $(
-            '<div class="rahcol col"><label for="alignement"> Alignement : </label><select name="alignement" id="alignement"><option value = " " >  </option><option value = "Loyal Bon" > Loyal Bon </option> <option value = "Loyal Neutre" > Loyal Neutre </option> <option value = "Loyal Mauvais" > Loyal Mauvais </option> <option value = "Neutre Bon" > Neutre Bon </option> <option value = "Neutre" > Neutre </option> <option value = "Neutre Mauvais" > Neutre Mauvais </option> <option value = "Chaotique Bon" > Chaotique Bon </option><option value = "Chaotique Neutre" > Chaotique Neutre </option><option value = "Chaotique Mauvais" > Chaotique Mauvais </option></select ></div> ').appendTo(rah);
-        let heightOfCharac = $(
-            '<div class="rahcol col"><label for="Catégorie de taille"> Catégorie de taille : </label><select name="Catégorie de taille" id="taille"><option value = " " >  </option><option value = "Colossal(C)" > Colossal(C) </option> <option value = "Gigantesque(Gig)" > Gigantesque(Gig) </option> <option value = "Grand(G)" > Grand(G) </option> <option value = "Infime(I)"> Infime(I) </option> <option value = "Minuscule(Min)" > Minuscule(Min)</option > <option value = "Moyen(M)" > Moyen(M) </option> <option value = "Petit(P)" > Petit(P) </option ><option value = "Trés Grand(TG)" > Trés Grand(TG) </option><option value = "Trés Petit(TP)" > Trés Petit(TP) </option ></select ></div> ').appendTo(rah);
-        let characLevel = $("<div class='lvlBonus'/>").appendTo(this.form);
-        let characLevelLbl = $("<label for='niveau' class='characLvlLbl'>Niveau du Personnage : </label>").appendTo(characLevel);
-        let characLevelInpt = $("<input type='number' class='characLvlInpt' value='1' />").appendTo(characLevelLbl);
+
+        //Premiere ligne nom du perso/race/level
+        this.tabs = $('<div class="tab-content" id="pills-tabContent"/>').appendTo(this.element);
+        let caracDiv = $(' <div class="tab-pane fade show active" id="pills-carac" role="tabpanel" aria-labelledby="pills-carac-tab"/>').appendTo(this.tabs);
+        let caracTable = $(' <table class="table caption-top caracTable" style="max-width:800px;"/>').appendTo(caracDiv);
+        let caracTitle = $(' <caption><h1> CARACTÉRISTIQUE </h1> </caption>').appendTo(caracTable);
+        let caracTableBody = $('<tbody/>').appendTo(caracTable);
+        let characFirstRow = $("<tr><th scope='row'><th></tr>").appendTo(caracTableBody);
+
+        let nameOfCharacLbl = $('<td><label for="name" class="col label characName">Nom du Perso</label></td>').appendTo(characFirstRow);
+        let nameOfCharacInpt = $('<td><input type="text" class="input characName"/></td>').appendTo(characFirstRow);
+        let race = $('<td><label for="race"> Race : </label></br><select name="race" id="race"> <option value = " " ></option><option value = "Humain" > Humain </option > <option value = "Elfe" > Elfe </option> <option value = "Nain" > Nain </option > <option value = "Gnome" > Gnome </option> <option value = "Halfelin" > Halfelin </option > <option value = "Demi-Elfe" > Demi-Elfe </option> <option value = "Demi-Orc" > Demi-Orc </option > </select></td>').appendTo(characFirstRow);
+        let characLevelLbl = $("<td><label for='niveau' class='characLvlLbl'>Niveau du Personnage : </label></td>").appendTo(characFirstRow);
+        let characLevelInpt = $("<td><input type='number' class='characLvlInpt' value='1' /></td>").appendTo(characFirstRow);
+
+        //deuxieme ligne classes
+        let characSecondRow = $("<tr><th scope='row'><th></tr>").appendTo(caracTableBody);
+        let class1OfCharac = $('<td><label for="classe1">Classe </label><br/><select name="classe1" id="classe1"><option value = " " > < /option> <option value = "Barbare" > Barbare < /option> <option value = "Barde" > Barde < /option> <option value = "Druide" > Druide < /option> <option value = "Ensorceleur" > Ensorceleur < /option> <option value = "Guerrier" > Guerrier < /option> <option value = "Magicien" > Magicien < /option> <option value = "Moine" > Moine < /option> <option value = "Paladin" > Paladin </option> <option value = "Prêtre"> Prêtre </option> <option value = "Rodeur"> Rodeur </option> <option value ="Roublard"> Roublard </option></select > < /td > ').appendTo(characSecondRow);
+        let class2OfCharac = $('<td><label for="classe2">Classe 2</label><br/><select name="classe_2" id="classe2"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select ></td> ').appendTo(characSecondRow);
+        let class3OfCharac = $('<td><label for="classe3">Classe 3</label><br/><select name="classe_3" id="classe3"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select ></td> ').appendTo(characSecondRow);
+        let rah = $('<div class="row mb-2 justify-content-start rah" />').appendTo(this.tabs);
+        //troisieme ligne alignement
+        let characThirdRow = $("<tr><th scope='row'><th></tr>").appendTo(caracTableBody);
+        let alignement = $('<td><label for="alignement"> Alignement </label><select name="alignement" id="alignement"><option value = " " >  </option><option value = "Loyal Bon" > Loyal Bon </option> <option value = "Loyal Neutre" > Loyal Neutre </option> <option value = "Loyal Mauvais" > Loyal Mauvais </option> <option value = "Neutre Bon" > Neutre Bon </option> <option value = "Neutre" > Neutre </option> <option value = "Neutre Mauvais" > Neutre Mauvais </option> <option value = "Chaotique Bon" > Chaotique Bon </option><option value = "Chaotique Neutre" > Chaotique Neutre </option><option value = "Chaotique Mauvais" > Chaotique Mauvais </option></select ></td> ').appendTo(characThirdRow);
+
+
 
         //section Caracteristique
-        this.table = $('<table class="table charac-tb"/>').appendTo(this.form);
+        this.table = $('<table class="table charac-tb"/>').appendTo(this.tabs);
         let avmTr = $('<tr/>').appendTo(this.table);
         let avmTh = $('<th> Abilité </th><th> Valeur </th><th> Modificateur </th>').appendTo(avmTr);
         let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td></tr>').appendTo(this.table);
@@ -76,7 +75,7 @@ class CharacterSheet {
         let charismTr = $('<tr><td> Charisme </td><td><input type="number" value="' + this.options.charisme + '" id="charismScore"></td><td><input type="number" value="' + this.options.modCharisme + '" id="charismMod"></td></tr>').appendTo(this.table);
 
         //section Armure + Jet de Sauvegarde
-        let armorSave = $('<div id="armorSaveContainer" class="container d-flex"/>').appendTo(this.form);
+        let armorSave = $('<div id="armorSaveContainer" class="container d-flex"/>').appendTo(this.tabs);
         //Armure
         let armorSelect = $('<div class="selectionArmure col-6"/>').appendTo(armorSave);
         let armorSelectTitle = $('<h3> Armure </h3></br>').appendTo(armorSelect);
@@ -94,7 +93,7 @@ class CharacterSheet {
         let caracMod = $('<tr><td>Mod</td><td><input type="number" id="constitSaveMod"/></td><td><input type="number" id="dextSaveMod"/></td><td><input type="number" id="sageSaveMod"/></td></tr>').appendTo(vrvTable);
         let objetMod = $('<tr><td>Objet</td><td><input type="number" id="objConstitSaveMod"/></td><td><input type="number" id="objDextSaveMod"/></td><td><input type="number" id="objSageSaveMod"/></td></tr>').appendTo(vrvTable);
 
-        //section Les Competences 
+        //section Les Competences
         let skills = $('<div class="col skill-tab px-5"/>').appendTo(this.element);
         let skilltitle = $('<h3>Compétences</h3>').appendTo(skills);
         let proficiencyBonusLbl = $("<label for='Bonus de Competence' class='bonusLbl'>Bonus de Compétences : </label>").appendTo(skills);

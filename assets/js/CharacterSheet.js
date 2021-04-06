@@ -37,43 +37,47 @@ class CharacterSheet {
     showCharacterSheet() {
 
 
-        //Premiere ligne nom du perso/race/level
+
         this.tabs = $('<div class="tab-content" id="pills-tabContent"/>').appendTo(this.element);
+
+
+        //section TABLEAU Caracteristique
         let caracDiv = $(' <div class="tab-pane fade show active" id="pills-carac" role="tabpanel" aria-labelledby="pills-carac-tab"/>').appendTo(this.tabs);
         let caracTable = $(' <table class="table caption-top caracTable" style="max-width:800px;"/>').appendTo(caracDiv);
-        let caracTitle = $(' <caption><h1> CARACTÉRISTIQUE </h1> </caption>').appendTo(caracTable);
+        let caracTitle = $('<h1>CARACTÉRISTIQUE</h1>').appendTo(caracTable);
         let caracTableBody = $('<tbody/>').appendTo(caracTable);
-        let characFirstRow = $("<tr><th scope='row'><th></tr>").appendTo(caracTableBody);
 
-        let nameOfCharacLbl = $('<td><label for="name" class="col label characName">Nom du Perso</label></td>').appendTo(characFirstRow);
-        let nameOfCharacInpt = $('<td><input type="text" class="input characName"/></td>').appendTo(characFirstRow);
-        let race = $('<td><label for="race"> Race : </label></br><select name="race" id="race"> <option value = " " ></option><option value = "Humain" > Humain </option > <option value = "Elfe" > Elfe </option> <option value = "Nain" > Nain </option > <option value = "Gnome" > Gnome </option> <option value = "Halfelin" > Halfelin </option > <option value = "Demi-Elfe" > Demi-Elfe </option> <option value = "Demi-Orc" > Demi-Orc </option > </select></td>').appendTo(characFirstRow);
-        let characLevelLbl = $("<td><label for='niveau' class='characLvlLbl'>Niveau du Personnage : </label></td>").appendTo(characFirstRow);
-        let characLevelInpt = $("<td><input type='number' class='characLvlInpt' value='1' /></td>").appendTo(characFirstRow);
+        //Premiere ligne nom du perso/race/level
+        let characFirstRow = $("<tr/>").appendTo(caracTableBody);
+        let nameOfCharacLbl = $('<td><label for="name" class="label characName">Nom du perso</label></br><input type="text" class="input characName"/></td>').appendTo(characFirstRow);
+        let race = $('<td><label for="race"> Race </label></br><select name="race" id="race"> <option value = " " ></option><option value = "Humain" > Humain </option > <option value = "Elfe" > Elfe </option> <option value = "Nain" > Nain </option > <option value = "Gnome" > Gnome </option> <option value = "Halfelin" > Halfelin </option > <option value = "Demi-Elfe" > Demi-Elfe </option> <option value = "Demi-Orc" > Demi-Orc </option > </select></td>').appendTo(characFirstRow);
+        let characLevelLbl = $("<td><label for='niveau' class='characLvlLbl'>Niveau du Personnage </label></br><input type='number' class='characLvlInpt' value='1' /></td>").appendTo(characFirstRow);
 
         //deuxieme ligne classes
-        let characSecondRow = $("<tr><th scope='row'><th></tr>").appendTo(caracTableBody);
-        let class1OfCharac = $('<td><label for="classe1">Classe </label><br/><select name="classe1" id="classe1"><option value = " " > < /option> <option value = "Barbare" > Barbare < /option> <option value = "Barde" > Barde < /option> <option value = "Druide" > Druide < /option> <option value = "Ensorceleur" > Ensorceleur < /option> <option value = "Guerrier" > Guerrier < /option> <option value = "Magicien" > Magicien < /option> <option value = "Moine" > Moine < /option> <option value = "Paladin" > Paladin </option> <option value = "Prêtre"> Prêtre </option> <option value = "Rodeur"> Rodeur </option> <option value ="Roublard"> Roublard </option></select > < /td > ').appendTo(characSecondRow);
-        let class2OfCharac = $('<td><label for="classe2">Classe 2</label><br/><select name="classe_2" id="classe2"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select ></td> ').appendTo(characSecondRow);
-        let class3OfCharac = $('<td><label for="classe3">Classe 3</label><br/><select name="classe_3" id="classe3"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select ></td> ').appendTo(characSecondRow);
-        let rah = $('<div class="row mb-2 justify-content-start rah" />').appendTo(this.tabs);
+        let characSecondRow = $("<tr/>").appendTo(caracTableBody);
+        let class1OfCharac = $('<td><label for="classe1">Classe </label><br/><select name="classe1" id="classe1"><option value = " " > </option> <option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option> <option value = "Paladin" > Paladin </option> <option value = "Prêtre"> Prêtre </option> <option value = "Rodeur"> Rodeur </option> <option value ="Roublard"> Roublard </option></select></td> ').appendTo(characSecondRow);
+        let class2OfCharac = $('<td><label for="classe2">Classe 2</label><br/><select name="classe_2" id="classe2"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select></td> ').appendTo(characSecondRow);
+        let class3OfCharac = $('<td><label for="classe3">Classe 3</label><br/><select name="classe_3" id="classe3"><option value = " " >  </option><option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option><option value = "Paladin" > Paladin </option><option value = "Prêtre" > Prêtre </option><option value = "Rodeur" > Rodeur </option><option value = "Roublard" > Roublard </option></select></td> ').appendTo(characSecondRow);
         //troisieme ligne alignement
-        let characThirdRow = $("<tr><th scope='row'><th></tr>").appendTo(caracTableBody);
-        let alignement = $('<td><label for="alignement"> Alignement </label><select name="alignement" id="alignement"><option value = " " >  </option><option value = "Loyal Bon" > Loyal Bon </option> <option value = "Loyal Neutre" > Loyal Neutre </option> <option value = "Loyal Mauvais" > Loyal Mauvais </option> <option value = "Neutre Bon" > Neutre Bon </option> <option value = "Neutre" > Neutre </option> <option value = "Neutre Mauvais" > Neutre Mauvais </option> <option value = "Chaotique Bon" > Chaotique Bon </option><option value = "Chaotique Neutre" > Chaotique Neutre </option><option value = "Chaotique Mauvais" > Chaotique Mauvais </option></select ></td> ').appendTo(characThirdRow);
+        let characThirdRow = $("<tr/>").appendTo(caracTableBody);
+        let alignement = $('<td><label for="alignement"> Alignement </label></br><select name="alignement" id="alignement"><option value = " " >  </option><option value = "Loyal Bon" > Loyal Bon </option> <option value = "Loyal Neutre" > Loyal Neutre </option> <option value = "Loyal Mauvais" > Loyal Mauvais </option> <option value = "Neutre Bon" > Neutre Bon </option> <option value = "Neutre" > Neutre </option> <option value = "Neutre Mauvais" > Neutre Mauvais </option> <option value = "Chaotique Bon" > Chaotique Bon </option><option value = "Chaotique Neutre" > Chaotique Neutre </option><option value = "Chaotique Mauvais" > Chaotique Mauvais </option></select ></td> ').appendTo(characThirdRow);
 
 
 
-        //section Caracteristique
-        this.table = $('<table class="table charac-tb"/>').appendTo(this.tabs);
-        let avmTr = $('<tr/>').appendTo(this.table);
-        let avmTh = $('<th> Abilité </th><th> Valeur </th><th> Modificateur </th>').appendTo(avmTr);
-        let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td></tr>').appendTo(this.table);
-        let dextTr = $('<tr><td> Dextérité </td><td><input type="number" value="' + this.options.dexterite + '" id="dextScore"></td><td><input type="number" value="' + this.options.modDexterite + '" id="dextMod"></td></tr>').appendTo(this.table);
-        let constitTr = $('<tr><td> Constitution </td><td><input type="number" value="' + this.options.constitution + '" id="constitScore"></td><td><input type="number" value="' + this.options.modConstitution + '" id="constitMod"></td></tr>').appendTo(this.table);
-        let intelTr = $('<tr><td> Intelligence </td><td><input type="number" value="' + this.options.intelligence + '" id="intelScore"></td><td><input type="number" value="' + this.options.modIntelligence + '" id="intelMod"></td></tr>').appendTo(this.table);
-        let sageTr = $('<tr><td> Sagesse </td><td><input type="number" value="' + this.options.sagesse + '" id="sageScore"></td><td><input type="number" value="' + this.options.modSagesse + '" id="sageMod"></td></tr>').appendTo(this.table);
-        let charismTr = $('<tr><td> Charisme </td><td><input type="number" value="' + this.options.charisme + '" id="charismScore"></td><td><input type="number" value="' + this.options.modCharisme + '" id="charismMod"></td></tr>').appendTo(this.table);
+        //section TABLEAU ABILITE
+        let abilityDiv = $('<div class="tab-pane fade" id="pills-ability" role="tabpanel" aria-labelledby="pills-ability-tab"/>').appendTo(this.tabs);
+        let abilityTable = $('<table class="table charac-tb abiliyTab" style="max-width:800px;"/>').appendTo(abilityDiv);
+        let abilityTitle = $('<h1>ABILITÉS</h1>').appendTo(abilityTable);
+        let methodRoll = $('<tr id="methodRoll"><td class="form-check"><input type="radio" class="btn-check" id="methodStandard" autocomplete="off"><label class="btn btn-outline-success" for="btn-check-2-outlined">Méthode standard (4D6 - dés minus)</label></td><td class="form-check"><input type="radio" class="btn-check" id="methodClassic" autocomplete="off"><label class="btn btn-outline-secondary" for="btn-check-2-outlined">Méthode classique (3D6)</label></td><td class="form-check"><input type="radio" class="btn-check" id="methodHeroic" autocomplete="off"><label class="btn btn-outline-danger" for="btn-outline-danger">Méthode héroïque (2D6 + 6)</label></td></tr>').appendTo(abilityTable);
+        let avmTr = $('<tr/>').appendTo(abilityTable);
+        let avmTh = $('<th></th><th> Valeur </th><th> Modificateur </th>').appendTo(avmTr);
+        let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore" min="8" max="20"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td></tr>').appendTo(abilityTable);
+        let dextTr = $('<tr><td> Dextérité </td><td><input type="number" value="' + this.options.dexterite + '" id="dextScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modDexterite + '" id="dextMod"></td></tr>').appendTo(abilityTable);
+        let constitTr = $('<tr><td> Constitution </td><td><input type="number" value="' + this.options.constitution + '" id="constitScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modConstitution + '" id="constitMod"></td></tr>').appendTo(abilityTable);
+        let intelTr = $('<tr><td> Intelligence </td><td><input type="number" value="' + this.options.intelligence + '" id="intelScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modIntelligence + '" id="intelMod"></td></tr>').appendTo(abilityTable);
+        let sageTr = $('<tr><td> Sagesse </td><td><input type="number" value="' + this.options.sagesse + '" id="sageScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modSagesse + '" id="sageMod"></td></tr>').appendTo(abilityTable);
 
+        /**
         //section Armure + Jet de Sauvegarde
         let armorSave = $('<div id="armorSaveContainer" class="container d-flex"/>').appendTo(this.tabs);
         //Armure
@@ -92,31 +96,32 @@ class CharacterSheet {
         let vrvTh = $('<th></th><th> Vigueur </th><th> Réflexes </th><th> Volonté </th>').appendTo(vrvTable);
         let caracMod = $('<tr><td>Mod</td><td><input type="number" id="constitSaveMod"/></td><td><input type="number" id="dextSaveMod"/></td><td><input type="number" id="sageSaveMod"/></td></tr>').appendTo(vrvTable);
         let objetMod = $('<tr><td>Objet</td><td><input type="number" id="objConstitSaveMod"/></td><td><input type="number" id="objDextSaveMod"/></td><td><input type="number" id="objSageSaveMod"/></td></tr>').appendTo(vrvTable);
-
-        //section Les Competences
-        let skills = $('<div class="col skill-tab px-5"/>').appendTo(this.element);
-        let skilltitle = $('<h3>Compétences</h3>').appendTo(skills);
-        let proficiencyBonusLbl = $("<label for='Bonus de Competence' class='bonusLbl'>Bonus de Compétences : </label>").appendTo(skills);
+*/
+        //section Tableau Competences
+        let skillsDiv = $('<div class="tab-pane fade" id="pills-skill" role="tabpanel" aria-labelledby="pills-skill-tab"/>').appendTo(this.tabs);
+        let skillTable = $(' <table class="skillsTab" style="max-width:800px;"/>').appendTo(skillsDiv);
+        let skillTitle = $('<h1>COMPÉTENCES</h1>').appendTo(skillTable);
+        let proficiencyBonusLbl = $("<label for='Bonus de Competence' class='bonusLbl'>Bonus de Compétences : </label>").appendTo(skillTable);
         let proficiencyBonusInpt = $("<input type='number' class='bonusInpt' value='2'/>").appendTo(proficiencyBonusLbl);
         let bonusPro = parseInt($('.bonusInpt').attr('value'));
-        let skillTab = $('<table class="skillsTab"/>').appendTo(skills);
-        let acrobatSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="acro-Prof"></td><td> Acrobaties: </td><td><input type="number" class="skillNum" id="acroScore" ></td></tr> ').appendTo(skillTab);
-        let aracaneSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="arca-Prof"></td><td> Arcane: </td><td><input type="number" class="skillNum" id="arcaScore" ></td></tr> ').appendTo(skillTab);
-        let artisanatSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="arti-Prof"></td><td> Artisanat: </td><td><input type="number" class="skillNum" id="artiScore" ></td></tr> ').appendTo(skillTab);
-        let athletismSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="athle-Prof"></td><td> Athlétisme: </td><td><input type="number" class="skillNum" id="athleScore" ></td></tr> ').appendTo(skillTab);
-        let diploSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="diplo-Prof"></td><td> Diplomatie: </td><td><input type="number" class="skillNum" id="diploScore" ></td></tr> ').appendTo(skillTab);
-        let discretSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="discret-Prof"></td><td> Discrétion: </td><td><input type="number" class="skillNum" id="discretScore" ></td></tr> ').appendTo(skillTab);
-        let intimidSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="intim-Prof"></td><td> Intimidation: </td><td><input type="number" class="skillNum" id="intimScore" ></td></tr> ').appendTo(skillTab);
-        let medecineSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="med-Prof"></td><td> Médecine: </td><td><input type="number" class="skillNum" id="medScore" ></td></tr> ').appendTo(skillTab);
-        let natureSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="nat-Prof"></td><td> Nature: </td><td><input type="number" class="skillNum" id="natScore" ></td></tr> ').appendTo(skillTab);
-        let occultSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="occult-Prof"></td><td> Occulte: </td><td><input type="number" class="skillNum" id="occultScore" ></td></tr> ').appendTo(skillTab);
-        let volSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="vol-Prof"></td><td> Vol à la tire: </td><td><input type="number" class="skillNum" id="volScore" ></td></tr> ').appendTo(skillTab);
-        let religSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="relig-Prof"></td><td> Religion: </td><td><input type="number" class="skillNum" id="religScore" ></td></tr> ').appendTo(skillTab);
-        let representationSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="represent-Prof"></td><td> Représentation: </td><td><input type="number" class="skillNum" id="representScore" ></td></tr> ').appendTo(skillTab);
-        let savoirSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="savoir-Prof"></td><td> Savoir: </td><td><input type="number" class="skillNum" id="savoirScore" ></td></tr> ').appendTo(skillTab);
-        let societeSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="societe-Prof"></td><td> Société: </td><td><input type="number" class="skillNum" id="societeScore" ></td></tr> ').appendTo(skillTab);
-        let survieSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="survie-Prof"></td><td> Survie: </td><td><input type="number" class="skillNum" id="survieScore" ></td></tr> ').appendTo(skillTab);
-        let tromperieSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="trmperie-Prof"></td><td> Tromperie: </td><td><input type="number" class="skillNum" id="trmperieScore" ></td></tr> ').appendTo(skillTab);
+
+        let acrobatSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="acro-Prof"></td><td> Acrobaties: </td><td><input type="number" class="skillNum" id="acroScore" ></td></tr> ').appendTo(skillTable);
+        let aracaneSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="arca-Prof"></td><td> Arcane: </td><td><input type="number" class="skillNum" id="arcaScore" ></td></tr> ').appendTo(skillTable);
+        let artisanatSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="arti-Prof"></td><td> Artisanat: </td><td><input type="number" class="skillNum" id="artiScore" ></td></tr> ').appendTo(skillTable);
+        let athletismSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="athle-Prof"></td><td> Athlétisme: </td><td><input type="number" class="skillNum" id="athleScore" ></td></tr> ').appendTo(skillTable);
+        let diploSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="diplo-Prof"></td><td> Diplomatie: </td><td><input type="number" class="skillNum" id="diploScore" ></td></tr> ').appendTo(skillTable);
+        let discretSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="discret-Prof"></td><td> Discrétion: </td><td><input type="number" class="skillNum" id="discretScore" ></td></tr> ').appendTo(skillTable);
+        let intimidSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="intim-Prof"></td><td> Intimidation: </td><td><input type="number" class="skillNum" id="intimScore" ></td></tr> ').appendTo(skillTable);
+        let medecineSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="med-Prof"></td><td> Médecine: </td><td><input type="number" class="skillNum" id="medScore" ></td></tr> ').appendTo(skillTable);
+        let natureSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="nat-Prof"></td><td> Nature: </td><td><input type="number" class="skillNum" id="natScore" ></td></tr> ').appendTo(skillTable);
+        let occultSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="occult-Prof"></td><td> Occulte: </td><td><input type="number" class="skillNum" id="occultScore" ></td></tr> ').appendTo(skillTable);
+        let volSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="vol-Prof"></td><td> Vol à la tire: </td><td><input type="number" class="skillNum" id="volScore" ></td></tr> ').appendTo(skillTable);
+        let religSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="relig-Prof"></td><td> Religion: </td><td><input type="number" class="skillNum" id="religScore" ></td></tr> ').appendTo(skillTable);
+        let representationSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="represent-Prof"></td><td> Représentation: </td><td><input type="number" class="skillNum" id="representScore" ></td></tr> ').appendTo(skillTable);
+        let savoirSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="savoir-Prof"></td><td> Savoir: </td><td><input type="number" class="skillNum" id="savoirScore" ></td></tr> ').appendTo(skillTable);
+        let societeSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="societe-Prof"></td><td> Société: </td><td><input type="number" class="skillNum" id="societeScore" ></td></tr> ').appendTo(skillTable);
+        let survieSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="survie-Prof"></td><td> Survie: </td><td><input type="number" class="skillNum" id="survieScore" ></td></tr> ').appendTo(skillTable);
+        let tromperieSkill = $('<tr><td><input type="checkbox" class="skillCheck" id="trmperie-Prof"></td><td> Tromperie: </td><td><input type="number" class="skillNum" id="trmperieScore" ></td></tr> ').appendTo(skillTable);
 
         $('.characLvlInpt').change(function() {
             let characterLevel = $('.characLvlInpt').val();

@@ -1,5 +1,6 @@
 <div class="row">
- <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <div class='container mt-5'>
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="pills-carac-tab" data-bs-toggle="pill" data-bs-target="#pills-carac" type="button" role="tab" aria-controls="pills-carac" aria-selected="true">Caractéristiques</button>
         </li>
@@ -22,7 +23,6 @@
             <button class="nav-link" id="pills-fight-tab" data-bs-toggle="pill" data-bs-target="#pills-fight" type="button" role="tab" aria-controls="pills-fight" aria-selected="false">Combat</button>
         </li>
     </ul>
-        <div class='container mt-5'>
             <div id="tableCarac" class="row tab-content mx-n5"></div>
         </div>
 </div>

@@ -5,7 +5,7 @@
             <button class="nav-link active" id="pills-carac-tab" data-bs-toggle="pill" data-bs-target="#pills-carac" type="button" role="tab" aria-controls="pills-carac" aria-selected="true">Caractéristiques</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="pills-ability-tab" data-bs-toggle="pill" data-bs-target="#pills-ability" type="button" role="tab" aria-controls="pills-ability" aria-selected="false">Abilités</button>
+            <button class="nav-link" id="pills-ability-tab" data-bs-toggle="pill" data-bs-target="#pills-ability" type="button" role="tab" aria-controls="pills-ability" aria-selected="false">Habilités</button>
         </li>
         <li class="nav-item" role="presentation">
             <button class="nav-link" id="pills-skill-tab" data-bs-toggle="pill" data-bs-target="#pills-skill" type="button" role="tab" aria-controls="pills-skill" aria-selected="false">Compétences</button>

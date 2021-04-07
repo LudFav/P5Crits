@@ -35,13 +35,9 @@ class CharacterSheet {
     }
 
     showCharacterSheet() {
-
-
-
         this.tabs = $('<div class="tab-content" id="pills-tabContent"/>').appendTo(this.element);
 
-
-        //section TABLEAU Caracteristique
+        //DOM CARACTERISTIQUE
         let caracDiv = $(' <div class="tab-pane fade show active" id="pills-carac" role="tabpanel" aria-labelledby="pills-carac-tab"/>').appendTo(this.tabs);
         let caracTable = $(' <table class="table caption-top caracTable" style="max-width:800px;"/>').appendTo(caracDiv);
         let caracTitle = $('<h1>CARACTÉRISTIQUE</h1>').appendTo(caracTable);
@@ -61,21 +57,110 @@ class CharacterSheet {
         //troisieme ligne alignement
         let characThirdRow = $("<tr/>").appendTo(caracTableBody);
         let alignement = $('<td><label for="alignement"> Alignement </label></br><select name="alignement" id="alignement"><option value = " " >  </option><option value = "Loyal Bon" > Loyal Bon </option> <option value = "Loyal Neutre" > Loyal Neutre </option> <option value = "Loyal Mauvais" > Loyal Mauvais </option> <option value = "Neutre Bon" > Neutre Bon </option> <option value = "Neutre" > Neutre </option> <option value = "Neutre Mauvais" > Neutre Mauvais </option> <option value = "Chaotique Bon" > Chaotique Bon </option><option value = "Chaotique Neutre" > Chaotique Neutre </option><option value = "Chaotique Mauvais" > Chaotique Mauvais </option></select ></td> ').appendTo(characThirdRow);
+        //LOGIQUE CARACTERISTIQUE
 
 
-
-        //section TABLEAU ABILITE
+        //DOM HABILITE
         let abilityDiv = $('<div class="tab-pane fade" id="pills-ability" role="tabpanel" aria-labelledby="pills-ability-tab"/>').appendTo(this.tabs);
-        let abilityTable = $('<table class="table charac-tb abiliyTab" style="max-width:800px;"/>').appendTo(abilityDiv);
-        let abilityTitle = $('<h1>ABILITÉS</h1>').appendTo(abilityTable);
-        let methodRoll = $('<tr id="methodRoll"><td class="form-check"><input type="radio" class="btn-check" id="methodStandard" autocomplete="off"><label class="btn btn-outline-success" for="btn-check-2-outlined">Méthode standard (4D6 - dés minus)</label></td><td class="form-check"><input type="radio" class="btn-check" id="methodClassic" autocomplete="off"><label class="btn btn-outline-secondary" for="btn-check-2-outlined">Méthode classique (3D6)</label></td><td class="form-check"><input type="radio" class="btn-check" id="methodHeroic" autocomplete="off"><label class="btn btn-outline-danger" for="btn-outline-danger">Méthode héroïque (2D6 + 6)</label></td></tr>').appendTo(abilityTable);
+        let abilityTable = $('<table class="table charac-tb abiliyTab"/>').appendTo(abilityDiv);
+        let abilityTitle = $('<h1>HABILITÉS</h1>').appendTo(abilityTable);
+        let messageRoll = $('<tr><td id="messageRoll" style="text-align:center;" colspan="3">Choisir une méthode pour roll les abilités de votre personnage.</td></tr>').appendTo(abilityTable);
+        let methodRoll = $('<tr id="methodRoll"><td><input type="radio" class="btn-check" id="methodStandard" name="method" autocomplete="off"><label class="btn btn-outline-success metStandard" for="methodStandard">Méthode standard</label></td><td><input type="radio" class="btn-check" id="methodClassic" name="method" autocomplete="off"><label class="btn btn-outline-secondary metClassic" for="methodClassic">Méthode classique</label></td><td><input type="radio" class="btn-check" id="methodheroic" name="method" autocomplete="off"><label class="btn btn-outline-danger metHeroic" for="methodheroic">Méthode héroïque</label></td></tr>').appendTo(abilityTable);
         let avmTr = $('<tr/>').appendTo(abilityTable);
-        let avmTh = $('<th></th><th> Valeur </th><th> Modificateur </th>').appendTo(avmTr);
-        let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore" min="8" max="20"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td></tr>').appendTo(abilityTable);
-        let dextTr = $('<tr><td> Dextérité </td><td><input type="number" value="' + this.options.dexterite + '" id="dextScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modDexterite + '" id="dextMod"></td></tr>').appendTo(abilityTable);
-        let constitTr = $('<tr><td> Constitution </td><td><input type="number" value="' + this.options.constitution + '" id="constitScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modConstitution + '" id="constitMod"></td></tr>').appendTo(abilityTable);
-        let intelTr = $('<tr><td> Intelligence </td><td><input type="number" value="' + this.options.intelligence + '" id="intelScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modIntelligence + '" id="intelMod"></td></tr>').appendTo(abilityTable);
-        let sageTr = $('<tr><td> Sagesse </td><td><input type="number" value="' + this.options.sagesse + '" id="sageScore" min="8" max="20"></td><td><input type="number" value="' + this.options.modSagesse + '" id="sageMod"></td></tr>').appendTo(abilityTable);
+        let avmTh = $('<th></th><th> Valeur </th><th> Val Temporaire </th><th> Modificateur </th><th> Roll </th>').appendTo(avmTr);
+        let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore" min="8" max="20"></td><td><input type="number" value="' + this.options.force + '" id="forceScoreTemp"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td><td class="rollTd"><input class="btnRoll" type="button" value="Roll" id="forceScoreRoll"></td></tr>').appendTo(abilityTable);
+        let dextTr = $('<tr><td> Dextérité </td><td><input type="number" value="' + this.options.dexterite + '" id="dextScore" min="8" max="20"></td><td><input type="number" value="' + this.options.dexterite + '" id="dextScoreTemp"></td><td><input type="number" value="' + this.options.modDexterite + '" id="dextMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="dextScoreRoll"></td></tr>').appendTo(abilityTable);
+        let constitTr = $('<tr><td> Constitution </td><td><input type="number" value="' + this.options.constitution + '" id="constitScore" min="8" max="20"></td><td><input type="number" value="' + this.options.constitution + '" id="constitScoreTemp"></td><td><input type="number" value="' + this.options.modConstitution + '" id="constitMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="constitScoreRoll"></td></tr>').appendTo(abilityTable);
+        let intelTr = $('<tr><td> Intelligence </td><td><input type="number" value="' + this.options.intelligence + '" id="intelScore" min="8" max="20"></td><td><input type="number" value="' + this.options.intelligence + '" id="intelScoreTemp"></td><td><input type="number" value="' + this.options.modIntelligence + '" id="intelMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="intelScoreRoll"></td></tr>').appendTo(abilityTable);
+        let sageTr = $('<tr><td> Sagesse </td><td><input type="number" value="' + this.options.sagesse + '" id="sageScore" min="8" max="20"></td><td><input type="number" value="' + this.options.sagesse + '" id="sageScoreTemp"></td><td><input type="number" value="' + this.options.modSagesse + '" id="sageMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="sageScoreRoll"></td></tr>').appendTo(abilityTable);
+        let charismTr = $('<tr><td> Charisme </td><td><input type="number" value="' + this.options.charisme + '" id="charismScore" min="8" max="20"></td><td><input type="number" value="' + this.options.charisme + '" id="charismScoreTemp"></td><td><input type="number" value="' + this.options.modCharisme + '" id="charismMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="charismScoreRoll"></td></tr>').appendTo(abilityTable);
+        //LOGIQUE ABILITÉ
+        $('.rollTd').hide();
+        methodRoll.change(function() {
+            if ($('#methodStandard:checked').val() == 'on') {
+
+                $('#messageRoll').text('On roll 4D6 et on supprime le plus petit résultat.');
+                $('.rollTd').show();
+                $('.btnRoll').click(function() {
+                    let btnUsed = $(document.activeElement).attr('id');
+                    $('#' + btnUsed).attr('type', 'text');
+                    let roll1 = Math.floor(Math.random() * 6) + 1;
+                    let roll2 = Math.floor(Math.random() * 6) + 1;
+                    let roll3 = Math.floor(Math.random() * 6) + 1;
+                    let roll4 = Math.floor(Math.random() * 6) + 1;
+                    let smallestRoll = Math.min(roll1, roll2, roll3, roll4);
+                    let total = roll1 + roll2 + roll3 + roll4;
+                    let final = (roll1 + roll2 + roll3 + roll4) - smallestRoll;
+                    let btnID = '#' + btnUsed;
+                    $(btnID).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + roll4 + ' = ' + total + ' - ' + smallestRoll + ' = ' + final);
+                    let abilityScore = btnUsed.replace('Roll', '');
+                    let abilityScoreId = "#" + abilityScore;
+                    let abilityScoreTempId = abilityScoreId + "Temp";
+                    $(abilityScoreId).attr('value', final);
+                    $(abilityScoreTempId).attr('value', final)
+                    let abilityModId = abilityScoreId.replace('Score', 'Mod')
+                    let abilityModInt = Math.trunc(Math.floor($(abilityScoreId).val() - 10) / 2);
+                    $(abilityModId).attr('value', abilityModInt);
+                    $('.btn-check').click(function() {
+                        $('#pills-tab').tabs({
+                            active: 1
+                        });
+                    })
+                });
+            } else if ($('#methodClassic:checked').val() == 'on') {
+
+                $('#messageRoll').text('On roll 3D6.');
+                $('.rollTd').show();
+                $('.btnRoll').click(function() {
+                    let btnUsed = $(document.activeElement).attr('id');
+                    $('#' + btnUsed).attr('type', 'text');
+                    let roll1 = Math.floor(Math.random() * 6) + 1;
+                    let roll2 = Math.floor(Math.random() * 6) + 1;
+                    let roll3 = Math.floor(Math.random() * 6) + 1;
+                    let final = roll1 + roll2 + roll3;
+                    let btnID = '#' + btnUsed;
+                    $(btnID).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' = ' + final);
+                    let abilityScore = btnUsed.replace('Roll', '');
+                    let abilityScoreId = "#" + abilityScore;
+                    let abilityScoreTempId = abilityScoreId + "Temp";
+                    $(abilityScoreId).attr('value', final);
+                    $(abilityScoreTempId).attr('value', final)
+                    let abilityModId = abilityScoreId.replace('Score', 'Mod')
+                    let abilityModInt = Math.trunc(Math.floor($(abilityScoreId).val() - 10) / 2);
+                    $(abilityModId).attr('value', abilityModInt);
+                    $('.btn-check').click(function() {
+                        $('#pills-tab').tabs({
+                            active: 1
+                        });
+                    })
+                });
+            } else if ($('#methodheroic:checked').val() == 'on') {
+                $('#messageRoll').text('On roll 2D6 et on ajoute 6 au résultat.');
+                $('.rollTd').show();
+                $('.btnRoll').click(function() {
+                    let btnUsed = $(document.activeElement).attr('id');
+                    $('#' + btnUsed).attr('type', 'text');
+                    let roll1 = Math.floor(Math.random() * 6) + 1;
+                    let roll2 = Math.floor(Math.random() * 6) + 1;
+                    let final = roll1 + roll2 + 6;
+                    let btnID = '#' + btnUsed;
+                    $(btnID).attr('value', roll1 + ' + ' + roll2 + ' + 6 = ' + final);
+                    let abilityScore = btnUsed.replace('Roll', '');
+                    let abilityScoreId = "#" + abilityScore;
+                    let abilityScoreTempId = abilityScoreId + "Temp";
+                    $(abilityScoreId).attr('value', final);
+                    $(abilityScoreTempId).attr('value', final)
+                    let abilityModId = abilityScoreId.replace('Score', 'Mod')
+                    let abilityModInt = Math.trunc(Math.floor($(abilityScoreId).val() - 10) / 2);
+                    $(abilityModId).attr('value', abilityModInt);
+                    $('.btn-check').click(function() {
+                        $('#pills-tab').tabs({
+                            active: 1
+                        });
+                    })
+                });
+            }
+        })
 
         /**
         //section Armure + Jet de Sauvegarde
@@ -162,7 +247,6 @@ class CharacterSheet {
                     $("#plateArmor").prop("disabled", false);
                     $("#splintArmor").prop("disabled", false);
                     $("#ringmail").prop("disabled", false);
-
                 }
             }
         })

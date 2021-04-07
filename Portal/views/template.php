@@ -16,7 +16,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
-     <!-- Nav 
+     <!-- Nav
      <nav id="nav">
             <ul class="links">
                 <li class="active"><a href="accueil">Accueil</a></li>
@@ -54,10 +54,10 @@
         </ul>
 </nav>
 
-    <?= $content ?>	
+    <?= $content ?>
     	<!-- Footer -->
         <footer id="footer">
-						
+
                         </footer>
                         <div class="container">
                         <a href="" class="fas fa-sign-in-alt" id="login" data-toggle="modal" data-target="#connexion"><span class="label"></span></a>
@@ -66,9 +66,9 @@
                         <div id="copyright">
                             <ul><li>&copy;CRITS - 2020</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
                         </div>
-    
+
                 </div>
-    
+
             <!-- Scripts -->
                 <script src="assets/js/jquery.min.js"></script>
                 <script src="assets/js/jquery.scrollex.min.js"></script>
@@ -76,6 +76,7 @@
                 <script src="assets/js/browser.min.js"></script>
                 <script src="assets/js/breakpoints.min.js"></script>
                 <script src="assets/js/util.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
                 <!--<script src="assets/js/jquery-3.4.1.min.js"></script>-->
                 <script src="assets/js/tether.min.js"></script>
                 <script src="assets/js/bootstrap.js"></script>

@@ -47,16 +47,22 @@ class CharacterSheet {
         let characFirstRow = $("<tr/>").appendTo(caracTableBody);
         let nameOfCharacLbl = $('<td><label for="name" class="label characName">Nom du perso</label></br><input type="text" class="input characName"/></td>').appendTo(characFirstRow);
         let race = $('<td><label for="race"> Race </label></br><select name="race" id="race"> <option value = " " ></option><option value = "Humain" > Humain </option > <option value = "Elfe" > Elfe </option> <option value = "Nain" > Nain </option > <option value = "Gnome" > Gnome </option> <option value = "Halfelin" > Halfelin </option > <option value = "Demi-Elfe" > Demi-Elfe </option> <option value = "Demi-Orc" > Demi-Orc </option > </select></td>').appendTo(characFirstRow);
-        let bonusRace = $('<td><label for="bonusRace">Appliquer bonus de race à : </label></br><select name="capacités" id="bonusRace"> <option value = " " ></option><option value = "force" > Force </option > <option value = "dext" > Dextérité </option> <option value = "constit" > Constitution </option > <option value = "intel" > Intelligence </option> <option value = "sage" > Sagesse </option > <option value = "charism" > Charisme </option></select></td>')
+        let bonusRace = $('<td id="bonusRaceTd"><label for="bonusRace">Appliquer bonus de race à : </label></br><select name="capacités" id="capacite"><option value = " " ></option><option value = "force" > Force </option > <option value = "dext" > Dextérité </option> <option value = "constit" > Constitution </option > <option value = "intel" > Intelligence </option> <option value = "sage" > Sagesse </option > <option value = "charism" > Charisme </option></select></td>').appendTo(characFirstRow);
         bonusRace.hide();
         race.change(function() {
-            console.log('choix race : ' + $('#race option:selected').val())
-            if ($('#race option:selected').val() == "Humain" || $('#race option: selected ').val() == "Demi-Elfe" || $('#race option: selected ').val() == "Demi-Orc") {
-                console.log('humain ou demi elfe ou demi orc a ete choisi')
-                bonusRace.show();
+            if ($('#race option:selected').val() =="Humain" || $('#race option:selected').val() =="Demi-Elfe" || $('#race option:selected').val() =="Demi-Orc") {
+                $('#bonusRaceTd').fadeIn();
+            }else{
+                $('#bonusRaceTd').fadeOut();
             }
         })
-
+        bonusRace.change(function(){
+            console.log('choix de capacité = '+ $('#capacite option:selected').val())
+            let capaciteSelected = $('#capacite option:selected').val();
+            let capaciteId = "#"+capaciteSelected+"Score";
+            console.log(capaciteId);
+            $(capaciteId).data("bonusRace") == 2;
+        })
         //deuxieme ligne classes
         let characSecondRow = $("<tr/>").appendTo(caracTableBody);
         let class1OfCharac = $('<td><label for="classe1">Classe </label><br/><select name="classe1" id="classe1"><option value = " " > </option> <option value = "Barbare" > Barbare </option> <option value = "Barde" > Barde </option> <option value = "Druide" > Druide </option> <option value = "Ensorceleur" > Ensorceleur </option> <option value = "Guerrier" > Guerrier </option> <option value = "Magicien" > Magicien </option> <option value = "Moine" > Moine </option> <option value = "Paladin" > Paladin </option> <option value = "Prêtre"> Prêtre </option> <option value = "Rodeur"> Rodeur </option> <option value ="Roublard"> Roublard </option></select></td> ').appendTo(characSecondRow);
@@ -77,12 +83,12 @@ class CharacterSheet {
         let methodRoll = $('<tr id="methodRoll"><td><input type="radio" class="btn-check" id="methodStandard" name="method" autocomplete="off"><label class="btn btn-outline-success metStandard" for="methodStandard">Méthode standard</label></td><td><input type="radio" class="btn-check" id="methodClassic" name="method" autocomplete="off"><label class="btn btn-outline-secondary metClassic" for="methodClassic">Méthode classique</label></td><td><input type="radio" class="btn-check" id="methodheroic" name="method" autocomplete="off"><label class="btn btn-outline-danger metHeroic" for="methodheroic">Méthode héroïque</label></td></tr>').appendTo(abilityTable);
         let avmTr = $('<tr/>').appendTo(abilityTable);
         let avmTh = $('<th></th><th> Valeur </th><th> Val Temporaire </th><th> Modificateur </th><th> Roll </th>').appendTo(avmTr);
-        let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore" min="8" max="20"></td><td><input type="number" value="' + this.options.force + '" id="forceScoreTemp"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td><td class="rollTd"><input class="btnRoll" type="button" value="Roll" id="forceScoreRoll"></td></tr>').appendTo(abilityTable);
-        let dextTr = $('<tr><td> Dextérité </td><td><input type="number" value="' + this.options.dexterite + '" id="dextScore" min="8" max="20"></td><td><input type="number" value="' + this.options.dexterite + '" id="dextScoreTemp"></td><td><input type="number" value="' + this.options.modDexterite + '" id="dextMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="dextScoreRoll"></td></tr>').appendTo(abilityTable);
-        let constitTr = $('<tr><td> Constitution </td><td><input type="number" value="' + this.options.constitution + '" id="constitScore" min="8" max="20"></td><td><input type="number" value="' + this.options.constitution + '" id="constitScoreTemp"></td><td><input type="number" value="' + this.options.modConstitution + '" id="constitMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="constitScoreRoll"></td></tr>').appendTo(abilityTable);
-        let intelTr = $('<tr><td> Intelligence </td><td><input type="number" value="' + this.options.intelligence + '" id="intelScore" min="8" max="20"></td><td><input type="number" value="' + this.options.intelligence + '" id="intelScoreTemp"></td><td><input type="number" value="' + this.options.modIntelligence + '" id="intelMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="intelScoreRoll"></td></tr>').appendTo(abilityTable);
-        let sageTr = $('<tr><td> Sagesse </td><td><input type="number" value="' + this.options.sagesse + '" id="sageScore" min="8" max="20"></td><td><input type="number" value="' + this.options.sagesse + '" id="sageScoreTemp"></td><td><input type="number" value="' + this.options.modSagesse + '" id="sageMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="sageScoreRoll"></td></tr>').appendTo(abilityTable);
-        let charismTr = $('<tr><td> Charisme </td><td><input type="number" value="' + this.options.charisme + '" id="charismScore" min="8" max="20"></td><td><input type="number" value="' + this.options.charisme + '" id="charismScoreTemp"></td><td><input type="number" value="' + this.options.modCharisme + '" id="charismMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="charismScoreRoll"></td></tr>').appendTo(abilityTable);
+        let forceTr = $('<tr><td> Force </td><td><input type="number" value="' + this.options.force + '" id="forceScore" min="8" max="20" data-bonusRace="0"></td><td><input type="number" value="' + this.options.force + '" id="forceScoreTemp"></td><td><input type="number " value="' + this.options.modForce + '" id="forceMod"></td><td class="rollTd"><input class="btnRoll" type="button" value="Roll" id="forceScoreRoll"></td></tr>').appendTo(abilityTable);
+        let dextTr = $('<tr><td> Dextérité </td><td><input type="number" value="' + this.options.dexterite + '" id="dextScore" min="8" max="20" data-bonusRace="0"></td><td><input type="number" value="' + this.options.dexterite + '" id="dextScoreTemp"></td><td><input type="number" value="' + this.options.modDexterite + '" id="dextMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="dextScoreRoll"></td></tr>').appendTo(abilityTable);
+        let constitTr = $('<tr><td> Constitution </td><td><input type="number" value="' + this.options.constitution + '" id="constitScore" min="8" max="20" data-bonusRace="0"></td><td><input type="number" value="' + this.options.constitution + '" id="constitScoreTemp"></td><td><input type="number" value="' + this.options.modConstitution + '" id="constitMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="constitScoreRoll"></td></tr>').appendTo(abilityTable);
+        let intelTr = $('<tr><td> Intelligence </td><td><input type="number" value="' + this.options.intelligence + '" id="intelScore" min="8" max="20" data-bonusRace="0"></td><td><input type="number" value="' + this.options.intelligence + '" id="intelScoreTemp"></td><td><input type="number" value="' + this.options.modIntelligence + '" id="intelMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="intelScoreRoll"></td></tr>').appendTo(abilityTable);
+        let sageTr = $('<tr><td> Sagesse </td><td><input type="number" value="' + this.options.sagesse + '" id="sageScore" min="8" max="20" data-bonusRace="0"</td><td><input type="number" value="' + this.options.sagesse + '" id="sageScoreTemp"></td><td><input type="number" value="' + this.options.modSagesse + '" id="sageMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="sageScoreRoll"></td></tr>').appendTo(abilityTable);
+        let charismTr = $('<tr><td> Charisme </td><td><input type="number" value="' + this.options.charisme + '" id="charismScore" min="8" max="20" data-bonusRace="0"></td><td><input type="number" value="' + this.options.charisme + '" id="charismScoreTemp"></td><td><input type="number" value="' + this.options.modCharisme + '" id="charismMod"></td><td class="rollTd"><input type="button" class="btnRoll" value="Roll" id="charismScoreRoll"></td></tr>').appendTo(abilityTable);
         //LOGIQUE ABILITÉ
         $('.rollTd').hide();
         methodRoll.change(function() {
@@ -101,7 +107,8 @@ class CharacterSheet {
                     let total = roll1 + roll2 + roll3 + roll4;
                     let final = (roll1 + roll2 + roll3 + roll4) - smallestRoll;
                     let btnID = '#' + btnUsed;
-                    $(btnID).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + roll4 + ' = ' + total + ' - ' + smallestRoll + ' = ' + final);
+                    let bonusRaceAbility = $(btnId).data("bonusRace")
+                    $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + roll4 + ' = ' + total + ' - ' + smallestRoll + ' = ' + final+bonusRaceAbility);
                     let abilityScore = btnUsed.replace('Roll', '');
                     let abilityScoreId = "#" + abilityScore;
                     let abilityScoreTempId = abilityScoreId + "Temp";
@@ -127,8 +134,9 @@ class CharacterSheet {
                     let roll2 = Math.floor(Math.random() * 6) + 1;
                     let roll3 = Math.floor(Math.random() * 6) + 1;
                     let final = roll1 + roll2 + roll3;
-                    let btnID = '#' + btnUsed;
-                    $(btnID).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' = ' + final);
+                    let btnId = '#' + btnUsed;
+                    let bonusRaceAbility = $(btnId).data("bonusRace")
+                    $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' = ' + final + bonusRaceAbility);
                     let abilityScore = btnUsed.replace('Roll', '');
                     let abilityScoreId = "#" + abilityScore;
                     let abilityScoreTempId = abilityScoreId + "Temp";
@@ -152,8 +160,9 @@ class CharacterSheet {
                     let roll1 = Math.floor(Math.random() * 6) + 1;
                     let roll2 = Math.floor(Math.random() * 6) + 1;
                     let final = roll1 + roll2 + 6;
-                    let btnID = '#' + btnUsed;
-                    $(btnID).attr('value', roll1 + ' + ' + roll2 + ' + 6 = ' + final);
+                    let btnId = '#' + btnUsed;
+                    let bonusRaceAbility = $(btnId).data("bonusRace")
+                    $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + 6 = ' + final + bonusRaceAbility);
                     let abilityScore = btnUsed.replace('Roll', '');
                     let abilityScoreId = "#" + abilityScore;
                     let abilityScoreTempId = abilityScoreId + "Temp";

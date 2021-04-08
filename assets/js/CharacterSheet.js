@@ -51,7 +51,7 @@ class CharacterSheet {
         bonusRace.hide();
         race.change(function() {
             console.log('choix race : ' + $('#race option:selected').val())
-            if ($('#race option:selected').val() == Humain || $('# race option: selected ').val() == Demi - Elfe || $('#race option: selected ').val() == Demi - Orc) {
+            if ($('#race option:selected').val() == Humain || $('# race option: selected ').val() == Demi-Elfe || $('#race option: selected ').val() == Demi-Orc) {
                 bonusRace.show();
             }
         })

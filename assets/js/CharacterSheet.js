@@ -52,16 +52,37 @@ class CharacterSheet {
         race.change(function() {
             if ($('#race option:selected').val() =="Humain" || $('#race option:selected').val() =="Demi-Elfe" || $('#race option:selected').val() =="Demi-Orc") {
                 $('#bonusRaceTd').fadeIn();
+            }else if($('#race option:selected').val() =="Elfe"){
+                $('#dextScore').data("bonusrace", 2);
+                $('#intelScore').data("bonusrace", 2);
+                $('#constitScore').data("bonusrace", -2);
+                $('#bonusRaceTd').fadeOut();
+            }else if($('#race option:selected').val() =="Nain"){
+                $('#constitScore').data("bonusrace", 2);
+                $('#sageScore').data("bonusrace", 2);
+                $('#charismScore').data("bonusrace", -2);
+                $('#bonusRaceTd').fadeOut();
+            }else if($('#race option:selected').val() =="Gnome"){
+                $('#constitScore').data("bonusrace", 2);
+                $('#charismScore').data("bonusrace", 2);
+                $('#forceScore').data("bonusrace", -2);
+                $('#bonusRaceTd').fadeOut();
+            }else if($('#race option:selected').val() =="Halfelin"){
+                $('#dextScore').data("bonusrace", 2);
+                $('#charismScore').data("bonusrace", 2);
+                $('#forceScore').data("bonusrace", -2);
+                $('#bonusRaceTd').fadeOut();
             }else{
                 $('#bonusRaceTd').fadeOut();
             }
+
         })
         bonusRace.change(function(){
-            console.log('choix de capacité = '+ $('#capacite option:selected').val())
             let capaciteSelected = $('#capacite option:selected').val();
             let capaciteId = "#"+capaciteSelected+"Score";
             console.log(capaciteId);
-            $(capaciteId).data("bonusRace") == 2;
+            $(capaciteId).data("bonusrace", 2)
+            console.log('bonus selected = '+$(capaciteId).data("bonusrace"))
         })
         //deuxieme ligne classes
         let characSecondRow = $("<tr/>").appendTo(caracTableBody);
@@ -105,12 +126,17 @@ class CharacterSheet {
                     let roll4 = Math.floor(Math.random() * 6) + 1;
                     let smallestRoll = Math.min(roll1, roll2, roll3, roll4);
                     let total = roll1 + roll2 + roll3 + roll4;
-                    let final = (roll1 + roll2 + roll3 + roll4) - smallestRoll;
-                    let btnID = '#' + btnUsed;
-                    let bonusRaceAbility = $(btnId).data("bonusRace")
-                    $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + roll4 + ' = ' + total + ' - ' + smallestRoll + ' = ' + final+bonusRaceAbility);
+                    let btnId = '#' + btnUsed;
                     let abilityScore = btnUsed.replace('Roll', '');
                     let abilityScoreId = "#" + abilityScore;
+                    let bonusRaceAbility = $(abilityScoreId).data("bonusrace");
+                    let final = (roll1 + roll2 + roll3 + roll4) - smallestRoll + bonusRaceAbility;
+                    if(bonusRaceAbility == 0){
+                        $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + roll4 + ' = ' + total + ' - ' + smallestRoll + ' = ' + final)
+                    } else {
+                        $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + roll4 + ' = ' + total + ' - ' + smallestRoll + ' + ' + 'Bonus '+ bonusRaceAbility +' = ' + final);
+                    }
+                   
                     let abilityScoreTempId = abilityScoreId + "Temp";
                     $(abilityScoreId).attr('value', final);
                     $(abilityScoreTempId).attr('value', final)
@@ -133,12 +159,16 @@ class CharacterSheet {
                     let roll1 = Math.floor(Math.random() * 6) + 1;
                     let roll2 = Math.floor(Math.random() * 6) + 1;
                     let roll3 = Math.floor(Math.random() * 6) + 1;
-                    let final = roll1 + roll2 + roll3;
                     let btnId = '#' + btnUsed;
-                    let bonusRaceAbility = $(btnId).data("bonusRace")
-                    $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' = ' + final + bonusRaceAbility);
                     let abilityScore = btnUsed.replace('Roll', '');
                     let abilityScoreId = "#" + abilityScore;
+                    let bonusRaceAbility = $(abilityScoreId).data("bonusrace");
+                    let final = roll1 + roll2 + roll3 + bonusRaceAbility;
+                    if(bonusRaceAbility == 0){
+                        $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' = ' + final)
+                    } else {
+                         $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + roll3 + ' + ' + 'Bonus '+ bonusRaceAbility + ' = ' + final)
+                    }
                     let abilityScoreTempId = abilityScoreId + "Temp";
                     $(abilityScoreId).attr('value', final);
                     $(abilityScoreTempId).attr('value', final)
@@ -159,12 +189,24 @@ class CharacterSheet {
                     $('#' + btnUsed).attr('type', 'text');
                     let roll1 = Math.floor(Math.random() * 6) + 1;
                     let roll2 = Math.floor(Math.random() * 6) + 1;
-                    let final = roll1 + roll2 + 6;
                     let btnId = '#' + btnUsed;
-                    let bonusRaceAbility = $(btnId).data("bonusRace")
-                    $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + 6 = ' + final + bonusRaceAbility);
                     let abilityScore = btnUsed.replace('Roll', '');
                     let abilityScoreId = "#" + abilityScore;
+                    let bonusRaceAbility = $(abilityScoreId).data("bonusrace");
+                    let final = roll1 + roll2 + 6 + bonusRaceAbility;
+                    if(bonusRaceAbility == 0){
+                        $(btnId).attr('value', roll1 + ' + ' + roll2  + ' + 6 = ' + final)
+                    } else {
+                         $(btnId).attr('value', roll1 + ' + ' + roll2  + ' + 6 + ' + 'Bonus '+ bonusRaceAbility + ' = ' + final)
+                    }
+                   /* let btnId = '#' + btnUsed;    
+                    let bonusRaceAbility = $(btnId).data("bonusrace");
+                    let final = roll1 + roll2 + 6 + bonusRaceAbility;
+                    if(bonusRaceAbility == 0){
+                        $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + '+ '6' + ' = ' + final)
+                    } else {
+                         $(btnId).attr('value', roll1 + ' + ' + roll2 + ' + ' + 6 + ' + ' + 'Bonus de race : '+ bonusRaceAbility + ' = ' + final)
+                    }*/
                     let abilityScoreTempId = abilityScoreId + "Temp";
                     $(abilityScoreId).attr('value', final);
                     $(abilityScoreTempId).attr('value', final)

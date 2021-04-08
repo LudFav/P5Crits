@@ -47,7 +47,14 @@ class CharacterSheet {
         let characFirstRow = $("<tr/>").appendTo(caracTableBody);
         let nameOfCharacLbl = $('<td><label for="name" class="label characName">Nom du perso</label></br><input type="text" class="input characName"/></td>').appendTo(characFirstRow);
         let race = $('<td><label for="race"> Race </label></br><select name="race" id="race"> <option value = " " ></option><option value = "Humain" > Humain </option > <option value = "Elfe" > Elfe </option> <option value = "Nain" > Nain </option > <option value = "Gnome" > Gnome </option> <option value = "Halfelin" > Halfelin </option > <option value = "Demi-Elfe" > Demi-Elfe </option> <option value = "Demi-Orc" > Demi-Orc </option > </select></td>').appendTo(characFirstRow);
-        let characLevelLbl = $("<td><label for='niveau' class='characLvlLbl'>Niveau du Personnage </label></br><input type='number' class='characLvlInpt' value='1' /></td>").appendTo(characFirstRow);
+        let bonusRace = $('<td><label for="bonusRace">Appliquer bonus de race à : </label></br><select name="capacités" id="bonusRace"> <option value = " " ></option><option value = "force" > Force </option > <option value = "dext" > Dextérité </option> <option value = "constit" > Constitution </option > <option value = "intel" > Intelligence </option> <option value = "sage" > Sagesse </option > <option value = "charism" > Charisme </option></select></td>')
+        bonusRace.hide();
+        race.change(function() {
+            console.log('choix race : ' + $('#race option:selected').val())
+            if ($('#race option:selected').val() == Humain || $('# race option: selected ').val() == Demi - Elfe || $('#race option: selected ').val() == Demi - Orc) {
+                bonusRace.show();
+            }
+        })
 
         //deuxieme ligne classes
         let characSecondRow = $("<tr/>").appendTo(caracTableBody);
@@ -57,6 +64,7 @@ class CharacterSheet {
         //troisieme ligne alignement
         let characThirdRow = $("<tr/>").appendTo(caracTableBody);
         let alignement = $('<td><label for="alignement"> Alignement </label></br><select name="alignement" id="alignement"><option value = " " >  </option><option value = "Loyal Bon" > Loyal Bon </option> <option value = "Loyal Neutre" > Loyal Neutre </option> <option value = "Loyal Mauvais" > Loyal Mauvais </option> <option value = "Neutre Bon" > Neutre Bon </option> <option value = "Neutre" > Neutre </option> <option value = "Neutre Mauvais" > Neutre Mauvais </option> <option value = "Chaotique Bon" > Chaotique Bon </option><option value = "Chaotique Neutre" > Chaotique Neutre </option><option value = "Chaotique Mauvais" > Chaotique Mauvais </option></select ></td> ').appendTo(characThirdRow);
+        let characLevelLbl = $("<td><label for='niveau' class='characLvlLbl'>Niveau du Personnage </label></br><input type='number' class='characLvlInpt' value='1' /></td>").appendTo(characThirdRow);
         //LOGIQUE CARACTERISTIQUE
 
 

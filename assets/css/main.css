@@ -5179,6 +5179,10 @@
                                     .abiliyTab {
                                         table-layout: fixed;
                                     }
+                                    .btnRoll {
+                                        font-size: 10px;
+                                        width: 200px;
+                                    }
                                     /********************** FIN D'AJOUTS****/
                                     
                                     @media screen and (max-width: 736px) {
